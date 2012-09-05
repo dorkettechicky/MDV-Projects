@@ -37,8 +37,8 @@ var myRides = [
 // Procedure
 
 if (costPerTicket * 2 <= moneyToSpend){
-	console.log("Time to party at " + myEvent + "!");
-} else {
+		console.log("Time to party at " + myEvent + "!");
+  } else {
 		console.log("We haz a sad.");
 };	
 
@@ -46,7 +46,7 @@ if (costPerTicket * 2 <= moneyToSpend){
 
 var booFunc = function (zombiesRule, ghostsDrool) {
 	var booReturn;
-	if (zombiesRule || ghostsDrool) {
+	if ((zombiesRule || ghostsDrool) && !(zombiesRule && ghostsDrool)) {
 			booReturn = true;
 			console.log("It is " + booReturn + " that the zombies made me scream!");
 	} else {
@@ -56,6 +56,14 @@ var booFunc = function (zombiesRule, ghostsDrool) {
 	return booReturn;
 };
 
+//Number Function
+
+
+
+
+
+
+//Returned Values
 booFunc(zombiesRule, ghostsDrool);
 
 
