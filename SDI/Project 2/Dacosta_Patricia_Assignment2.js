@@ -17,27 +17,15 @@ var hauntedHouses = [
 		"Gothic"
 ];
 var waitInMinutes = [0, 15, 30, 45, 90, 120];
-var moneyToSpend = 150;
+var moneyForTickets = 120;
 var costPerTicket = 59;
 var zombiesRule = true;
 var ghostsDrool = false;
 var zombieChase = 10;
-var myShows = [
-		"Rocky Horror Tribute",
-		"Bill & Ted's Excellent Halloween Adventure",
-		"Freak Show",
-		"Magic Show"
-];
-var myRides = [
-		"The Mummy",
-		"Earthquake",
-		"The Simpsons",
-		"Rip Ride Rocket"
-];
 
 // Procedure
 
-if (costPerTicket * 2 <= moneyToSpend){
+if (costPerTicket * 2 <= moneyForTickets){
 		console.log("Time to party at " + myEvent + "!");
   } else {
 		console.log("We haz a sad.");
@@ -60,12 +48,19 @@ var booFunc = function (zombiesRule, ghostsDrool) {
 //Number Function
 
 var numbReturn = function (zombieChase) {
+	var myHubby = "George";
+	var myName = 'I';
 	var zombieChase = 1;
 	while (zombieChase <= 10) {
-		console.log("Walking through the scare zone, " + zombieChase + " zombies chased us!");
+			console.log("Walking through the scare zone, " + zombieChase + " zombies chased us!");
 	zombieChase++;
+	}; 
+		if (zombieChase > 0) {
+			console.log(myHubby + " & " + myName + " had to run away.")
+		} else {
+			console.log(myName = " think these zombies are lame!")
+	}
 			
-	};
 	return "We escaped from the zombies!";
 };
 
