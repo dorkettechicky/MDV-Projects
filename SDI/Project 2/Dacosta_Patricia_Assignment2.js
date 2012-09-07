@@ -49,10 +49,10 @@ var booFunc = function (zombiesRule, ghostsDrool) {
 	var booReturn;
 	if ((zombiesRule || ghostsDrool) && !(zombiesRule && ghostsDrool)) {
 			booReturn = true;
-			console.log("It is " + booReturn + " that the zombies made me scream!");
+			console.log("It is " + booReturn + " we love the scare zones!");
 	} else {
 			booReturn = false;
-			console.log("It is utterly " + booReturn + "that I am afraid of ghosts!");
+			console.log("It is utterly " + booReturn + "that scare zones suck!");
 	};
 	return booReturn;
 };
@@ -60,13 +60,13 @@ var booFunc = function (zombiesRule, ghostsDrool) {
 //Number Function
 
 var numbReturn = function (zombieChase) {
+	var zombieChase = 1;
 	while (zombieChase <= 10) {
 		console.log("Walking through the scare zone, " + zombieChase + " zombies chased us!");
-		zombieChase--;
-		
-		return numbReturn;	
-	}
-
+	zombieChase++;
+			
+	};
+	return "We escaped from the zombies!";
 };
 
 //String Function
@@ -80,9 +80,9 @@ var numbReturn = function (zombieChase) {
 
 //Returned Values
 
-
-numbReturn(zombieChase);
 booFunc(zombiesRule, ghostsDrool);
+console.log(numbReturn(zombieChase));
+
 
 
 
