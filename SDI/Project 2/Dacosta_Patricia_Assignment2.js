@@ -18,7 +18,7 @@ var hauntedHouses = [
 		"House of Horror",
 		"Gothic"
 ];
-var waitInMinutes = [0, 15, 30, 45, 90, 120];
+//var waitInMinutes = [10, 20, 30, 40, 50, 60];
 var moneyForTickets = 120;
 var costPerTicket = 59;
 var zombiesRule = true;
@@ -76,6 +76,16 @@ var stringReturn = function (findRestaurant, eatFood) {
 
 };
 
+//Array Function
+
+var arrayReturn = function (hauntedHouses) {
+	var hauntedHouses = ["Silent Hill", "Walking Dead", "Alice Cooper", "Penn & Teller", "House of Horror", "Gothic"];
+	var howScary = [" wet your pants awesome!", " hair raising !", " OK I guess.", " comical as expected.", " simply horrific.", " a waste of time."]
+		for (var i=0, j=hauntedHouses.length; i < j; i++) {
+			console.log("The " + hauntedHouses[i] + " haunted house" + " was" + howScary[i]);
+		}
+
+};
 
 
 
@@ -84,7 +94,7 @@ var stringReturn = function (findRestaurant, eatFood) {
 booFunc(zombiesRule, ghostsDrool);
 console.log(numbReturn(zombieChase));
 stringReturn(findRestaurant, eatFood);
-
+arrayReturn(hauntedHouses);
 
 
 
