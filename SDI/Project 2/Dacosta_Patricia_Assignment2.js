@@ -21,6 +21,7 @@ var moneyToSpend = 150;
 var costPerTicket = 59;
 var zombiesRule = true;
 var ghostsDrool = false;
+var zombieChase = 10;
 var myShows = [
 		"Rocky Horror Tribute",
 		"Bill & Ted's Excellent Halloween Adventure",
@@ -58,16 +59,30 @@ var booFunc = function (zombiesRule, ghostsDrool) {
 
 //Number Function
 
+var numbReturn = function (zombieChase) {
+	while (zombieChase <= 10) {
+		console.log("Walking through the scare zone, " + zombieChase + " zombies chased us!");
+		zombieChase--;
+		
+		return numbReturn;	
+	}
 
+};
+
+//String Function
+
+//var... = func = function () {
+
+//}
 
 
 
 
 //Returned Values
 
+
+numbReturn(zombieChase);
 booFunc(zombiesRule, ghostsDrool);
-
-
 
 
 
