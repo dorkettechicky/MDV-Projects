@@ -8,6 +8,8 @@ Adventure at Halloween Horror Nights
 //Initial Variables
 
 var myEvent = "Halloween Horror Nights";
+var findRestaurant = "Luigi's Italian Cafe";
+var eatFood = "pizza";
 var hauntedHouses = [
 		"Silent Hill",
 		"Walking Dead",
@@ -66,9 +68,13 @@ var numbReturn = function (zombieChase) {
 
 //String Function
 
-//var... = func = function () {
+var stringReturn = function (findRestaurant, eatFood) {
+	var grumblyTummy = "Why don't we try ";
+	var typeOfFood = "think I have a taste for ";
+		console.log("I'm getting hungry, " + typeOfFood + eatFood + ". " + grumblyTummy + findRestaurant + ".");
+		return stringReturn;
 
-//}
+};
 
 
 
@@ -77,7 +83,7 @@ var numbReturn = function (zombieChase) {
 
 booFunc(zombiesRule, ghostsDrool);
 console.log(numbReturn(zombieChase));
-
+stringReturn(findRestaurant, eatFood);
 
 
 
