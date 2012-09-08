@@ -24,16 +24,19 @@ var moneyForTickets = 120;
 var costPerTicket = 59;
 var zombiesRule = true;
 var ghostsDrool = false;
-var zombieChase = 10;
+var zombie = 10;
 var howManyHouses = 6;
 
 // Procedure
 
+var proFunc = function (canWeGo) {
+	canWeGo = myEvent
 if (costPerTicket * 2 <= moneyForTickets){
 		console.log("Time to party at " + myEvent + "!");
   } else {
 		console.log("We haz a sad.");
-};	
+	}
+};
 
 // Boolean Function
 
@@ -46,7 +49,7 @@ var booFunc = function (isTrue, isFalse) {
 			booReturn = false;
 			console.log("It is utterly " + booReturn + "that scare zones suck!");
 	};
-	return booFunc;
+	return booReturn;
 };
 
 //Number Function
@@ -54,8 +57,8 @@ var booFunc = function (isTrue, isFalse) {
 var numbReturn = function (zombieChase) {
 	var myHubby = "George";
 	var myName = 'I';
-	var zombieChase = 1;
-	while (zombieChase <= 10) {
+	zombieChase = 1;
+	while (zombieChase < 11) {
 			console.log("Walking through the scare zone, " + zombieChase + " zombies chased us!");
 	zombieChase++;
 	}; 
@@ -63,9 +66,8 @@ var numbReturn = function (zombieChase) {
 			console.log(myHubby + " & " + myName + " had to run away.")
 		} else {
 			console.log(myName = " think these zombies are lame!")
-	}
-			
-	return "We escaped from the zombies!";
+	}			
+	return zombieChase = 10;
 };
 
 //String Function
@@ -74,7 +76,7 @@ var stringReturn = function (whereToEat, kindOfFood) {
 	var grumblyTummy = "Why don't we try ";
 	var typeOfFood = "think I have a taste for ";
 		console.log("I'm getting hungry, " + typeOfFood + kindOfFood + ". " + grumblyTummy + whereToEat + ".");
-		return stringReturn;
+		return "pepperoni " + kindOfFood;
 
 };
 
@@ -88,16 +90,22 @@ var arrayReturn = function (houses, numberHouse) {
 			numbHouse = numberHouse * i;	
 			console.log("The " + houses[i] + " haunted house" + " was" + howScary[i] + "I screamed " + numbHouse + " times.");
 		}
-		return arrayReturn;
+		houses.shift();
+		houses.shift();
+		houses.shift();
+		houses.shift();
+		houses.shift();
+		return houses;
 };
 
 
 //Returned Values
-
-booFunc(zombiesRule, ghostsDrool);
-console.log(numbReturn(zombieChase));
-stringReturn(findRestaurant, eatFood);
-arrayReturn(hauntedHouses, howManyHouses);
+proFunc(moneyForTickets)
+console.log("Glad we had the $" + moneyForTickets + " to get in!");
+console.log("It is " + booFunc(zombiesRule, ghostsDrool) + " enough that I fear zombies."); 
+console.log("I can't believe we escaped all " + numbReturn(zombie) + " zombies!");
+console.log("Eating " + stringReturn(findRestaurant, eatFood) + " was a fantastic idea.");
+console.log("It was so much fun to go through " + arrayReturn(hauntedHouses, howManyHouses) + ".");
 
 
 
