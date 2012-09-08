@@ -11,12 +11,13 @@ var myEvent = "Halloween Horror Nights";
 var findRestaurant = "Luigi's Italian Cafe";
 var eatFood = "pizza";
 var hauntedHouses = [
-		"Silent Hill",
-		"Walking Dead",
-		"Alice Cooper",
-		"Penn & Teller",
+		"Gothic",
 		"House of Horror",
-		"Gothic"
+		"Penn & Teller",
+		"Alice Cooper",
+		"Walking Dead",
+		"Silent Hill"
+		
 ];
 
 var moneyForTickets = 120;
@@ -24,6 +25,7 @@ var costPerTicket = 59;
 var zombiesRule = true;
 var ghostsDrool = false;
 var zombieChase = 10;
+var howManyHouses = 6;
 
 // Procedure
 
@@ -35,16 +37,16 @@ if (costPerTicket * 2 <= moneyForTickets){
 
 // Boolean Function
 
-var booFunc = function (zombiesRule, ghostsDrool) {
+var booFunc = function (isTrue, isFalse) {
 	var booReturn;
-	if ((zombiesRule || ghostsDrool) && !(zombiesRule && ghostsDrool)) {
+	if ((isTrue || isFalse) && !(isTrue && isFalse)) {
 			booReturn = true;
 			console.log("It is " + booReturn + " we love the scare zones!");
 	} else {
 			booReturn = false;
 			console.log("It is utterly " + booReturn + "that scare zones suck!");
 	};
-	return booReturn;
+	return booFunc;
 };
 
 //Number Function
@@ -68,23 +70,25 @@ var numbReturn = function (zombieChase) {
 
 //String Function
 
-var stringReturn = function (findRestaurant, eatFood) {
+var stringReturn = function (whereToEat, kindOfFood) {
 	var grumblyTummy = "Why don't we try ";
 	var typeOfFood = "think I have a taste for ";
-		console.log("I'm getting hungry, " + typeOfFood + eatFood + ". " + grumblyTummy + findRestaurant + ".");
+		console.log("I'm getting hungry, " + typeOfFood + kindOfFood + ". " + grumblyTummy + whereToEat + ".");
 		return stringReturn;
 
 };
 
 //Array Function
 
-var arrayReturn = function (hauntedHouses) {
-	var hauntedHouses = ["Silent Hill", "Walking Dead", "Alice Cooper", "Penn & Teller", "House of Horror", "Gothic"];
-	var howScary = [" wet your pants awesome!", " hair raising!", " OK I guess.", " comical as expected.", " simply horrific.", " a waste of time."]
-		for (var i=0, j=hauntedHouses.length; i < j; i++) {
-			console.log("The " + hauntedHouses[i] + " haunted house" + " was" + howScary[i]);
+var arrayReturn = function (houses, numberHouse) {
+	var numbHouse;
+	var howScary = [" a waste of time. ", " simply horrific. ", " comical as expected ", " OK, I guess. ", " hair raising! ", " wet your pants awesome! "]
+		console.log("We want to see " + "all " + numberHouse + " haunted houses!")
+		for (var i=0, j=houses.length; i < j; i++) {
+			numbHouse = numberHouse * i;	
+			console.log("The " + houses[i] + " haunted house" + " was" + howScary[i] + "I screamed " + numbHouse + " times.");
 		}
-
+		return arrayReturn;
 };
 
 
@@ -93,20 +97,7 @@ var arrayReturn = function (hauntedHouses) {
 booFunc(zombiesRule, ghostsDrool);
 console.log(numbReturn(zombieChase));
 stringReturn(findRestaurant, eatFood);
-arrayReturn(hauntedHouses);
-
-
-
-
-
-
-
-
-
-
-
-
-
+arrayReturn(hauntedHouses, howManyHouses);
 
 
 
