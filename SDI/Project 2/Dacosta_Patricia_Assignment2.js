@@ -31,9 +31,9 @@ var howManyHouses = 6;
 
 var proFunc = function (canWeGo) {
 	canWeGo = myEvent
-if (costPerTicket * 2 <= moneyForTickets){
+	if (costPerTicket * 2 <= moneyForTickets){
 		console.log("Time to party at " + myEvent + "!");
-  } else {
+  	} else {
 		console.log("We haz a sad.");
 	}
 };
@@ -58,7 +58,7 @@ var numbReturn = function (zombieChase) {
 	var myHubby = "George";
 	var myName = 'I';
 	zombieChase = 1;
-	while (zombieChase < 11) {
+	while (zombieChase < 10) {
 			console.log("Walking through the scare zone, " + zombieChase + " zombies chased us!");
 	zombieChase++;
 	}; 
@@ -67,7 +67,7 @@ var numbReturn = function (zombieChase) {
 		} else {
 			console.log(myName = " think these zombies are lame!")
 	}			
-	return zombieChase = 10;
+	return zombieChase;
 };
 
 //String Function
@@ -76,7 +76,7 @@ var stringReturn = function (whereToEat, kindOfFood) {
 	var grumblyTummy = "Why don't we try ";
 	var typeOfFood = "think I have a taste for ";
 		console.log("I'm getting hungry, " + typeOfFood + kindOfFood + ". " + grumblyTummy + whereToEat + ".");
-		return "pepperoni " + kindOfFood;
+	return "pepperoni " + kindOfFood;
 
 };
 
@@ -86,7 +86,7 @@ var arrayReturn = function (houses, numberHouse) {
 	var numbHouse;
 	var howScary = [" a waste of time. ", " simply horrific. ", " comical as expected ", " OK, I guess. ", " hair raising! ", " wet your pants awesome! "]
 		console.log("We want to see " + "all " + numberHouse + " haunted houses!")
-		for (var i=0, j=houses.length; i < j; i++) {
+	for (var i=0, j=houses.length; i < j; i++) {
 			numbHouse = numberHouse * i;	
 			console.log("The " + houses[i] + " haunted house" + " was" + howScary[i] + "I screamed " + numbHouse + " times.");
 		}
@@ -95,7 +95,7 @@ var arrayReturn = function (houses, numberHouse) {
 		houses.shift();
 		houses.shift();
 		houses.shift();
-		return houses;
+	return houses;
 };
 
 
