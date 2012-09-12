@@ -3,16 +3,33 @@
 //Project 3
 //Halloween Horror Nights Continued
 
-//Stringify
-//var jsonstring = JSON.stringify(json);
-
-//Parse
-//var receivedjson = JSON.parse(jsonstring);
 
 //Global Variables
 
-//var myEvent = "Halloween Horror Nights";
+var myEvent = "Halloween Horror Nights";
+
 var handleData = function (data) {
+
+
+//Boolean Function
+
+var booFunc = function (blah1, blah2) {
+	var booReturn;
+	if ((blah1 || blah2) && !(blah1 && blah2)) {
+			booReturn = true;
+			console.log();
+	} else {
+			booReturn = false;
+			console.log();
+	};
+	return booReturn;
+};
+
+//Number Function
+
+
+
+
 	
 for (var i = 0; i < data.houses.length; i++){
 		var house = data.houses[i];
