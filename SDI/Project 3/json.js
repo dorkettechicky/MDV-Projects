@@ -3,57 +3,58 @@
 //Project 3
 //JSON
 
-var json = {
-        "Houses": [
+var houseData = {
+        "houses": [
             {
                 "name": 		"Gothic",
-                "theme": 		"Haunted Cathedral",
-                "scareactors": 	"Gargoyles",
+                "theme": 		"haunted cathedral",
+                "scareactors": 	"gargoyles",
                 "wait": 		false,
-                "length": 		15
+                "howLong": 		15
             },
             {
-                "name": 		"Welcome to Silent Hill",
-                "theme": 		"Alternate Dimension",
-                "scareactors": 	"Mutants",
+                "name":			"Welcome to Silent Hill",                
+                "theme": 		"different dimension",
+                "scareactors": 	"mutants",
                 "wait": 		true,
-                "length": 		20
+                "howLong": 		20
             },
             {
                 "name": 		"Penn & Teller, Newkd Las Vegas 3D",
-                "theme": 		"Post Apocalyptic Comedy",
-                "scareactors": 	"Vegas Parody Characters",
+                "theme": 		"post apocalyptic comedy",
+                "scareactors": 	"vegas parody characters",
                 "wait": 		true,
-                "length": 		25
+                "howLong": 		25
             },
             {
                 "name": 		"Alice Cooper, Welcome to my nightmare",
-                "theme": 		"Terror with rock music",
-                "scareactors": 	"Chainsaw wielding ghouls",
+                "theme": 		"terror with rock music",
+                "scareactors": 	"chainsaw wielding ghouls",
                 "wait": 		true,
-                "length": 		15
+                "howLong": 		15
             },
             {
                 "name": 		"Universal's House of Horrors",
-                "theme": 		"Blackout",
-                "scareactors": 	"Scary shadow people",
+                "theme": 		"blackout",
+                "scareactors": 	"scary shadow people",
                 "wait": 		false,
-                "length": 		20
+                "howLong": 		20
             },
             {
                 "name": 		"Dead End",
-                "theme": 		"Haunted torture mansion",
-                "scareactors": 	"Boogie Man",
+                "theme": 		"haunted torture mansion",
+                "scareactors": 	"boogie man",
                 "wait": 		false,
-                "length": 		10
+                "howLong": 		10
             },
             {
                 "name": 		"The Walking Dead",
-                "theme": 		"Zombie ravaged city",
-                "scareactors": 	"Zombies",
+                "theme": 		"zombie ravaged city",
+                "scareactors": 	"zombies",
                 "wait": 		true,
-                "length": 		25
+                "howLong": 		25
             }
         ]
         
     };
+
