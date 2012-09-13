@@ -8,12 +8,11 @@
 
 var myEvent 	= "Halloween Horror Nights";
 var pplGoing 	= 4;
-var booVar 		= true;
-var toDo 		= [
-				"scarezones",
-				"haunted houses",
-				"shows",
-				"grab a bite"
+var weCanFit 	= true;
+var toDrive 	= [
+				"Durango",
+				"Miata",
+				"Aveo"
 ];
 
 //Object
@@ -53,13 +52,18 @@ var needFood = {
 
 //Method Procedure
 
-whatToDo: function(whereToGo){
-	if (myEvent == "Halloween Horror Nights") {
-		console.log("We want to go to " + myEvent + "and get chased by zombies!");
-		} else	{
-			console.log("We haz a sad.");	
-	};
-	
+var whatToDo = {
+    haveFun: "go out",
+    whereTo: "Halloween Horror Nights",
+    doWhat: ["Haunted Houses", "Scarezones", "Shows"],
+    booProc: true,    
+    timeToGo: function (getAway) {
+    var haveFun = getAway;
+        if (whatToDo.booProc === true) {
+	    console.log("We want to " + whatToDo.haveFun + "! So, we will go to " + whatToDo.whereTo + ", and get to see " + whatToDo.doWhat[0] + ", " + whatToDo.doWhat[1] + " and " + whatToDo.doWhat[2] + "!");
+	} else {
+	    console.log("Sadly, we are unable to " + whatToDo.haveFun + ", maybe another time.") 	};   
+	    }
 };
 
 //Boolean Function
@@ -89,7 +93,7 @@ var handleData = function (data) {
 		
 	}; 
 };
-
+whatToDo.timeToGo();
 handleData(houseData);
 
 
