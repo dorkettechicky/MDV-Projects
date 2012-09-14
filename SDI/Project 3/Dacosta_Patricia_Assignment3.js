@@ -9,46 +9,13 @@
 var myEvent 	= "Halloween Horror Nights";
 var pplGoing 	= 4;
 var myCity		= "Orlando"
-var weCanFit 	= true;
+var booVar		 	= true;
 var whoGoes 	= [
-				"George",
+					"George",
 				"Kari",
 				"JJ",
 				"I"
 ];
-
-/*
-var needFood = {
-        "peopleEat": [
-            {	
-                "name": 	"George",
-                "food": 	"pizza",
-                "drink": 	"fruit punch Gatorade",
-                "Cost":		7
-            },
-            {
-                "name": 	"Patti",
-                "food": 	"fruit salad",
-                "drink": 	"orange Gatorade",
-                "cost":		8 
-            },
-            {
-                "name": 	"Kari",
-                "food": 	"fetuccini alfredo",
-                "drink": 	"orange Gatorade",
-                "cost":		9
-            },
-            {
-                "name": 	"JJ",
-                "food": 	"pizza",
-                "drink": 	"Pepsi",
-                "cost":		7
-            }            
-        ]
-        
-};
-*/
-	
 
 
 //Method Procedure
@@ -76,6 +43,7 @@ var numbReturn = function (milesToGo) {
 			console.log("We only have " + milesToGo + " miles, to go!");
 	milesToGo-=10;
 	
+		//nested for loop, not functioning as expected, research additional methods
 		/*for (var milesFromHome = 0; milesFromHome < 80; milesFromHome+=20)
 		console.log("We have to stop after " + milesFromHome + " miles, so that " + whoGoes[i] + " can go to the bathroom!");*/
 	} 
@@ -83,10 +51,7 @@ var numbReturn = function (milesToGo) {
 };			
 
 
-//Mutator Method
 
-
-//Number Function
 
 //Method Accessor
 //Possible for 2nd loop & concat for wait or remove wait in houses objects?
@@ -98,10 +63,14 @@ var handleData = function (data) {
 	};
 	return data; 
 };
+
+//Mutator Method
+
 whatToDo.timeToGo();
 console.log("Time to drive to " + myCity + "!");
 numbReturn();
 handleData(houseData);
+
 
 
 
