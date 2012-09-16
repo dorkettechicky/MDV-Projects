@@ -23,16 +23,26 @@ var pattiLibrary = function () {
 	return emailCheck;		
 	};
 
-
 //URL Pattern
-
-
+	var validateUrl = function (url) {
+		var urlRegEx = /(?:[\w-]+\.)+[a-z]{2,6}$/;
+        var	urlCheck = urlRegEx.test(url);
+        	if ((url.indexOf("http:") == 0) || (url.indexOf("https:") == 0)) {
+            urlCheck = true;
+          } else if (check === true) {
+            urlCheck = true;
+          } else {
+            urlCheck = false;
+        };
+     return urlCheck;
+    };
 // All Returns
 
 
 	return {
 		"phoneCheck"	:	validatePhone,
-		"emailCheck"	:	validateEmail
+		"emailCheck"	:	validateEmail,
+		"urlCheck"		:	validateUrl
 	};	
 
 };
@@ -42,6 +52,7 @@ var library = new pattiLibrary();
 
 console.log("123-456-7890 = " + library.phoneCheck("123-456-7890"));
 console.log("email@domain.com = " + library.emailCheck("email@domain.com"));
+console.log("https://www.thiswebsite.com = " + library.urlCheck("https://www.thiswebsite.com"));
 
 
 
