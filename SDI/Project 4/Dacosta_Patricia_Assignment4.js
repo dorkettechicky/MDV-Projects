@@ -7,6 +7,8 @@
 
 var pattiLibrary = function () {
 
+//String block portion of assignment
+
 //Phone Number Pattern
 	
 	var validatePhone = function (phoneNumber) {
@@ -44,8 +46,23 @@ var pattiLibrary = function () {
 			return string.charAt(0).toUpperCase() + string.substr(1);
 		};
 		initCapped = string.replace(/\w\S*/g, initCap);
-		return initCapped;
+	return initCapped;
 	};
+
+//String separator manipulation
+
+	var chSwitch = function (string, separator1, separator2) {
+	var switched = string.split(separator1).join(separator2);
+	return switched;
+		
+	};
+
+
+
+
+
+
+//Number block portion of assignment
 
 
 
@@ -57,7 +74,8 @@ var pattiLibrary = function () {
 		"phoneCheck"	:	validatePhone,
 		"emailCheck"	:	validateEmail,
 		"urlCheck"		:	validateUrl,
-		"titleCase"		:	titleCase
+		"titleCase"		:	titleCase,
+		"chSwitch"		:	chSwitch
 	};	
 
 };
@@ -69,6 +87,7 @@ console.log("123-456-7890 = " + library.phoneCheck("123-456-7890"));
 console.log("email@domain.com = " + library.emailCheck("email@domain.com"));
 console.log("https://www.thiswebsite.com = " + library.urlCheck("https://www.thiswebsite.com"));
 console.log("the lazy brown fox jumped over the fence = " + library.titleCase("the lazy brown fox jumped over the fence"));
+console.log("a,b,c = " + library.chSwitch("a,b,c", ",", "/"));
 
 
 
@@ -84,8 +103,6 @@ console.log("the lazy brown fox jumped over the fence = " + library.titleCase("t
 
 
 
-
-//String separator manipulation
 
 //Decimal places
 
