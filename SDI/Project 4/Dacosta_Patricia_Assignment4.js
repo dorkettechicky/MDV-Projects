@@ -3,9 +3,44 @@
 //Project 4
 //String, Number and Array manipulation & regular expressions.
 
-//Phone Number Pattern
 
-//Email Address Pattern
+
+var pattiLibrary = function () {
+
+//Phone Number Pattern
+	
+	var validatePhone = function (phoneNumber) {
+		regEx = /^[0-9]{3}[\-]{1}[0-9]{3}[\-]{1}[0-9]{4}$/;
+		var	phoneCheck = regEx.test(phoneNumber);
+	return phoneCheck;
+	};
+
+
+// All Returns
+
+
+	return {
+		"phoneCheck"	:	validatePhone
+		
+	};	
+
+};
+
+var library = new pattiLibrary();
+
+
+console.log("123-456-7890 = " + library.phoneCheck("123-456-7890"));
+
+
+
+
+
+
+
+
+
+
+
 
 //URL Pattern
 
