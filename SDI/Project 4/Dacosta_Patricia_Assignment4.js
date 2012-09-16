@@ -36,13 +36,28 @@ var pattiLibrary = function () {
         };
      return urlCheck;
     };
+
+//Title-case
+
+	var titleCase = function (string) {
+		var initCap = function (string) {
+			return string.charAt(0).toUpperCase() + string.substr(1);
+		};
+		initCapped = string.replace(/\w\S*/g, initCap);
+		return initCapped;
+	};
+
+
+
+
 // All Returns
 
 
 	return {
 		"phoneCheck"	:	validatePhone,
 		"emailCheck"	:	validateEmail,
-		"urlCheck"		:	validateUrl
+		"urlCheck"		:	validateUrl,
+		"titleCase"		:	titleCase
 	};	
 
 };
@@ -53,6 +68,7 @@ var library = new pattiLibrary();
 console.log("123-456-7890 = " + library.phoneCheck("123-456-7890"));
 console.log("email@domain.com = " + library.emailCheck("email@domain.com"));
 console.log("https://www.thiswebsite.com = " + library.urlCheck("https://www.thiswebsite.com"));
+console.log("the lazy brown fox jumped over the fence = " + library.titleCase("the lazy brown fox jumped over the fence"));
 
 
 
@@ -67,7 +83,7 @@ console.log("https://www.thiswebsite.com = " + library.urlCheck("https://www.thi
 
 
 
-//Title-case
+
 
 //String separator manipulation
 
