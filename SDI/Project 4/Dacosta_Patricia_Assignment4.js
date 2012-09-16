@@ -10,18 +10,29 @@ var pattiLibrary = function () {
 //Phone Number Pattern
 	
 	var validatePhone = function (phoneNumber) {
-		regEx = /^[0-9]{3}[\-]{1}[0-9]{3}[\-]{1}[0-9]{4}$/;
-		var	phoneCheck = regEx.test(phoneNumber);
+		var phoneRegEx = /^[0-9]{3}[\-]{1}[0-9]{3}[\-]{1}[0-9]{4}$/;
+		var	phoneCheck = phoneRegEx.test(phoneNumber);
 	return phoneCheck;
 	};
+
+//Email Pattern
+
+	var validateEmail = function (email) {
+		var emailRegEx = /^[\w._%+-]+@{1}[\w-]+\.[a-z]{2,6}$/;
+		var emailCheck = emailRegEx.test(email);
+	return emailCheck;		
+	};
+
+
+//URL Pattern
 
 
 // All Returns
 
 
 	return {
-		"phoneCheck"	:	validatePhone
-		
+		"phoneCheck"	:	validatePhone,
+		"emailCheck"	:	validateEmail
 	};	
 
 };
@@ -30,6 +41,7 @@ var library = new pattiLibrary();
 
 
 console.log("123-456-7890 = " + library.phoneCheck("123-456-7890"));
+console.log("email@domain.com = " + library.emailCheck("email@domain.com"));
 
 
 
@@ -42,7 +54,7 @@ console.log("123-456-7890 = " + library.phoneCheck("123-456-7890"));
 
 
 
-//URL Pattern
+
 
 //Title-case
 
