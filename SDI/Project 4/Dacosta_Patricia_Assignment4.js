@@ -57,14 +57,14 @@ var pattiLibrary = function () {
 		
 	};
 
-
-
-
-
-
 //Number block portion of assignment
 
+//Decimal placement
 
+	var changeDec = function (number) {
+		var decimal = number.toFixed(2);
+	return decimal;	
+	};
 
 
 // All Returns
@@ -75,7 +75,8 @@ var pattiLibrary = function () {
 		"emailCheck"	:	validateEmail,
 		"urlCheck"		:	validateUrl,
 		"titleCase"		:	titleCase,
-		"chSwitch"		:	chSwitch
+		"chSwitch"		:	chSwitch,
+		"changeDec"		:	changeDec
 	};	
 
 };
@@ -88,6 +89,7 @@ console.log("email@domain.com = " + library.emailCheck("email@domain.com"));
 console.log("https://www.thiswebsite.com = " + library.urlCheck("https://www.thiswebsite.com"));
 console.log("the lazy brown fox jumped over the fence = " + library.titleCase("the lazy brown fox jumped over the fence"));
 console.log("a,b,c = " + library.chSwitch("a,b,c", ",", "/"));
+console.log("2.1 = " + library.changeDec(2.1));
 
 
 
@@ -104,7 +106,6 @@ console.log("a,b,c = " + library.chSwitch("a,b,c", ",", "/"));
 
 
 
-//Decimal places
 
 //Fuzzy match
 
