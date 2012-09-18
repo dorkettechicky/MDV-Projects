@@ -25,7 +25,7 @@ var pattiLibrary = function () {
 	return emailCheck;		
 	};
 
-//URL Pattern
+//URL Pattern //recheck line 34
 	var validateUrl = function (url) {
 		var urlRegEx = /(?:[\w-]+\.)+[a-z]{2,6}$/;
         var	urlCheck = urlRegEx.test(url);
@@ -52,7 +52,7 @@ var pattiLibrary = function () {
 //String separator manipulation
 
 	var chSwitch = function (string, separator1, separator2) {
-	var switched = string.split(separator1).join(separator2);
+		var switched = string.split(separator1).join(separator2);
 	return switched;
 		
 	};
@@ -66,6 +66,13 @@ var pattiLibrary = function () {
 	return decimal;	
 	};
 
+//Fuzzy match
+
+	var fuzzyNum = function (num1, num2, percentage){
+		var compare = num2*(percentage/100);
+		var getFuzzy = (num1 >= num2 - compare && num1 <= num2 + compare);
+	return getFuzzy	
+	};
 
 // All Returns
 
@@ -76,8 +83,13 @@ var pattiLibrary = function () {
 		"urlCheck"		:	validateUrl,
 		"titleCase"		:	titleCase,
 		"chSwitch"		:	chSwitch,
-		"changeDec"		:	changeDec
+		"changeDec"		:	changeDec,
+		"fuzzyNum"		:	fuzzyNum
+		
 	};	
+
+//Difference between two dates (hours or days)
+	
 
 };
 
@@ -90,6 +102,7 @@ console.log("https://www.thiswebsite.com = " + library.urlCheck("https://www.thi
 console.log("the lazy brown fox jumped over the fence = " + library.titleCase("the lazy brown fox jumped over the fence"));
 console.log("a,b,c = " + library.chSwitch("a,b,c", ",", "/"));
 console.log("2.1 = " + library.changeDec(2.1));
+console.log("Fuzzy match = " + library.fuzzyNum(20, 40, 60));
 
 
 
@@ -101,15 +114,6 @@ console.log("2.1 = " + library.changeDec(2.1));
 
 
 
-
-
-
-
-
-
-//Fuzzy match
-
-//Difference between two dates (hours or days)
 
 //Variable to number
 
