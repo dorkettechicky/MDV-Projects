@@ -67,20 +67,32 @@ var pattiLibrary = function () {
 	};
 
 //Fuzzy match
-/*
+
 	var fuzzyNum = function (num1, num2, percentage){
 		var compare = num2*(percentage/100);
 		var getFuzzy = (num1 >= num2 - compare && num1 <= num2 + compare);
 	return getFuzzy	
 	};
-*/
 
+
+//Difference between two dates (hours or days)
+/*
+var dateDifference = function (firstDate, secondDate){
+	var oneDay = 1000*60*60*24;
+	var oneHour = 1000*60*60;
+	var compare = ()
+			dayDiff = Math.ceil(()
+		};
+	
+};
+
+*/
 //String to number
 
 
 var stringToNum = function(string){
 	return parseFloat(string);
-};
+	};
 
 
 // All Returns
@@ -93,11 +105,11 @@ var stringToNum = function(string){
 		"titleCase"		:	titleCase,
 		"chSwitch"		:	chSwitch,
 		"changeDec"		:	changeDec,
-		//"fuzzyNum"		:	fuzzyNum
+		"fuzzyNum"		:	fuzzyNum,
 		"stringToNum"	:	stringToNum
 	};	
 
-//Difference between two dates (hours or days)
+
 
 //Variable to number
 
@@ -114,7 +126,7 @@ console.log("https://www.thiswebsite.com = " + library.urlCheck("https://www.thi
 console.log("the lazy brown fox jumped over the fence = " + library.titleCase("the lazy brown fox jumped over the fence"));
 console.log("a,b,c = " + library.chSwitch("a,b,c", ",", "/"));
 console.log("2.1 = " + library.changeDec(2.1));
-//console.log("Fuzzy match = " + library.fuzzyNum(20, 40, 60));
+console.log("Fuzzy match = " + library.fuzzyNum(20, 40, 60));
 console.log("The string \"43\" is now the number " + library.stringToNum("43"));
 
 
