@@ -76,23 +76,31 @@ var pattiLibrary = function () {
 
 
 //Difference between two dates (hours or days)
-/*
-var dateDifference = function (firstDate, secondDate){
-	var oneDay = 1000*60*60*24;
-	var oneHour = 1000*60*60;
-	var compare = ()
-			dayDiff = Math.ceil(()
-		};
-	
-};
 
-*/
-//String to number
+ 	//String to number
 
 
-var stringToNum = function(string){
+	var stringToNum = function(string){
 	return parseFloat(string);
+	
 	};
+
+//Smallest value in an array that is greater than a given number
+
+	var numArray = function (array, givNum) {
+		var smallVal = Number.POSITIVE_INFINITY;
+		for (var i = 0; i < array.length; i++) {
+			if (givNum < array[i] && array[i] < smallVal) {
+				smallVal = array[i];
+			};
+		};
+	return smallVal;
+	};
+
+
+//Total value of just the numbers in an array
+
+//Array of objects sorted by key
 
 
 // All Returns
@@ -106,7 +114,10 @@ var stringToNum = function(string){
 		"chSwitch"		:	chSwitch,
 		"changeDec"		:	changeDec,
 		"fuzzyNum"		:	fuzzyNum,
-		"stringToNum"	:	stringToNum
+		"stringToNum"	:	stringToNum,
+		"numArray"		:	numArray
+		
+		
 	};	
 
 
@@ -128,6 +139,7 @@ console.log("a,b,c = " + library.chSwitch("a,b,c", ",", "/"));
 console.log("2.1 = " + library.changeDec(2.1));
 console.log("Fuzzy match = " + library.fuzzyNum(20, 40, 60));
 console.log("The string \"43\" is now the number " + library.stringToNum("43"));
+console.log("The lowest number of the array that is greater than the given number is, " + library.numArray([2,14,9,23,12], 8));
 
 
 
@@ -139,10 +151,11 @@ console.log("The string \"43\" is now the number " + library.stringToNum("43"));
 
 
 
-//Variable to number
 
-//Smallest vaue in an array that is greater than a given number
 
-//Total value of just the numbers in an array
 
-//Array of objects sorted by key
+
+
+
+
+
