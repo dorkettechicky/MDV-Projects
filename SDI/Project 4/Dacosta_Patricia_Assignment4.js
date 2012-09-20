@@ -11,7 +11,7 @@ var pattiLibrary = function () {
 
 //Phone Number Pattern
 	
-	var validatePhone = function (phoneNumber) {
+	var validatePhone = function(phoneNumber) {
 		var phoneRegEx = /^[0-9]{3}[\-]{1}[0-9]{3}[\-]{1}[0-9]{4}$/;
 		var	phoneCheck = phoneRegEx.test(phoneNumber);
 	return phoneCheck;
@@ -19,30 +19,30 @@ var pattiLibrary = function () {
 
 //Email Pattern
 
-	var validateEmail = function (email) {
+	var validateEmail = function(email) {
 		var emailRegEx = /^[\w._%+-]+@{1}[\w-]+\.[a-z]{2,6}$/;
 		var emailCheck = emailRegEx.test(email);
 	return emailCheck;		
 	};
 
 //URL Pattern //recheck line 34
-	var validateUrl = function (url) {
+	var validateUrl = function(url) {
 		var urlRegEx = /(?:[\w-]+\.)+[a-z]{2,6}$/;
         var	urlCheck = urlRegEx.test(url);
         	if ((url.indexOf("http:") == 0) || (url.indexOf("https:") == 0)) {
             urlCheck = true;
-          } else if (check === true) {
+            } else if (check === true) {
             urlCheck = true;
-          } else {
+              } else {
             urlCheck = false;
-        };
+            	};
      return urlCheck;
     };
 
 //Title-case
 
-	var titleCase = function (string) {
-		var initCap = function (string) {
+	var titleCase = function(string) {
+		var initCap = function(string) {
 			return string.charAt(0).toUpperCase() + string.substr(1);
 		};
 		initCapped = string.replace(/\w\S*/g, initCap);
@@ -51,7 +51,7 @@ var pattiLibrary = function () {
 
 //String separator manipulation
 
-	var chSwitch = function (string, separator1, separator2) {
+	var chSwitch = function(string, separator1, separator2) {
 		var switched = string.split(separator1).join(separator2);
 	return switched;
 		
@@ -61,14 +61,14 @@ var pattiLibrary = function () {
 
 //Decimal placement
 
-	var changeDec = function (number) {
+	var changeDec = function(number) {
 		var decimal = number.toFixed(2);
 	return decimal;	
 	};
 
 //Fuzzy match
 
-	var fuzzyNum = function (num1, num2, percentage){
+	var fuzzyNum = function(num1, num2, percentage){
 		var compare = num2*(percentage/100);
 		var getFuzzy = (num1 >= num2 - compare && num1 <= num2 + compare);
 	return getFuzzy	
@@ -76,9 +76,16 @@ var pattiLibrary = function () {
 
 
 //Difference between two dates (hours or days)
+ 	var dateDiff = function(startDate, endDate){
+            var oneDay = 24*60*60*1000; 
+            var diffDays = Math.round(Math.abs((startDate.getTime() - endDate.getTime())/(oneDay)));
+    return diffDays;
+    };
 
- 	//String to number
 
+
+
+//String to number
 
 	var stringToNum = function(string){
 	return parseFloat(string);
@@ -87,7 +94,7 @@ var pattiLibrary = function () {
 
 //Smallest value in an array that is greater than a given number
 
-	var numArray = function (array, givNum) {
+	var numArray = function(array, givNum) {
 		var smallVal = Number.POSITIVE_INFINITY;
 		for (var i = 0; i < array.length; i++) {
 			if (givNum < array[i] && array[i] < smallVal) {
@@ -103,14 +110,15 @@ var pattiLibrary = function () {
 	var addNum = function(arr) {
 	var numSum = 0;
 		for (var i = 0; i < arr.length; i++) {
-			if (!isNaN(parseInt(arr[i]))) { numSum += arr[i]; }		
-			};
-		return numSum;
-				
-};
+			if (!isNaN(parseInt(arr[i]))) {numSum += arr[i];}		
+		};
+	return numSum;				
+	};
 
 
 //Array of objects sorted by key
+
+
 
 
 // All Returns
@@ -126,7 +134,8 @@ var pattiLibrary = function () {
 		"fuzzyNum":fuzzyNum,
 		"stringToNum":stringToNum,
 		"numArray":numArray,
-		"addNum":addNum
+		"addNum":addNum,
+		"dateDiff":dateDiff
 	
 		
 	};	
@@ -152,7 +161,7 @@ console.log("Fuzzy match = " + library.fuzzyNum(20, 40, 60));
 console.log("The string \"43\" is now the number " + library.stringToNum("43"));
 console.log("The lowest number of the array that is greater than the given number is, " + library.numArray([2,14,9,23,12], 8));
 console.log("The total of the numbers within the array is = " + library.addNum([true, 4, 6, "NaN", false, 8]));
-
+console.log("There are " + library.dateDiff(new Date(2012, 02, 26), new Date()) + " between the today and the day I started classes at Full Sail");
 
 
 
