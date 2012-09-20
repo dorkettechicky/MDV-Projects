@@ -100,6 +100,16 @@ var pattiLibrary = function () {
 
 //Total value of just the numbers in an array
 
+	var addNum = function(arr) {
+	var numSum = 0;
+		for (var i = 0; i < arr.length; i++) {
+			if (!isNaN(parseInt(arr[i]))) { numSum += arr[i]; }		
+			};
+		return numSum;
+				
+};
+
+
 //Array of objects sorted by key
 
 
@@ -107,22 +117,23 @@ var pattiLibrary = function () {
 
 
 	return {
-		"phoneCheck"	:	validatePhone,
-		"emailCheck"	:	validateEmail,
-		"urlCheck"		:	validateUrl,
-		"titleCase"		:	titleCase,
-		"chSwitch"		:	chSwitch,
-		"changeDec"		:	changeDec,
-		"fuzzyNum"		:	fuzzyNum,
-		"stringToNum"	:	stringToNum,
-		"numArray"		:	numArray
-		
+		"phoneCheck":validatePhone,
+		"emailCheck":validateEmail,
+		"urlCheck":validateUrl,
+		"titleCase":titleCase,
+		"chSwitch":chSwitch,
+		"changeDec":changeDec,
+		"fuzzyNum":fuzzyNum,
+		"stringToNum":stringToNum,
+		"numArray":numArray,
+		"addNum":addNum
+	
 		
 	};	
 
 
 
-//Variable to number
+
 
 	
 
@@ -140,6 +151,8 @@ console.log("2.1 = " + library.changeDec(2.1));
 console.log("Fuzzy match = " + library.fuzzyNum(20, 40, 60));
 console.log("The string \"43\" is now the number " + library.stringToNum("43"));
 console.log("The lowest number of the array that is greater than the given number is, " + library.numArray([2,14,9,23,12], 8));
+console.log("The total of the numbers within the array is = " + library.addNum([true, 4, 6, "NaN", false, 8]));
+
 
 
 
