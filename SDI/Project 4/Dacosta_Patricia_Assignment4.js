@@ -5,8 +5,8 @@
 
 
 
-var pattiLibrary = function () {
-
+var pattiLibrary = function () { //Extra credit: Project 2, proper use of syntax.
+								 //Extra credit: Project 3, completeness (completed 12 of required 6).
 //String block portion of assignment
 
 //Phone Number Pattern
@@ -49,7 +49,7 @@ var pattiLibrary = function () {
 	return initCapped;
 	};
 
-//String separator manipulation
+//String separator manipulation //Extra credit: Project 2 and 3, properly passing variables.
 
 	var chSwitch = function(string, separator1, separator2) {
 		var switched = string.split(separator1).join(separator2);
@@ -68,7 +68,7 @@ var pattiLibrary = function () {
 
 //Fuzzy match
 
-	var fuzzyNum = function(num1, num2, percentage){
+	var fuzzyNum = function(num1, num2, percentage){  
 		var compare = num2*(percentage/100);
 		var getFuzzy = (num1 >= num2 - compare && num1 <= num2 + compare);
 	return getFuzzy	
@@ -79,7 +79,7 @@ var pattiLibrary = function () {
  	var dateDiff = function(startDate, endDate){
             var oneDay = 24*60*60*1000; 
             var diffDays = Math.floor(Math.abs((startDate.getTime() - endDate.getTime())/(oneDay)));
-    return diffDays;
+    return diffDays;		//Extra credit: Project 1, missing math component.
     };
 
 
@@ -106,16 +106,16 @@ var pattiLibrary = function () {
 
 //Total value of just the numbers in a mixed array
 
-	var addNum = function(arr) {
+	var addNum = function(array) {
 	var numSum = 0;
-		for (var i = 0; i < arr.length; i++) {
-			if (!isNaN(parseInt(arr[i]))) {numSum += arr[i];}		
+		for (var i = 0; i < array.length; i++) {
+			if (!isNaN(parseInt(array[i]))) {numSum += array[i];}		
 		};
 	return numSum;				
 	};
 
 
-//Array of objects sorted by key
+//Array of objects sorted by key * not returning as expected in console.
 	
 	var sortKey = function () {
 	var array = [{a:3}, {a:1}, {a:2}];
