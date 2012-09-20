@@ -75,14 +75,12 @@ var pattiLibrary = function () {
 	};
 
 
-//Difference between two dates (hours or days)
+//Difference between two dates in days
  	var dateDiff = function(startDate, endDate){
             var oneDay = 24*60*60*1000; 
-            var diffDays = Math.round(Math.abs((startDate.getTime() - endDate.getTime())/(oneDay)));
+            var diffDays = Math.floor(Math.abs((startDate.getTime() - endDate.getTime())/(oneDay)));
     return diffDays;
     };
-
-
 
 
 //String to number
@@ -91,6 +89,7 @@ var pattiLibrary = function () {
 	return parseFloat(string);
 	
 	};
+
 
 //Smallest value in an array that is greater than a given number
 
@@ -105,7 +104,7 @@ var pattiLibrary = function () {
 	};
 
 
-//Total value of just the numbers in an array
+//Total value of just the numbers in a mixed array
 
 	var addNum = function(arr) {
 	var numSum = 0;
@@ -117,7 +116,23 @@ var pattiLibrary = function () {
 
 
 //Array of objects sorted by key
-
+	
+	var sortKey = function () {
+	var array = [{a:3}, {a:1}, {a:2}];
+	var key = "a";	
+		var	compare = function (a, b) {
+			if (a[key] < b[key]) {
+				return -1;
+				} else if (a[key] > b[key]){
+				return 1;
+				} else {
+				return 0;
+			};	
+		};
+		var sortedKey = array.sort(compare);
+	return sortedKey;
+	
+	};	
 
 
 
@@ -132,12 +147,13 @@ var pattiLibrary = function () {
 		"chSwitch":chSwitch,
 		"changeDec":changeDec,
 		"fuzzyNum":fuzzyNum,
+		"dateDiff":dateDiff,
 		"stringToNum":stringToNum,
 		"numArray":numArray,
 		"addNum":addNum,
-		"dateDiff":dateDiff
-	
+		"sortKey":sortKey
 		
+				
 	};	
 
 
@@ -158,12 +174,12 @@ console.log("the lazy brown fox jumped over the fence = " + library.titleCase("t
 console.log("a,b,c = " + library.chSwitch("a,b,c", ",", "/"));
 console.log("2.1 = " + library.changeDec(2.1));
 console.log("Fuzzy match = " + library.fuzzyNum(20, 40, 60));
+console.log("There are " + library.dateDiff(new Date(2012, 02, 26), new Date()) + " days between today and the day I started classes at Full Sail, on March 26, 2012.");
 console.log("The string \"43\" is now the number " + library.stringToNum("43"));
 console.log("The lowest number of the array that is greater than the given number is, " + library.numArray([2,14,9,23,12], 8));
 console.log("The total of the numbers within the array is = " + library.addNum([true, 4, 6, "NaN", false, 8]));
-console.log("There are " + library.dateDiff(new Date(2012, 02, 26), new Date()) + " between the today and the day I started classes at Full Sail");
-
-
+//revisit: Find way to get the sorted keys to 'print' in console.log
+console.log(library.sortKey());
 
 
 
