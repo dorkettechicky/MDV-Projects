@@ -20,14 +20,12 @@ additem html
 	
 						<!--Page Title-->
 		<title>Inventory Entry Form</title>
-
-		<link>
 		
 	</head>
 	<body>
 		<h1>Inventory Entry Form</h1>
 		
-			<p>Fill out as much information as possible. Should disaster strike, having this detailed record of 			your worldly possessions, will help to ensure that nothing is forgotten when dealing with your 				insurance company.</p>
+			<p>Fill out as much information as possible. Should disaster strike, having this detailed record of your worldly 				possessions, will help to ensure that nothing is forgotten when dealing with your insurance company.</p>
 			
 		<form action="#" method="post">
 			<fieldset>
@@ -49,33 +47,33 @@ additem html
 							<option value="tools">Tools</option>
 							<option value="miscellaneous">Miscellaneous</option>
 						</select>
-					<br>
-					<br>	
-					<label for="item_name">Item Name: </label><input type="text" name="item_name" 								id="item_name" />
+					<br />
+					<br />	
+					<label for="item_name">Item Name: </label><input type="text" name="item_name" id="item_name" />
 	
-					<br>
-					<br>
+					<br />
+					<br />
 						
-					<label for="sNumber">Serial Number: (optional)</label><input type="text" 									name="sNumber"id="sNumber" />
+					<label for="sNumber">Serial Number: (optional)</label><input type="text" name="sNumber" id="sNumber" />
 					
-					<br>
-					<br>
+					<br />
+					<br />
 					
-					<label for="mNumber">Model Number: (optional)</label><input type="text"name="mNumber" 						id="mNumber" />
+					<label for="mNumber">Model Number: (optional)</label><input type="text" name="mNumber" id="mNumber" />
 					
-					<br>
-					<br>
+					<br />
+					<br />
 	
-					<label for="radio">Warranty: </label><input type="radio" name="radio" id="radio_one" 						value="yes">Yes&nbsp;&nbsp;
-					<input type="radio" name="radio" id="radio_two" value="no">No
+					<label for="radio">Warranty: </label><input type="radio" name="radio" id="radio_one" 										value="yes"><label for="radio_one">Yes</label>&nbsp;&nbsp;
+					<input type="radio" name="radio" id="radio_two" value="no"><label for="radio_two">No</label>
 					
-					<br>
-					<br>
+					<br />
+					<br />
 					
 					<label for="date">Date Acquired: </label><input id="date" type="date"/>	
 										
-					<br>
-					<br>
+					<br />
+					<br />
 										
 					<label for="hAcquired">How Acquired: </label>
 						<select name="hAcquired" id="hAcquired" multiple="multiple" size="2">
@@ -89,43 +87,43 @@ additem html
 			<fieldset>
 				<legend>Item Value</legend>
 				
-					<label for="radio">Have Receipt: </label><input type="radio" name="radio" id="radio_one" 										value="yes">Yes&nbsp;&nbsp;
-					<input type="radio" name="radio" id="radio_two" value="no">No
+					<label for="radio">Have Receipt: </label><input type="radio" name="radio" id="radio_receipt1" 									value="yes">Yes&nbsp;&nbsp;
+					<input type="radio" name="radio" id="radio_receipt2" value="no">No
 					
-					<br>
-					<br>
+					<br />
+					<br />
 					
-					<label for="item_name">Dollar Value:&nbsp; <br>$</label><input type="text" name="dValue" 						id="dValue" />
+					<label for="item_name">Dollar Value:&nbsp; <br />$</label><input type="text" name="dValue" id="dValue" />
 					
-					<br>
-					<br>
+					<br />
+					<br />
 							
-					<label for="rCost">Replacement Cost:&nbsp;<br>$</label><input type="text" 										name="rCost"id="rCost" />
+					<label for="rCost">Replacement Cost:&nbsp;<br />$</label><input type="text" name="rCost" id="rCost" />
 					
-					<br>
-					<br>
+					<br />
+					<br />
 											
 					<label for="slider_title">Condition:</label>
 					
-					<br>
+					<br />
 									
 					<label for="condition">Poor</label><input type="range" min="1" max="10" name="condition" 									type="range"><label for="condition2">Excellent</label>
 										
 					<input type="hidden">
 					
 			</fieldset>	
-					<br>
+					<br />
 					<label for="descriptionBox">Additional Information:</label>
 					
-					<br>
-					<br>
+					<br />
+					<br />
 					
 					<label for="description"></label><textarea id="description"></textarea>
 					
-					<br>
-					<br>
+					<br />
+					<br />
 					
-				<form method="link" action="additem.html"><input type="submit" value="Clear Data">							<form method="link" action="additem.html"><input type="submit" value="View Data"></form>			
+					<a href="additem.html">Clear Data</a> &nbsp;&nbsp;<a href="additem.html">Display Data</a>		
 		</form>				
 	</body>
 </html>
