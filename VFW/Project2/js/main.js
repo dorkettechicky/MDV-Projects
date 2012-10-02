@@ -6,7 +6,7 @@ main.js
 */
 //Wait until DOM is ready
 
-window.addEventListener("DomContentLoaded", function(){
+window.addEventListener("DOMContentLoaded", function(){
 	
 	//getElementById Function
 	function $(x){
@@ -29,12 +29,28 @@ window.addEventListener("DomContentLoaded", function(){
 		}
 		selectLi.appendChild(makeSelect);
 	}
+	
+	function selectionTwo(){
+		var formTag = document.getElementsByTagName("form"),
+			selectLi = $('select2'),
+			makeSelect = document.createElement('select2');
+		makeSelect.setAttribute("id", "hAcquired");
+		for (var i = 0, j=howAcquired.length; i<j; i++){
+			var makeOption = document.createElement('option');
+			var optText = howAcquired[i];
+			makeOption.setAttribute("value", optText);
+			makeOption.innerHTML = optText;
+			makeSelect.appendChild(makeOption);
+		}
+		selectLi.appendChild(makeSelect);
+	}
 	//Variable Defaults
 	var chooseCategory = ["--Select Category--", "Electronics", "Appliances", "Jewelry", "Furniture", "Collectibles", "Art", 		"Apparel", "Housewares", "Firearms", "Equipment", "Tools", "Miscellaneous"];	
 	
 	var howAcquired = ["--How Acquired--", "Purchased", "Gift", "Inherited", "Unknown"];
 	
 	selectionOne();
+	selectionTwo();
 		//Set Link & Submit Click Events	
 	
 	var displayLink = $('displayData');
