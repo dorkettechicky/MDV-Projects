@@ -30,8 +30,9 @@ additem html
 		<nav>
 			<a href="#"id="clearData">Clear Stored Data</a>&nbsp;			
 			<a href="#"id="displayData">Display Data</a>
+			<a href="additem.html"id="addNew" style="display:none;">Add New Item</a>
 		</nav>	
-		<form action="#" method="post">
+		<form action="#" method="post" id="itemForm">
 			<fieldset>
 				<legend>Basic Information</legend> 
 					
@@ -46,16 +47,13 @@ additem html
 								<li><input type="radio" id="no" value="No" name="warranty" /><label for="no">No</label></li>
 							</ul>	
 						<li><label for="date">Date Acquired: </label><input id="date" type="date"/></li>	
-						<li id="select2"><label for="hAcquired">How Acquired:</label></li>	
-						</li>											
+						<li><input type="checkbox" id="own" value="Yes" class="checkbox" /><label for="own"> Do You Own Item?</label>
+						</li>
+					</ul>
+																		
 			</fieldset>
 			<fieldset>
 				<legend>Item Value:</legend>
-					<li><label for="haveReceipt">Have Receipt: </label>
-							<ul class="checkbox">
-								<li><input type="radio" id="yes2" value="Yes" name="haveReceipt" /><label for="yes2">Yes</label></li>
-								<li><input type="radio" id="no2" value="No" name="haveReceipt" /><label for="no2">No</label></li>
-							</ul>	
 					<li><label for="dValue">Dollar Value: </label><input type="text" name="dValue" id="dValue" /></li>
 					<li><label for="rCost">Replacement Cost: </label><input type="text" name="rCost" id="rCost" /></li>
 					<li><label for="slider_title">Condition:</label></li>
