@@ -126,7 +126,7 @@ window.addEventListener("DOMContentLoaded", function(){
 
 	function deleteData(){
 		if(localStorage.length === 0){
-			alert("There is no data to clear!")
+			alert("There is no data to clear!");
 
 		}else{
 			localStorage.clear();

@@ -17,8 +17,9 @@ additem html
 			<meta name="viewport" content="target-densitydpi=device-dpi" />
 			<meta name="HandheldFriendly" content="True" />
 			<meta name="MobileOptimized" content="320" />
-	
-						<!--Page Title-->
+			
+			<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />						
+			<!--Page Title-->
 		<title>Inventory Entry Form</title>
 		
 	</head>
@@ -27,11 +28,11 @@ additem html
 		
 			<p>Fill out as much information as possible. Should disaster strike, having this detailed record of your worldly 				possessions, will help to ensure that nothing is forgotten when dealing with your insurance company.</p>
 			
-		<nav>
-			<a href="#"id="clearData">Clear Stored Data</a>&nbsp;			
-			<a href="#"id="displayData">Display Data</a>
-			<a href="additem.html"id="addNew" style="display:none;">Add New Item</a>
-		</nav>	
+			<nav>
+				<a href="#"id="clearData">Clear Stored Data</a>&nbsp;			
+				<a href="#"id="displayData">Display Data</a>
+				<a href="additem.html"id="addNew" style="display:none;">Add New Item</a>
+			</nav>	
 		<form action="#" method="post" id="itemForm">
 			<fieldset>
 				<legend>Basic Information</legend> 
@@ -42,7 +43,7 @@ additem html
 						<li><label for="sNumber">Serial Number: (optional)</label><input type="text" name="sNumber" id="sNumber" /></li>
 						<li><label for="mNumber">Model Number: (optional)</label><input type="text" name="mNumber" id="mNumber" /></li>
 						<li>Warranty:</li>
-							<ul 
+							<ul> 
 								<li><input type="radio" id="yes" value="Yes" name="warranty" /><label for="yes">Yes</label></li>
 								<li><input type="radio" id="no" value="No" name="warranty" /><label for="no">No</label></li>
 							</ul>	
@@ -54,13 +55,14 @@ additem html
 			</fieldset>
 			<fieldset>
 				<legend>Item Value:</legend>
-					<li><label for="dValue">Dollar Value: </label><input type="text" name="dValue" id="dValue" /></li>
-					<li><label for="rCost">Replacement Cost: </label><input type="text" name="rCost" id="rCost" /></li>
-					<li><label for="slider_title">Number of this item owned:</label></li>
-					<li><label for="min">1</label><input type="range" min="1" max="500" name="quantity" id="quantity"									type="range"><label for="max">500</label>
-					</li>
-					<input type="hidden"></li>
-					
+					<ul>
+						<li><label for="dValue">Dollar Value: </label><input type="text" name="dValue" id="dValue" /></li>
+						<li><label for="rCost">Replacement Cost: </label><input type="text" name="rCost" id="rCost" /></li>
+						<li><label for="slider_title">Number of this item owned:</label></li>
+						<li><label for="min">1</label><input type="range" min="1" max="500" name="quantity" id="quantity"									type="range"><label for="max">500</label>
+						</li>
+						<input type="hidden"></li>
+					</ul>
 			</fieldset>	
 			<fieldset>
 				<legend>Additional Information:</legend>
