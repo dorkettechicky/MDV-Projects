@@ -106,6 +106,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		$('items').style.display = "block";
 		for(var i=0, len=localStorage.length; i<len; i++){
 			var makeli = document.createElement('li');
+			var linksLi = document.createElement('li');
 			makeList.appendChild(makeli);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
@@ -118,12 +119,80 @@ window.addEventListener("DOMContentLoaded", function(){
 				makeSubList.appendChild(makeSubli);
 				var optSubText = obj[n][0]+" "+obj[n][1];
 				makeSubli.innerHTML = optSubText;
+				makeSubList.appendChild(linksLi);
 
 			}
+			makeItemLinks(localStorage.key(i), linksLi); //create edit & delete buttons for each item in local storage
 
 		}
 	}
-
+	//Make Item Links
+	//Create the edit & delete links for each stored item when displayed.
+	function makeItemLinks(key, linksLi){
+	//add edit single item link
+		var editLink = document.createElement('a');
+		editLink.href = "#";
+		editLink.key = key;
+		var editText = "Edit Item";
+		editLink.addEventListener("click", editItem);
+		editLink.innerHTML = editText;
+		linksLi.appendChild(editLink);
+		
+		//add line break
+		var breakTag = document.createElement('br');
+		linksLi.appendChild(breakTag);
+		
+		//add delete single item link
+		var deleteLink = document.createElement('a');
+		deleteLink.href = "#";
+		deleteLink.key = key;
+		var deleteText = "Delete Item";
+		//deleteLink.addEventListener("click", deleteItem);
+		deleteLink.innerHTML = deleteText;
+		linksLi.appendChild(deleteLink);
+		
+	}
+	
+	function editItem(){
+		//grab the data from the item from local storage
+		var value = localStorage.getItem(this.key);
+		var item = JSON.parse(value);
+		
+		//show the form
+		toggleControls("off");
+		
+		//populate the form fields with current localStorage values.
+		$('groups').value = item.category[1];
+		$('item_name').value = item.itemName[1];
+		$('sNumber').value = item.sNumber[1];
+		$('mNumber').value = item.mNumber[1];
+		var radios = document.forms[0].warranty;
+		for(var i=0; i<radios.length; i++){
+			if(radios[i].value == "Yes" && item.warranty[1] == "Yes"){
+				radios[i].setAttribute("checked", "checked");
+				}else if(radios[i].value == "No" && item.warranty[1] == "No"){
+					radios[i].setAttribute("checked", "checked");
+				}
+		}
+		$('date').value = item.date[1];	
+		if(item.own[1] == "Yes"){
+			$('own').setAttribute("checked", "checked");
+		}
+		$('dValue').value = item.dValue[1];
+		$('rCost').value = item.rCost[1];
+		$('details').value = item.details[1];
+		
+		//Remove the initial listener from the input 'save item' button.
+		saveItem.removeEventListener("click", storeData);
+		//change submit button value to edit button
+		$('saveItem').value = "Edit Item";
+		var editSubmit = $('saveItem');
+		//save the key value established in this function as a property of the edit submit event.
+		//so we can use that value when we save the data as edited.
+		editSubmit.addEventListener("click", validate);
+		editSubmit.key = this.key;	
+	}
+	
 	function deleteData(){
 		if(localStorage.length === 0){
 			alert("There is no data to clear!");
