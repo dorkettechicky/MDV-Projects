@@ -69,9 +69,16 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	}
 
-	function storeData(){
+	function storeData(key){
+		//If there is no key, it means this is a new record & needs new key.
+	if(!key){		
 		var id			= Math.floor(Math.random()*8675309);
-		console.log("storeData fired");
+	}else{
+		//Set the id to the existing key being edited to save data.
+		//The key is the same key that has been passed from the editSubmit event handler.
+		//Goes next to validate function and then passed here, into the storeData function.
+		id = key;
+	}		
 		//Gather all form field values & store in an object.
 		//Object properties contain array with the form label & input value.
 		getSelectedRadio();
@@ -147,7 +154,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		deleteLink.href = "#";
 		deleteLink.key = key;
 		var deleteText = "Delete Item";
-		//deleteLink.addEventListener("click", deleteItem);
+		deleteLink.addEventListener("click", deleteItem);
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
 		
@@ -193,6 +200,15 @@ window.addEventListener("DOMContentLoaded", function(){
 		editSubmit.key = this.key;	
 	}
 	
+	function deleteItem(){
+		var ask = confirm("Are you sure you want to delete this item?");
+		if (ask){
+			localStorage.removeItem(this.key);
+			window.location.reload();
+		}else{
+			alert("Item was NOT deleted!")
+		}
+	}
 	function deleteData(){
 		if(localStorage.length === 0){
 			alert("There is no data to clear!");
@@ -204,10 +220,73 @@ window.addEventListener("DOMContentLoaded", function(){
 			return false;
 		}
 	}
+	
+	function validate(eventData){
+		//Define the elements to be checked
+		var getGroup = $('groups');
+		var getItemName = $('item_name');
+		var getDvalue = $('dValue');
+		var getRcost = $('rCost');
+		
+		//Reset Error Messages
+		errorMsg.innerHTML = "";
+		getGroup.style.border = "1px solid black";
+		getItemName.style.border = "1px solid black";
+		getDvalue.style.border = "1px solid black";
+		getRcost.style.border = "1px solid black";						
+		// get error messages
+		var messageArray = [];
+		// group validation
+		if(getGroup.value ==="--Select Category--"){
+			var groupError = "Please select a category!";
+			getGroup.style.border = "1px solid red";
+			messageArray.push(groupError);
+		} 
+		
+		//Item name validation
+		if(getItemName.value === ""){
+			var itemNameError = "Please enter an item name!";
+			getItemName.style.border = "1px solid red";
+			messageArray.push(itemNameError);
+		}
+		
+		//Dollar Value validation
+		if(getDvalue.value === ""){
+			var dValueError = "Please enter a dollar value!";
+			getDvalue.style.border = "1px solid red";
+			messageArray.push(dValueError);
+		
+		}
+		
+		//Replacement Cost Validation
+		if(getRcost.value === ""){
+			var rCostError = "Please enter the replacement cost!";
+			getRcost.style.border = "1px solid red";
+			messageArray.push(rCostError);
+		}			
+		
+		//If there are any errors, display errors on screen
+		if(messageArray.length >= 1){
+			for(var i=0, j=messageArray.length; i < j; i++){
+				var txt = document.createElement('li');
+				txt.innerHTML = messageArray[i];
+				errorMsg.appendChild(txt);			
+			}
+			eventData.preventDefault();
+			return false;
+		}else{
+			//if all is OK, save the data. Send key value from editData function. Key value was passed through the editSubmit event listener
+			storeData(this.key);
+		}
+		
+		
+	}
+	
 		//Variable Defaults
 	var chooseCategory = ["--Select Category--", "Electronics", "Appliances", "Jewelry", "Furniture", "Collectibles", "Art", 		"Apparel", "Housewares", "Firearms", "Equipment", "Tools", "Miscellaneous"],	
 		warrantyValue,
-		ownValue = "No";				
+		ownValue = "No";	
+		errorMsg = $('errors');			
 
 		makeCategory();
 
@@ -218,7 +297,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	var clearData = $('clearData');
 	clearData.addEventListener ("click", deleteData);
 	var saveItem = $('saveItem');
-	saveItem.addEventListener ("click", storeData);
+	saveItem.addEventListener ("click", validate);
 
 
 
