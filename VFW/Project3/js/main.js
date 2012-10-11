@@ -93,7 +93,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			item.own			=["Do You Own Item?:", ownValue];
 			item.dValue			=["Dollar Value:", $('dValue').value];
 			item.rCost			=["Replacement Cost:", $('rCost').value];	
-			//item.quantity		=["Item Quantity:", quantityValue];
+			item.quantity		=["Item Quantity:", $('quantity').value];
 			item.details		=["Details:", $('details').value];
 		//Save data inot local storage: Use Stringify to convert our object to a string.
 		localStorage.setItem(id, JSON.stringify(item));
@@ -187,6 +187,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 		$('dValue').value = item.dValue[1];
 		$('rCost').value = item.rCost[1];
+		$('quantity').value = item.quantity[1];
 		$('details').value = item.details[1];
 		
 		//Remove the initial listener from the input 'save item' button.
@@ -206,18 +207,21 @@ window.addEventListener("DOMContentLoaded", function(){
 			localStorage.removeItem(this.key);
 			window.location.reload();
 		}else{
-			alert("Item was NOT deleted!")
+			alert("Item was NOT deleted!");
 		}
 	}
 	function deleteData(){
+		var askAll = confirm("WARNING! This will delete ALL inventory items! Press OK to continue.");	
 		if(localStorage.length === 0){
 			alert("There is no data to clear!");
 
-		}else{
+		}else if(askAll){
 			localStorage.clear();
 			alert("All Items Have Been Deleted!");
 			window.location.reload();
 			return false;
+			}else{
+				alert("Inventory items were NOT deleted!");
 		}
 	}
 	
@@ -239,21 +243,21 @@ window.addEventListener("DOMContentLoaded", function(){
 		// group validation
 		if(getGroup.value ==="--Select Category--"){
 			var groupError = "Please select a category!";
-			getGroup.style.border = "1px solid red";
+			getGroup.style.border = "2px solid red";
 			messageArray.push(groupError);
 		} 
 		
 		//Item name validation
 		if(getItemName.value === ""){
 			var itemNameError = "Please enter an item name!";
-			getItemName.style.border = "1px solid red";
+			getItemName.style.border = "2px solid red";
 			messageArray.push(itemNameError);
 		}
 		
 		//Dollar Value validation
 		if(getDvalue.value === ""){
 			var dValueError = "Please enter a dollar value!";
-			getDvalue.style.border = "1px solid red";
+			getDvalue.style.border = "2px solid red";
 			messageArray.push(dValueError);
 		
 		}
@@ -261,7 +265,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		//Replacement Cost Validation
 		if(getRcost.value === ""){
 			var rCostError = "Please enter the replacement cost!";
-			getRcost.style.border = "1px solid red";
+			getRcost.style.border = "2px solid red";
 			messageArray.push(rCostError);
 		}			
 		
@@ -284,7 +288,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 		//Variable Defaults
 	var chooseCategory = ["--Select Category--", "Electronics", "Appliances", "Jewelry", "Furniture", "Collectibles", "Art", 		"Apparel", "Housewares", "Firearms", "Equipment", "Tools", "Miscellaneous"],	
-		warrantyValue,
+		warrantyValue = "No",
 		ownValue = "No";	
 		errorMsg = $('errors');			
 
