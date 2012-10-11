@@ -1,7 +1,7 @@
 /*
 Patricia Dacosta
 VFW 1210
-Project 2
+Project 3
 main.js
 */
 //Wait until DOM is ready
