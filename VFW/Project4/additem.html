@@ -57,8 +57,7 @@ additem html
 						<li><label for="dValue">Dollar Value: </label><input type="text" name="dValue" id="dValue" /></li>
 						<li><label for="rCost">Replacement Cost: </label><input type="text" name="rCost" id="rCost" /></li>
 						<li><label for="slider_title">Number of this item owned:</label></li>
-						<li><label for="min">1</label><input type="range" min="1" max="500" name="quantity" id="quantity"									type="range"><label for="max">10</label>
-						</li>
+						<li><label for="level">1</label><input type="range" min="1" max="10" name="quantity" id="quantity" 							value="1" onchange="showValue(this.value,'quanLevel')" /><span id="quanLevel">10</span></li>
 						<input type="hidden"></li>
 					</ul>
 			</fieldset>	
@@ -72,5 +71,12 @@ additem html
 		
 		<script type="text/javascript" src="js/json.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>	
-	</body>
+		<script type="text/javascript">
+                        function showValue(newValue,range)
+                        {
+                            document.getElementById(range).innerHTML=newValue;
+              
+                        }
+        </script>            
+    </body>
 </html>
