@@ -1,8 +1,9 @@
 /*
 Patricia Dacosta
 VFW 1210
-Project 3
+Project 4
 main.js
+October 17, 2012
 */
 //Wait until DOM is ready
 
@@ -123,6 +124,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			var obj = JSON.parse(value);
 			var makeSubList = document.createElement('ul');
 			makeli.appendChild(makeSubList);
+			getImage(obj.category[1], makeSubList);
 			for(var n in obj){
 				var makeSubli = document.createElement('li');
 				makeSubList.appendChild(makeSubli);
@@ -135,7 +137,14 @@ window.addEventListener("DOMContentLoaded", function(){
 
 		}
 	}
-	
+	//get image for selected category
+	function getImage(categoryName, makeSubList){
+		var imageLi = document.createElement('li');
+		makeSubList.appendChild(imageLi);
+		var newImg = document.createElement('img');
+		var setSrc = newImg.setAttribute("src", "img/"+ categoryName + ".gif");
+		imageLi.appendChild(newImg);
+	}
 	function autoFillData(){
 		//The actual JSON OBJECT data required for this to work is coming from the JSON.js file, loaded from HTML.
 		//Store JSON OBJECT into local storage.
@@ -298,7 +307,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	
 		//Variable Defaults
-	var chooseCategory = ["--Select Category--", "Electronics", "Appliances", "Jewelry", "Furniture", "Collectibles", "Art", 		"Apparel", "Housewares", "Firearms", "Equipment", "Tools", "Miscellaneous"],	
+	var chooseCategory = ["--Select Category--", "Electronics", "Appliances", "Jewelry", "Collectibles", "Art", 		"Apparel", "Household", "Tools", "Miscellaneous"],	
 		warrantyValue = "No",
 		ownValue = "No";	
 		errorMsg = $('errors');			
