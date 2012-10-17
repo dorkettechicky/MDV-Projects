@@ -3,10 +3,11 @@ Patricia Dacosta
 VFW 1210
 Project 4
 JSON.js
+October 17, 2012
 */
 
 var json = {
-	"contact1": {
+	"Item1": {
 		"category": ["Category:", "Electronics"],
 		"itemName": ["Item Name:", "Big Screen TV"],
 		"sNumber":	["Serial Number:", "8675309"],
@@ -20,7 +21,7 @@ var json = {
 		"details":	["Details:", "Purchased from SwipSwap, Contact Name - Donald Duck, perfect condition"]		
 		
 	},
-	"contact2": {
+	"Item2": {
 		"category": ["Category:", "Collectibles"],
 		"itemName": ["Item Name:", "Honus Wager Baseball Card"],
 		"sNumber":	["Serial Number:", "COA-43719"],
@@ -34,18 +35,18 @@ var json = {
 		"details":	["Details:", "Purchased through online auction, mint condition, COA in safe."]
 	},			
 		
-	"contact3": {
-		"category": ["Category:", "Equipment"],
-		"itemName": ["Item Name:", "Lawn Mower"],
+	"item3": {
+		"category": ["Category:", "Jewelry"],
+		"itemName": ["Item Name:", "Pocket Watch"],
 		"sNumber":	["Serial Number:", "432520032744898560"],
 		"mNumber": 	["Model Number:", "OKYDKY"],
 		"warranty":	["Warranty:", "No"],
 		"date":		["Date:", "2000-5-21"],
-		"own":		["Own:", "Yes"],
-		"dValue":	["Dollar Value:", "$50"],
-		"rCost":	["Replacement Cost:", "$400"],
+		"own":		["Own:", "No"],
+		"dValue":	["Dollar Value:", "$2,500"],
+		"rCost":	["Replacement Cost:", "$4,500"],
 		"quantity":	["Quantity:", "1"],
-		"details":	["Details:", "Have had forever, isn't pretty but runs great. Rubik model."]		
+		"details":	["Details:", "Family heirloom, on loan from uncle Vinnie."]		
 		
 	}
 			
