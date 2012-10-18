@@ -9,16 +9,16 @@ October 17, 2012
 
 		html {
 		    background: #00CED1;
+		    background: -webkit-gradient(linear, left top, left bottom, from(#000000), to(#00CED1));
 		}
 
 
 		h1 {
-		    background: -webkit-gradient(linear, left top, left bottom, from(#000000), to(#FFFFFF));
-		    text-align:center
-		    color: #FFFFFF;
+		  	text-align:left;
 		    font-size: 200%;
+		    color: #000000;
 		    padding: 2em;
-		    margin: -0.25em -0.75em 0.75em -0.75em;
+		    margin: -1em -0.75em 0em -0.75em;
 		}
 
 
@@ -26,7 +26,7 @@ October 17, 2012
 		    font-family: "Arial Black", Gadget, sans-serif;
 		    margin: 0em auto; 
 		    padding: 1.5em;
-		    background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#008080));
+		    background: -webkit-gradient(linear, left top, left bottom, from(#00CED1), to(#000));
 		    color: #FFFFFF;
 		    max-width: 60em;
 		    max-height: 100em;
@@ -45,7 +45,7 @@ October 17, 2012
 			font-family: "Arial Black", Gadget, sans-serif;
 			background-color: #000000;
 			opacity: 1;
-			border-color: #white;
+			border-color: white;
 			border-style: solid;
 			font-style: bold;
 			line-height: 20px;
@@ -54,13 +54,8 @@ October 17, 2012
 			margin-top: 10px;
 		}
 		
-		a:link {
-			color: #00CED1;
-		}
-		
-		a:hover {
-			color: #FFFFFF;
-		}
+		a:link {color: #00CED1;}
+		a:hover {color: #FFFFFF;}
 		
 		a {
 			margin-right: 10px;
