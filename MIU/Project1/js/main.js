@@ -1,16 +1,16 @@
 /*
 Patricia Dacosta
-VFW 1210
-Project 4
+MIU 1211
+Project 1
 main.js
-October 17, 2012
+October 25, 2012
 */
 //Wait until DOM is ready
 
 window.addEventListener("DOMContentLoaded", function(){
 
 	//getElementById Function
-	function $(x){
+	function ge(x){
 		var theElement = document.getElementById(x);
 		return theElement;
 	}
@@ -18,7 +18,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	//create select field element with options
 	function makeCategory(){
 		var formTag = document.getElementsByTagName("form"),
-			selectLi = $('dropDown'),
+			selectLi = ge('dropDown'),
 			makeSelect = document.createElement('select');
 		makeSelect.setAttribute("id", "groups");
 		for (var i = 0, j=chooseCategory.length; i<j; i++){
@@ -42,8 +42,8 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 
 	function getCheckboxValue(){
-			if($('own').checked){
-				ownValue = $('own').value;
+			if(ge('own').checked){
+				ownValue = ge('own').value;
 			}else{
 				ownValue = "No";	
 			}
@@ -52,17 +52,17 @@ window.addEventListener("DOMContentLoaded", function(){
 	function toggleControls(n){
 		switch(n){
 			case "on":
-				$('itemForm').style.display = "none";
-				$('clearData').style.display = "inline";
-				$('displayData').style.display = "none";
-				$('addNew').style.display = "inline";
+				ge('itemForm').style.display = "none";
+				ge('clearData').style.display = "inline";
+				ge('displayData').style.display = "none";
+				ge('addNew').style.display = "inline";
 				break;
 			case "off":
-				$('itemForm').style.display = "block";
-				$('clearData').style.display = "inline";
-				$('displayData').style.display = "inline";
-				$('addNew').style.display = "none";
-				$('items').style.display = "none";
+				ge('itemForm').style.display = "block";
+				ge('clearData').style.display = "inline";
+				ge('displayData').style.display = "inline";
+				ge('addNew').style.display = "none";
+				ge('items').style.display = "none";
 				break;
 			default:
 				return false;		
@@ -85,17 +85,17 @@ window.addEventListener("DOMContentLoaded", function(){
 		getSelectedRadio();
 		getCheckboxValue();
 		var item				= {};
-			item.category		=["Category:", $('groups').value];
-			item.itemName		=["Item Name:", $('item_name').value];
-			item.sNumber		=["Serial Number: (optional)", $('sNumber').value];
-			item.mNumber		=["Model Number: (optional)", $('mNumber').value];
+			item.category		=["Category:", ge('groups').value];
+			item.itemName		=["Item Name:", ge('item_name').value];
+			item.sNumber		=["Serial Number: (optional)", ge('sNumber').value];
+			item.mNumber		=["Model Number: (optional)", ge('mNumber').value];
 			item.warranty		=["Warranty:", warrantyValue];
-			item.date			=["Date:", $('date').value];
+			item.date			=["Date:", ge('date').value];
 			item.own			=["Do You Own Item?:", ownValue];
-			item.dValue			=["Dollar Value:", $('dValue').value];
-			item.rCost			=["Replacement Cost:", $('rCost').value];	
-			item.quantity		=["Item Quantity:", $('quantity').value];
-			item.details		=["Details:", $('details').value];
+			item.dValue			=["Dollar Value:", ge('dValue').value];
+			item.rCost			=["Replacement Cost:", ge('rCost').value];	
+			item.quantity		=["Item Quantity:", ge('quantity').value];
+			item.details		=["Details:", ge('details').value];
 		//Save data inot local storage: Use Stringify to convert our object to a string.
 		localStorage.setItem(id, JSON.stringify(item));
 		alert("Item Saved!");
@@ -113,7 +113,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		var makeList = document.createElement('ul');
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
-		$('items').style.display = "block";
+		ge('items').style.display = "block";
 		for(var i=0, len=localStorage.length; i<len; i++){
 			var makeli = document.createElement('li');
 			var linksLi = document.createElement('li');
@@ -189,10 +189,10 @@ window.addEventListener("DOMContentLoaded", function(){
 		toggleControls("off");
 		
 		//populate the form fields with current localStorage values.
-		$('groups').value = item.category[1];
-		$('item_name').value = item.itemName[1];
-		$('sNumber').value = item.sNumber[1];
-		$('mNumber').value = item.mNumber[1];
+		ge('groups').value = item.category[1];
+		ge('item_name').value = item.itemName[1];
+		ge('sNumber').value = item.sNumber[1];
+		ge('mNumber').value = item.mNumber[1];
 		var radios = document.forms[0].warranty;
 		for(var i=0; i<radios.length; i++){
 			if(radios[i].value == "Yes" && item.warranty[1] == "Yes"){
@@ -201,20 +201,20 @@ window.addEventListener("DOMContentLoaded", function(){
 					radios[i].setAttribute("checked", "checked");
 				}
 		}
-		$('date').value = item.date[1];	
+		ge('date').value = item.date[1];	
 		if(item.own[1] == "Yes"){
-			$('own').setAttribute("checked", "checked");
+			ge('own').setAttribute("checked", "checked");
 		}
-		$('dValue').value = item.dValue[1];
-		$('rCost').value = item.rCost[1];
-		$('quantity').value = item.quantity[1];
-		$('details').value = item.details[1];
+		ge('dValue').value = item.dValue[1];
+		ge('rCost').value = item.rCost[1];
+		ge('quantity').value = item.quantity[1];
+		ge('details').value = item.details[1];
 		
 		//Remove the initial listener from the input 'save item' button.
 		saveItem.removeEventListener("click", storeData);
 		//change submit button value to edit button
-		$('saveItem').value = "Edit Item";
-		var editSubmit = $('saveItem');
+		ge('saveItem').value = "Edit Item";
+		var editSubmit = ge('saveItem');
 		//save the key value established in this function as a property of the edit submit event.
 		//so we can use that value when we save the data as edited.
 		editSubmit.addEventListener("click", validate);
@@ -247,10 +247,10 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	function validate(eventData){
 		//Define the elements to be checked
-		var getGroup = $('groups');
-		var getItemName = $('item_name');
-		var getDvalue = $('dValue');
-		var getRcost = $('rCost');
+		var getGroup = ge('groups');
+		var getItemName = ge('item_name');
+		var getDvalue = ge('dValue');
+		var getRcost = ge('rCost');
 		
 		//Reset Error Messages
 		errorMsg.innerHTML = "";
@@ -310,17 +310,17 @@ window.addEventListener("DOMContentLoaded", function(){
 	var chooseCategory = ["--Select Category--", "Electronics", "Appliances", "Jewelry", "Collectibles", "Art", 		"Apparel", "Household", "Tools", "Miscellaneous"],	
 		warrantyValue = "No",
 		ownValue = "No";	
-		errorMsg = $('errors');			
+		errorMsg = ge('errors');			
 
 		makeCategory();
 
 		//Set Link & Submit Click Events	
 
-	var displayData = $('displayData');
+	var displayData = ge('displayData');
 	displayData.addEventListener("click", getData);
-	var clearData = $('clearData');
+	var clearData = ge('clearData');
 	clearData.addEventListener ("click", deleteData);
-	var saveItem = $('saveItem');
+	var saveItem = ge('saveItem');
 	saveItem.addEventListener ("click", validate);
 
 

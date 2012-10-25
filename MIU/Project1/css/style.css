@@ -3,13 +3,13 @@ Patricia Dacosta
 MIU 1211
 Project 1
 style.css
-October 22, 2012 
+October 25, 2012 
 */
 
 
 		html {
 		    background: #00CED1;
-		    background: -webkit-gradient(linear, left top, left bottom, from(#000000), to(#00CED1));
+		    		    
 		}
 
 
@@ -26,7 +26,6 @@ October 22, 2012
 		    font-family: "Arial Black", Gadget, sans-serif;
 		    margin: 0em auto; 
 		    padding: 1.5em;
-		    background: -webkit-gradient(linear, left top, left bottom, from(#00CED1), to(#000));
 		    color: #FFFFFF;
 		    max-width: 60em;
 		    max-height: 100em;
@@ -53,10 +52,10 @@ October 22, 2012
 			margin-bottom: 20px;
 			margin-top: 10px;
 		}
-		
+
 		a:link {color: #00CED1;}
 		a:hover {color: #FFFFFF;}
-		
+
 		a {
 			margin-right: 10px;
 		}
