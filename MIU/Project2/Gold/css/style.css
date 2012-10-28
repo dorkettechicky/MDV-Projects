@@ -1,0 +1,61 @@
+/* 
+Patricia Dacosta 
+MIU 1211
+Project 1
+style.css
+October 25, 2012 
+*/
+
+
+		html {
+		    background: #00CED1;
+		    		    
+		}
+
+
+		h1 {
+		  	text-align:left;
+		    font-size: 200%;
+		    color: #000000;
+		    padding: 2em;
+		    margin: -1em -0.75em 0em -0.75em;
+		}
+
+
+		body {
+		    font-family: "Arial Black", Gadget, sans-serif;
+		    margin: 0em auto; 
+		    padding: 1.5em;
+		    color: #FFFFFF;
+		    max-width: 60em;
+		    max-height: 100em;
+		    line-height: 1.5em;
+		}
+
+
+		label.formInputs {
+			display: block;
+			height: 25px;
+			margin-top: 10px;
+		}
+
+		fieldset {
+			color: #FFFFFF;
+			font-family: "Arial Black", Gadget, sans-serif;
+			background-color: #000000;
+			opacity: 1;
+			border-color: white;
+			border-style: solid;
+			font-style: bold;
+			line-height: 20px;
+			width: 400px;
+			margin-bottom: 20px;
+			margin-top: 10px;
+		}
+
+		a:link {color: #00CED1;}
+		a:hover {color: #FFFFFF;}
+
+		a {
+			margin-right: 10px;
+		}
