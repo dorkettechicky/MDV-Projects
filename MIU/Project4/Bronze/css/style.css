@@ -1,0 +1,36 @@
+/* 
+Patricia Dacosta 
+MIU 1211
+Project 2 Bronze
+style.css
+November 1, 2012 
+*/
+
+html {
+	background-color: #00CED1;
+	max-width: 640px;
+	max-height: 960px;
+}
+
+
+
+h4 {
+	font-family: "Arial Black", Gadget, sans-serif;
+	color: #064348;
+	margin: -100px 0px 55px 135px;
+	
+}	
+#feature {
+	background-color: white;
+	margin: 0px -10px 0px -6px;
+	
+	}
+#cta {
+	position: absolute;
+	margin: -52px 0px -20px 145px;
+	}
+#header{
+	text-align: center;
+}	
+#category .ui-grid-b div{text-align:center;}
+#category .ui-grid-b ul-bar{padding: 20px 10px;}
