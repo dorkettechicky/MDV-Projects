@@ -17,11 +17,12 @@ $('#delAll').on("click", function(){
 	deleteData();
 });
 
-$('#dispAll').on("pagecreate", function(){
-	if (localStorage.length ==== 0){
-		autofillData();
-	}
+$('#dispAll').on('pageinit', function(){
 		getData();
+});
+
+$('#reset').on("click", function(){
+	window.location.reload();
 });
 /*
 $('#electronicsP').on('pageinit', function(){
