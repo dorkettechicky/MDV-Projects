@@ -13,6 +13,16 @@ $('#home').on('pageinit', function(){
 	//code needed for home page goes here
 });	
 
+$('#delAll').on("click", function(){
+	deleteData();
+});
+
+$('#dispAll').on("pagecreate", function(){
+	if (localStorage.length ==== 0){
+		autofillData();
+	}
+		getData();
+});
 /*
 $('#electronicsP').on('pageinit', function(){
 	if (localStorage.length === 0){
@@ -104,12 +114,6 @@ $('#additem').on('pagecreate', function(){
 $('#additem').on('pageinit', function(){
 	/* save.click(validate); */
 
-$('#dispAll').on('pagecreate', function(){
-	if (localStorage.length === 0){
-		autofillData();
-	}
-		getData();
-});
 		var myForm = $('#addItemForm'),
 			errorsLink = $('#errorsLink');
 			
