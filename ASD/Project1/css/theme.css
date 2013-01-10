@@ -20,10 +20,16 @@ November 15, 2012
 /* A
 -----------------------------------------------------------------------------------------------------------*/
 
-#branding {
+/*
+header.'a' {
+	display: inline-block;
+	width: 250px;
+	height: 34px;
 	margin: 3px 3px 3px 3px;
+	
 			
 }
+*/
 
 label.error{display:block; margin: 15px 0; color: red;}
 input.error{
@@ -61,6 +67,15 @@ h4 {
 	position: absolute;
 	margin: -52px 0px -20px 145px;
 	}
+#deleteAll {
+	position: absolute;
+	margin: -20px 50px -80px 200px;
+}	
+
+#dispAll {
+	position: absolute;
+	margin: -20px 0px -80px 0px;
+}
 
 #listDivide {background-image: -webkit-gradient(linear, left top, left bottom, from( #00cfdd /*{a-bar-background-start}*/), to( #00585e /*{a-bar-background-end}*/)); /* Saf4+, Chrome */
 	background-image: -webkit-linear-gradient( #00cfdd /*{a-bar-background-start}*/, #00585e /*{a-bar-background-end}*/); /* Chrome 10+, Saf5.1+ */
