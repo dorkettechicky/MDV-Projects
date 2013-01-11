@@ -6,6 +6,21 @@ main.js
 January 10, 2013
 */
 
+/*
+**Notes**
+
+Upon clicking on any of the browse pages (home page) the app will then freeze and must be manually reloaded (hitting refresh on the browser does not recover the app), due to this issue calls under page calls have been commented out.
+
+Currently working:
+
+Form values are saving to local storage (storeData), however attempting window.location.reload() upon save, freezes app.
+
+deleteData is working properly, deletes all data from local storage, confirm and alerts pop, and reloads page after delete.
+
+Unable to get data to populate back to form or to display all, this is preventing the ability to test editItem and deleteItem functions as well as autofill.
+*/
+
+
 //Global Variables
 
 
@@ -18,14 +33,13 @@ $('#delAll').on("click", function(){
 });
 
 $('#dispAll').on('pageinit', function(){
-		getData();
+		
 });
 
 $('#reset').on("click", function(){
 	window.location.reload();
 });
-/*
-$('#electronicsP').on('pageinit', function(){
+$('#electronics').on('pageinit', function(){
 	if (localStorage.length === 0){
 		autofillData();
 	}
@@ -33,71 +47,39 @@ $('#electronicsP').on('pageinit', function(){
 });
 
 		
-$('#appliancesP').on('pageinit', function(){
-	if (localStorage.length === 0){
-		autofillData();
-	}
-	getData("Appliances");
+$('#appliances').on('pageinit', function(){
 	
 });
 		
-$('#jewelryP').on('pageinit', function(){
-	if (localStorage.length === 0){
-		autofillData();
-	}
-	getData("Jewelry");
+$('#jewelry').on('pageinit', function(){
 
 });
 		
-$('#collectiblesP').on('pageinit', function(){
-	if (localStorage.length === 0){
-		autofillData();
-	}
-	getData("Collectibles");
+$('#collectibles').on('pageinit', function(){
+
+});
+		
+$('#art').on('pageinit', function(){
 	
 });
 		
-$('#artP').on('pageinit', function(){
-	if (localStorage.length === 0){
-		autofillData();
-	}
-	getData("Art");
+$('#apparel').on('pageinit', function(){
 	
 });
 		
-$('#apparelP').on('pageinit', function(){
-	if (localStorage.length === 0){
-		autofillData();
-	}
-	getData("Apparel");
+$('#household').on('pageinit', function(){
 	
 });
 		
-$('#householdP').on('pageinit', function(){
-	if (localStorage.length === 0){
-		autofillData();
-	}
-	getData("Household");
-	
+$('#tools').on('pageinit', function(){
+
 });
 		
-$('#toolsP').on('pageinit', function(){
-	if (localStorage.length === 0){
-		autofillData();
-	}
-	getData("Tools");
-	
-});
-		
-$('#miscellaneousP').on('pageinit', function(){
-	if (localStorage.length === 0){
-		autofillData();
-	}
-	getData("Miscellaneous");
+$('#miscellaneous').on('pageinit', function(){
 	
 });
 
-$('#displayAll').on('pagecreate', function(){
+$('#dispAll').on('pagecreate', function(){
 	if (localStorage.length === 0){
 		autofillData();
 	}
@@ -105,7 +87,8 @@ $('#displayAll').on('pagecreate', function(){
 	
 });
 		
-*/
+
+
 /*
 $('#additem').on('pagecreate', function(){
 	createSelect();
@@ -113,7 +96,7 @@ $('#additem').on('pagecreate', function(){
 */
 		
 $('#additem').on('pageinit', function(){
-	/* save.click(validate); */
+/* 	save.click(validate); */
 
 		var myForm = $('#addItemForm'),
 			errorsLink = $('#errorsLink');
@@ -172,7 +155,8 @@ var getData = function(){
 			var makeSubList = $(document.createElement('div'));
 			var linkLi = $(document.createElement('div'));
 			if(category === obj.cats[1]){
-				$('makeSubList').attr('id', id + "items")
+				$('makeSubList')
+				.attr('id', id + "items")
 				.attr('data-role', collapsible)
 				.attr('data-inset', true)
 				.append(makeSubList);
@@ -300,7 +284,7 @@ var storeData = function(data, key){
 		var ask = confirm("Are you sure you want to delete this item?");
 		if (ask){
 			localStorage.removeItem(this.key);
-			location.reload();
+			window.location.reload();
 		}else{
 			alert("Item was NOT deleted!");
 		}

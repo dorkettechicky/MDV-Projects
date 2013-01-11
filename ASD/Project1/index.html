@@ -51,15 +51,15 @@ January 10, 2013
 				<ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder ="Search Inventory" data-theme="a">
 
 					<li data-role="list-divider" id="listDivide" data-theme="a">Browse Inventory By:</li>
-					<li><a href="#electronicsP" data-transition="flip"><img src="img/electronics.png"/>Electronics</a></li>
-					<li><a href="#appliancesP" data-transition="flip"><img src="img/appliances.png"/>Appliances</a></li>
-					<li><a href="#jewelryP" data-transition="flip"><img src="img/jewelry.png"/>Jewelry</a></li>
-					<li><a href="#collectiblesP" data-transition="flip"><img src="img/collectibles.png"/>Collectibles</a></li>
-					<li><a href="#artP" data-transition="flip"><img src="img/art.png"/>Art</a></li>
-					<li><a href="#apparelP" data-transition="flip"><img src="img/apparel.png"/>Apparel</a></li>
-					<li><a href="#householdP" data-transition="flip"><img src="img/household.png"/>Household</a></li>
-					<li><a href="#toolsP" data-transition="flip"><img src="img/tools.png"/>Tools</a></li>
-					<li><a href="#miscellaneousP" data-transition="flip"><img src="img/miscellaneous.png"/>Miscellaneous</a></li>
+					<li><a href="#electronics" data-transition="flip"><img src="img/electronics.png"/>Electronics</a></li>
+					<li><a href="#appliances" data-transition="flip"><img src="img/appliances.png"/>Appliances</a></li>
+					<li><a href="#jewelry" data-transition="flip"><img src="img/jewelry.png"/>Jewelry</a></li>
+					<li><a href="#collectibles" data-transition="flip"><img src="img/collectibles.png"/>Collectibles</a></li>
+					<li><a href="#art" data-transition="flip"><img src="img/art.png"/>Art</a></li>
+					<li><a href="#apparel" data-transition="flip"><img src="img/apparel.png"/>Apparel</a></li>
+					<li><a href="#household" data-transition="flip"><img src="img/household.png"/>Household</a></li>
+					<li><a href="#tools" data-transition="flip"><img src="img/tools.png"/>Tools</a></li>
+					<li><a href="#miscellaneous" data-transition="flip"><img src="img/miscellaneous.png"/>Miscellaneous</a></li>
 				</ul>
 			
 			</section>
@@ -80,7 +80,7 @@ January 10, 2013
 			</footer>
 		</div> 
 		
-		<div data-role="page" id="electronicsP" data-theme="a">
+		<div data-role="page" id="electronics" data-theme="a">
 			<header data-role="header" data-position="fixed" data-theme="">
 		 		<div>
 		 		
@@ -322,24 +322,20 @@ January 10, 2013
 
 					<div data-role="fieldcontain">
 						<div id="select"><label for="cats">Category: *Required</label></div>
-												<select name="cats" id="cats" class="required" data-native-menu="false" data-theme="a">
-							<option data-placeholder="true" value="">Please Select Category</option>
-							<option value="electronics">Electronics</option>
-							<option value="appliances">Appliances</option>
-							<option value="jewelry">Jewelry</option>
-							<option value="collectibles">Collectibles</option>
-							<option value="art">Art</option>
-							<option value="apparel">Apparel</option>
-							<option value="household">Household</option>
-							<option value="tools">Tools</option>
-							<option value="miscellaneous">Miscellaneous</option>
-						</select>	
-
-
-					</div>	
+							<select name="cats" id="cats" class="required" data-native-menu="false" data-theme="a">
+								<option data-placeholder="true" value="">Please Select Category</option>
+								<option value="electronics">Electronics</option>
+								<option value="appliances">Appliances</option>
+								<option value="jewelry">Jewelry</option>
+								<option value="collectibles">Collectibles</option>
+								<option value="art">Art</option>
+								<option value="apparel">Apparel</option>
+								<option value="household">Household</option>
+								<option value="tools">Tools</option>
+								<option value="miscellaneous">Miscellaneous</option>
+							</select>	
+						</div>	
 					
-
-										
 					<div data-role="fieldcontain">
 						<label for="sNumber">Serial Number: </label>
 						<input type="text" name="sNumber" id="sNumber" placeholder="Ex: 8675309"/>
