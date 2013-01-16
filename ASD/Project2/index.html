@@ -2,9 +2,9 @@
 <!-- 
 Patricia Dacosta
 ASD 1301
-Project 1 
+Project 2
 index.html
-January 10, 2013
+January 17, 2013
 -->
 
 <html lang="en">
@@ -46,6 +46,10 @@ January 10, 2013
 			<!-- CTA -->
 			<a href="#additem"><img src="img/additem.png" id="cta" alt="Add Item" data-theme="a"/></a>
 			
+			<div data-role="content" id="xhrButton" data-theme="a">
+				
+                    <a href="#xhrPage" id="xhrBtn" data-role="button" data-theme="a" data-transition="flip">XHR Data</a>
+             </div>
 			
 			<section data-role="content" id="browseCategory">
 				<ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder ="Search Inventory" data-theme="a">
@@ -79,6 +83,83 @@ January 10, 2013
 				</nav>
 			</footer>
 		</div> 
+		
+		<div data-role="page" id="xhrPage" data-theme="a">
+			<header data-role="header" data-position="fixed" data-theme="">
+		 		<div>
+		 		
+					<a href="#home"><img src="img/feature3.png" id="branding" width="250px" height="34px" ></a>
+				
+				</div>
+			</header>	
+			<section data-role="content" data-theme="a">
+				<div data-role="controlgroup">
+				    <a href="#" id="csvDataBtn" data-role="button" data-theme="a" data-transition="flip">CSV Data</a>
+                    <a href="#" id="jsonDataBtn" data-role="button" data-theme="a" data-transition="flip">JSON Data</a>
+                    <a href="#xmlPage" id="xmlDataBtn" data-role="button" data-theme="a" data-transition="flip">XML Data</a>
+
+				
+				</div>
+			
+			</section>
+			<footer data-role="footer" data-position="fixed" data-id="navFooter" data-theme="a">
+				<nav data-role="navbar" data-theme="a">
+					<ul>
+						<li><a href="#home" data-icon="home">Home</a></li>
+						<li><a href="#additem" data-icon="plus">Add Item</a></li>
+						<li><a href="#info" data-icon="info">Delete All</a></li>
+					</ul>
+				</nav>
+			</footer>
+		</div>
+
+		<div data-role="page" id="xmlPage" data-theme="a">
+			<header data-role="header" data-position="fixed" data-theme="">
+		 		<div>
+		 		
+					<a href="#home"><img src="img/feature3.png" id="branding" width="250px" height="34px" ></a>
+					<h1>XML Response</h1>
+				</div>
+			</header>
+			<div data-role="content" id="xmlContent">
+				<div id="xmlData" data-role="listview">
+				</div>
+			</div>
+			<footer data-role="footer" data-position="fixed" data-id="navFooter" data-theme="a">
+				<nav data-role="navbar" data-theme="a">
+					<ul>
+						<li><a href="#home" data-icon="home">Home</a></li>
+						<li><a href="#additem" data-icon="plus">Add Item</a></li>
+						<li><a href="#info" data-icon="info">Delete All</a></li>
+					</ul>
+				</nav>
+			</footer>
+		</div>
+<!--
+		<div data-role="page" id="xmlPage" data-theme="a">
+			<header data-role="header" data-position="fixed" data-theme="">
+		 		<div>
+		 		
+					<a href="#home"><img src="img/feature3.png" id="branding" width="250px" height="34px" ></a>
+				
+				</div>
+			</header>	
+			<div data-role="content">	
+			<section data-role="content" data-theme="a">
+				<div id="xmlResponse">
+					<ul id=""
+			</section>
+			<footer data-role="footer" data-position="fixed" data-id="navFooter" data-theme="a">
+				<nav data-role="navbar" data-theme="a">
+					<ul>
+						<li><a href="#home" data-icon="home">Home</a></li>
+						<li><a href="#additem" data-icon="plus">Add Item</a></li>
+						<li><a href="#info" data-icon="info">Delete All</a></li>
+					</ul>
+				</nav>
+			</footer>
+		</div>
+-->
 		
 		<div data-role="page" id="electronics" data-theme="a">
 			<header data-role="header" data-position="fixed" data-theme="">

@@ -1,12 +1,13 @@
 /*
 Patricia Dacosta
 ASD 1301
-Project 1 
+Project 2
 JSON.js
-January 10, 2013
+January 17, 2013
 */
 
-var json = {
+var json = 
+{
 	"item1": {
 		"itemName": ["Item Name:", "Big Screen TV"],
 		"category": ["Category:", "Electronics"],
