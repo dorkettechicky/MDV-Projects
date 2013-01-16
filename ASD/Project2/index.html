@@ -94,8 +94,8 @@ January 17, 2013
 			</header>	
 			<section data-role="content" data-theme="a">
 				<div data-role="controlgroup">
-				    <a href="#" id="csvDataBtn" data-role="button" data-theme="a" data-transition="flip">CSV Data</a>
-                    <a href="#" id="jsonDataBtn" data-role="button" data-theme="a" data-transition="flip">JSON Data</a>
+				    <a href="#csvPage" id="csvDataBtn" data-role="button" data-theme="a" data-transition="flip">CSV Data</a>
+                    <a href="#jsonPage" id="jsonDataBtn" data-role="button" data-theme="a" data-transition="flip">JSON Data</a>
                     <a href="#xmlPage" id="xmlDataBtn" data-role="button" data-theme="a" data-transition="flip">XML Data</a>
 
 				
@@ -123,7 +123,7 @@ January 17, 2013
 			</header>
 			<div data-role="content" id="xmlContent">
 				<div id="xmlData" data-role="listview">
-				</div>
+				</div>	
 			</div>
 			<footer data-role="footer" data-position="fixed" data-id="navFooter" data-theme="a">
 				<nav data-role="navbar" data-theme="a">
@@ -135,6 +135,53 @@ January 17, 2013
 				</nav>
 			</footer>
 		</div>
+		
+		<div data-role="page" id="jsonPage" data-theme="a">
+			<header data-role="header" data-position="fixed" data-theme="">
+		 		<div>
+		 		
+					<a href="#home"><img src="img/feature3.png" id="branding" width="250px" height="34px" ></a>
+					<h1>JSON Response</h1>
+				</div>
+			</header>
+			<div data-role="content" id="jsonContent">
+				<div id="jsonData" data-role="listview">
+				</div>	
+			</div>
+			<footer data-role="footer" data-position="fixed" data-id="navFooter" data-theme="a">
+				<nav data-role="navbar" data-theme="a">
+					<ul>
+						<li><a href="#home" data-icon="home">Home</a></li>
+						<li><a href="#additem" data-icon="plus">Add Item</a></li>
+						<li><a href="#info" data-icon="info">Delete All</a></li>
+					</ul>
+				</nav>
+			</footer>
+		</div>
+		
+				<div data-role="page" id="csvPage" data-theme="a">
+			<header data-role="header" data-position="fixed" data-theme="">
+		 		<div>
+		 		
+					<a href="#home"><img src="img/feature3.png" id="branding" width="250px" height="34px" ></a>
+					<h1>CSV Response</h1>
+				</div>
+			</header>
+			<div data-role="content" id="jsonContent">
+				<div id="csvData" data-role="listview">
+				</div>	
+			</div>
+			<footer data-role="footer" data-position="fixed" data-id="navFooter" data-theme="a">
+				<nav data-role="navbar" data-theme="a">
+					<ul>
+						<li><a href="#home" data-icon="home">Home</a></li>
+						<li><a href="#additem" data-icon="plus">Add Item</a></li>
+						<li><a href="#info" data-icon="info">Delete All</a></li>
+					</ul>
+				</nav>
+			</footer>
+		</div>
+
 <!--
 		<div data-role="page" id="xmlPage" data-theme="a">
 			<header data-role="header" data-position="fixed" data-theme="">
@@ -397,8 +444,8 @@ January 17, 2013
 			<div data-role="content" data-theme="a">
 				<form action="" method="post" id="addItemForm" data-theme="a">
 					<div data-role="fieldcontain" data-theme="a">
-						<label for="name">Item Name: *Required</label>
-						<input type="text" name="name" id="name" placeholder="Mitsubishi Television" class="required"/>
+						<label for="itemName">Item Name: *Required</label>
+						<input type="text" name="itemName" id="itemName" placeholder="Mitsubishi Television" class="required"/>
 					</div>
 
 					<div data-role="fieldcontain">
@@ -611,7 +658,7 @@ January 17, 2013
 				</div>
 			</header>	
 			<section data-role="content" data-theme="a">
-				<div id="displayItem">
+				<div id="displayAll" data-role="listview">
 				</div>
 			</section>
 			<footer data-role="footer" data-position="fixed" data-id="navFooter" data-theme="a">

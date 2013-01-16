@@ -46,7 +46,7 @@ $('#xmlDataBtn').on('click', function(){
 		type:		'GET',
 		dataType:	'xml',
 		success:	function(response){
-		alert("getDataXml fired");
+		alert("XML request received.");
 		$(response).find("item").each(function(){ 
 
 						var name = $(this).find('itemName').text(),
@@ -71,11 +71,42 @@ $('#xmlDataBtn').on('click', function(){
 			});
 	}
 });
-
+		alert("XML Data Loaded");
 });
 
+$('#jsonPage').on("pageinit", function(){
+	
+});
 
+$('#jsonDataBtn').on("click", function(){
+	
+		$.ajax({
+		url:		'xhr/data.json',
+		type:		'GET',
+		dataType:	'json',
+		success:	function(response){
+		alert("JSON Request Received.");
+			for (var i in response.items){
+				var items = response.items[i];
+					
+					$('<div data-role="content">'+ '<ul data-role="listview">' + 
+						'<li>' +
+						'<h3>' + "Item Name: " + items.itemName + '</h3>' +
+						'<p>' + "Category: " + items.category + '</p>' +
+						'<p>' + "Serial Number: " + items.sNumber + '</p>' +
+						'<p>' + "Model Number: " + items.mNumber + '</p>' +
+						'<p>' + "Condition: " + items.condition + '</p>' +
+						'<p>' + "Date: " + items.date + '</p>' +
+						'<p>' + "Replacement Cost: " + items.rCost + '</p>' +
+						'<p>' + "Details: " + items.details + '</p>' + 
+						'</li>' + '</ul>' + '</div>').appendTo('#jsonData');
+			};
+		}
+	
+	});
+			alert("JSON Data Loaded");
 
+});
 
 
 
@@ -91,24 +122,22 @@ $('#delAll').on("click", function(){
 	deleteData();
 });
 
-$('#dispAll').on('pagecreate', function(){
+('#dispAll').on('pageinit', function(){
+
+});
+
+$('displayAll').on("click", function(){
 	if (localStorage.length === 0){
 		autofillData();
 	}
-	getData();
-
-	
-		
+	getData();	
 });
 
 $('#reset').on("click", function(){
 	window.location.reload();
 });
 $('#electronics').on('pagecreate', function(){
-	if (localStorage.length === 0){
-		autofillData();
-	}
-	getData("Electronics");
+
 });
 
 		
@@ -141,14 +170,6 @@ $('#tools').on('pageinit', function(){
 });
 		
 $('#miscellaneous').on('pageinit', function(){
-	
-});
-
-$('#dispAll').on('pagecreate', function(){
-	if (localStorage.length === 0){
-		autofillData();
-	}
-	getData();
 	
 });
 
@@ -311,7 +332,7 @@ var storeData = function(data, key){
 		id = key;
 	}		
 	var item					= {};
-			item.name			=["Item Name:", $("#name").val()];
+			item.itemName		=["Item Name:", $("#itemName").val()];
 			item.cats			=["Category:", $("#cats").val()];
 			item.sNumber		=["Serial Number", $("#sNumber").val()];
 			item.mNumber		=["Model Number:", $("#mNumber").val()];
@@ -319,6 +340,7 @@ var storeData = function(data, key){
 			item.date			=["Date:", $("#date").val()];
 			item.rCost			=["Replacement Cost:", $("#rCost").val()];
 			item.details		=["Details:", $("#details").val()];
+			
 		//Save data into local storage: Use Stringify to convert our object to a string.
 		localStorage.setItem(id, JSON.stringify(item));
 		alert("Item Saved!");
@@ -330,7 +352,7 @@ var storeData = function(data, key){
 		var item = JSON.parse(val);
 		
 		//populate the form fields with current localStorage values.
-		$('#name').val = (item.name[1]);
+		$('#itemName').val = (item.itemName[1]);
 		$('#cats').val = (item.cats[1]);
 		$('#sNumber').val = (item.sNumber[1]);
 		$('#mNumber').val = (item.mNumber[1]);
