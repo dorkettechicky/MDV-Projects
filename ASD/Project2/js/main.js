@@ -1,9 +1,9 @@
 /*
 Patricia Dacosta
 ASD 1301
-Project 1
+Project 2
 main.js
-January 10, 2013
+January 17, 2013
 */
 
 /*
@@ -25,21 +25,86 @@ Unable to get data to populate back to form or to display all, this is preventin
 
 
 $('#home').on('pageinit', function(){
+
+
 	//code needed for home page goes here
 });	
+
+
+
+$('#xhrPage').on('pageinit', function(){
+	
+});
+
+$('#xmlPage').on('pageinit', function(){
+});
+
+$('#xmlDataBtn').on('click', function(){
+
+	$.ajax({
+		url:		'xhr/data.xml',
+		type:		'GET',
+		dataType:	'xml',
+		success:	function(response){
+		alert("getDataXml fired");
+		$(response).find("item").each(function(){ 
+
+						var name = $(this).find('itemName').text(),
+							category = $(this).find('category').text(),
+							sNumber = $(this).find('sNumber').text(),
+							mNumber = $(this).find('mNumber').text(),
+							condition = $(this).find('condition').text(),
+							date = $(this).find('date').text(),
+							rCost = $(this).find('rCost').text(),
+							details = $(this).find('details').text();
+						$('<div data-role="content">'+ '<ul data-role="listview">' + 
+							'<li>' +
+							'<h3>' + 'Item Name: ' + name + '</h3>' +
+							'<p>' + 'Category: ' + category + '</p>' +
+							'<p>' + 'Serial Number: ' + sNumber + '</p>' +
+							'<p>' + 'Model Number: ' + mNumber + '</p>' +
+							'<p>' + 'Condition: ' + condition + '</p>' +
+							'<p>' + 'Date: ' + date + '</p>' +
+							'<p>' + 'Replacement Cost: ' + rCost + '</p>' +
+							'<p>' + 'Details: ' + details + '</p>' + 
+							'</li>' + '</ul>' + '</div>').appendTo('#xmlData');
+			});
+	}
+});
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 $('#delAll').on("click", function(){
 	deleteData();
 });
 
-$('#dispAll').on('pageinit', function(){
+$('#dispAll').on('pagecreate', function(){
+	if (localStorage.length === 0){
+		autofillData();
+	}
+	getData();
+
+	
 		
 });
 
 $('#reset').on("click", function(){
 	window.location.reload();
 });
-$('#electronics').on('pageinit', function(){
+$('#electronics').on('pagecreate', function(){
 	if (localStorage.length === 0){
 		autofillData();
 	}
@@ -86,6 +151,7 @@ $('#dispAll').on('pagecreate', function(){
 	getData();
 	
 });
+
 		
 
 
@@ -142,7 +208,10 @@ var autofillData = function (){
 	 
 };
 
-var getData = function(){
+var getData = function(id){
+	if(localStorage.length === 0){
+		autofillData();
+	};
 		var category = id;
 		var makeList = $(document.createElement('ul'));
 		$(id + 'data').append(makeList)
@@ -175,12 +244,6 @@ var getData = function(){
 			}
 			makeItemLink(localStorage.Key(i), linkLi);
 		}
-		if(localStorage.length === 0){
-			alert("There is no data in local storage, so default data was added!");
-			autoFillData();
-		}
-
-
 };
 
 /*
@@ -305,6 +368,4 @@ var storeData = function(data, key){
 		}
 	};
 
-
-	
 
