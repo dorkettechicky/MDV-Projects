@@ -69,6 +69,7 @@ $('#xmlDataBtn').on('click', function(){
 							'<p>' + 'Details: ' + details + '</p>' + 
 							'</li>' + '</ul>' + '</div>').appendTo('#xmlData');
 			});
+			console.log(response);
 	}
 });
 		alert("XML Data Loaded");
@@ -101,6 +102,7 @@ $('#jsonDataBtn').on("click", function(){
 						'<p>' + "Details: " + items.details + '</p>' + 
 						'</li>' + '</ul>' + '</div>').appendTo('#jsonData');
 			};
+			console.log(response);
 		}
 	
 	});
@@ -108,6 +110,54 @@ $('#jsonDataBtn').on("click", function(){
 
 });
 
+$('#csvPage').on("pageinit", function(){
+	
+});
+
+$('#csvDataBtn').on("click", function(){
+	
+		$.ajax({
+		url:		'xhr/data.csv',
+		type:		'GET',
+		dataType:	'text',
+		success:	function(response){
+		alert("CSV Request Received.");
+			var csvData = response.split(/\r\n|\n/),
+				dataSep = csvData[0].split('|'),
+				type = [];
+			for(var i=1; i<csvData.length; i++){
+				var data = csvData[i].split('|');
+				if (data.length == dataSep.length){
+					var items = [];
+					for (var j=0; j<dataSep.length; j++){
+						items.push(data[j]);
+					}
+					type.push(items);
+				}
+			}
+			for(var k=0; k<type.length; k++){
+				var item = type[k];	
+								
+					$('<div data-role="content">'+ '<ul data-role="listview">' + 
+						'<li>' +
+						'<h3>' + "Item Name: " + item[0]+ '</h3>' +
+						'<p>' + "Category: " + item[1] + '</p>' +
+						'<p>' + "Serial Number: " + item[2] + '</p>' +
+						'<p>' + "Model Number: " + item[3] + '</p>' +
+						'<p>' + "Condition: " + item[4] + '</p>' +
+						'<p>' + "Date: " + item[5]+ '</p>' +
+						'<p>' + "Replacement Cost: " + item[6] + '</p>' +
+						'<p>' + "Details: " + item[7] + '</p>' + 
+						'</li>' + '</ul>' + '</div>').appendTo('#csvData');
+			};
+			console.log(response);
+		}
+	
+	});
+			alert("CSV Data Loaded");
+			
+
+});
 
 
 
@@ -122,9 +172,11 @@ $('#delAll').on("click", function(){
 	deleteData();
 });
 
-('#dispAll').on('pageinit', function(){
+/*
+('#dispAll').on('pagecreate', function(){
 
 });
+*/
 
 $('displayAll').on("click", function(){
 	if (localStorage.length === 0){
