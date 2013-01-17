@@ -8,16 +8,14 @@ January 17, 2013
 
 /*
 **Notes**
-
-Upon clicking on any of the browse pages (home page) the app will then freeze and must be manually reloaded (hitting refresh on the browser does not recover the app), due to this issue calls under page calls have been commented out.
-
-Currently working:
-
-Form values are saving to local storage (storeData), however attempting window.location.reload() upon save, freezes app.
-
-deleteData is working properly, deletes all data from local storage, confirm and alerts pop, and reloads page after delete.
-
-Unable to get data to populate back to form or to display all, this is preventing the ability to test editItem and deleteItem functions as well as autofill.
+ajax calls for static data functioning properly.
+CRUD is functioning, however format behaviors need work.
+Need to work on dynamic select menu.
+Form is not refreshing upon save.
+Display items are not styled as expected.
+Research changepage on jquerymobile.
+Need to clean up code, remove page calls that no longer exist.
+Work on trying to get data to load to category pages.
 */
 
 
@@ -164,7 +162,9 @@ $('#csvDataBtn').on("click", function(){
 
 
 
-
+$('#dispAllBtn').on("click", function(){
+	getData();
+});
 
 
 
@@ -178,11 +178,8 @@ $('#delAll').on("click", function(){
 });
 */
 
-$('displayAll').on("click", function(){
-	if (localStorage.length === 0){
-		autofillData();
-	}
-	getData();	
+$('displayAll').on("pageinit", function(){
+
 });
 
 $('#reset').on("click", function(){
@@ -272,6 +269,33 @@ $('#additem').on('pageinit', function(){
 
 //The functions below can go inside or outside the pageinit function for the page in which it is needed.
 
+var makeItemLink = function(key, linksLi){
+	var editLink = $('<a></a>').attr({
+			"href": "#additem",
+			"id": "editItemBtn",
+			"data-role": "button",
+			"data-mini": "true",
+			"data-inline": "true",
+			"key": key			
+			})
+			.html('Edit Item')
+			.appendTo(linksLi).on("click", editItem);
+			
+	var deleteLink = $('<a></a>').attr({
+			"href": "#",
+			"id": "deleteItemBtn",
+			"data-role": "button",
+			"data-mini": "true",
+			"data-inline": "true",
+			"key": key			
+			})
+			.html('Delete Item')
+			.appendTo(linksLi).on("click", deleteItem);
+			
+			
+};
+
+
 var autofillData = function (){
 	console.log("autofill Fired");
 	for (var n in json) {
@@ -285,40 +309,28 @@ var getData = function(id){
 	if(localStorage.length === 0){
 		autofillData();
 	};
-		var category = id;
-		var makeList = $(document.createElement('ul'));
-		$(id + 'data').append(makeList)
-		.attr('id', id+items)
-		.attr('data-role', listview);
-		for(var i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);
-			var value = localStorage.getItem(key);
-			var obj = JSON.parse(value);
-			var makeSubList = $(document.createElement('div'));
-			var linkLi = $(document.createElement('div'));
-			if(category === obj.cats[1]){
-				$('makeSubList')
-				.attr('id', id + "items")
-				.attr('data-role', collapsible)
-				.attr('data-inset', true)
-				.append(makeSubList);
-				var h3 = $(document.createElement('h3'));
-				makeSubList.append(h3);
-				var opth3Test = obj.name[1];
-				for (var n in obj) {
-					var makeSubLi = $(document.createElement('div'));
-					h3.html = optH3Text;
-					makeSubList.append(makeSubLi);
-					makeSubLi.attr('class', 'inner');
-					var optSubText = obj[n][0] + " "+obj[n][1];
-					makeSubLi.html = optSubText;
-					makeSubLi.append(linkLi);
-				}
-			}
-			makeItemLink(localStorage.Key(i), linkLi);
+	
+	for (var i=0, len=localStorage.length; i<len; i++){
+		var makeLi = $('<li></li>').attr({
+										'id': 'list',
+										'data-role': 'listview',
+										'data-theme': 'a'}).appendTo('#displayAll');
+				
+				var key = localStorage.key(i);
+				var value = localStorage.getItem(key);
+				var obj = JSON.parse(value);
+				
+				for (var n in obj){
+					var makeSubli = $('<p></p>').html(obj[n][0] + "" + obj[n][1]).appendTo(makeLi);
+					
+				}			
+				var linksLi = $('<div></div>').attr('class', 'linksLi').appendTo(makeLi);
+				makeItemLink(localStorage.key(i), linksLi);			
 		}
-};
-
+/* 		alert("Inventory Retrived"); */
+	};
+	
+	
 /*
 	var category = ["Select", "Electronics", "Appliances", "Jewelry", "Collectibles", "Art", "Apparel", "Household", "Tools", "Miscellaneous"];	
 	var save = $("#submit")
@@ -352,30 +364,6 @@ var getData = function(id){
 };
 */
 
-function makeItemLink(key, linkLi){
-	var editLink = $(document.createElement('a'));
-	editLink.attr("id", "editItem");
-	editLink.attr("data-role", "button");
-	editLink.attr("data-inline", "true");
-	editLink.href = "#additem";
-	editLink.key = key;
-	var editText = "Edit Item";
-	editLink.on('click', function(editItem){});
-	editLink.html = editText;
-	linkLi.append(editLink);
-	
-	var deleteLink = $(document.createElement('a'));
-	deleteLink.attr("id", "deleteItem");
-	deleteLink.attr("data-role", "button");
-	deleteLink.attr("data-inline", "true");
-	deleteLink.href = "";
-	deleteLink.key = key;
-	var deleteText = "Delete Item";
-	deleteLink.on('click', function(deleteItem){});
-	deleteLink.html = deleteText;
-	linkLi.append(deleteLink);
-	
-};
 
 var storeData = function(data, key){
 	if(!key){		
@@ -398,36 +386,41 @@ var storeData = function(data, key){
 		alert("Item Saved!");
 };
 
-	function editItem(){
+var editItem = function(key){
 		//grab the data from the item from local storage
-		var val = localStorage.getItem(this.key);
-		var item = JSON.parse(val);
+		var value = localStorage.getItem($(this).attr('key'));
+		var item = $.parseJSON(value);
 		
 		//populate the form fields with current localStorage values.
-		$('#itemName').val = (item.itemName[1]);
-		$('#cats').val = (item.cats[1]);
-		$('#sNumber').val = (item.sNumber[1]);
-		$('#mNumber').val = (item.mNumber[1]);
-		$('#date').val = (item.date[1]);	
-		$('#rCost').val = (item.rCost[1]);
-		$('#details').val = (item.details[1]);
+		$('#itemName').val(item.itemName[1]);
+		$('#cats').val(item.cats[1]);
+		$('#sNumber').val(item.sNumber[1]);
+		$('#mNumber').val(item.mNumber[1]);
+		$('#condition').val(item.condition[1]);
+		$('#date').val(item.date[1]);	
+		$('#rCost').val(item.rCost[1]);
+		$('#details').val(item.details[1]);
+
+		$('#submit').val("Edit Item");
+		$('#submit').attr('key', $(this).attr('key'));
 		
-		var editSubmit = $('#submit');
-			alert("Edited Item Saved!");
-			location.reload();
-		editSubmit.key = this.key;
+/* 			alert("Edited Item Saved!"); */
+			/* location.reload(); */
+		
+};		
 			
-	function deleteItem(){
+var deleteItem = function(){
 		var ask = confirm("Are you sure you want to delete this item?");
-		if (ask){
-			localStorage.removeItem(this.key);
+		if (ask === true){
+			localStorage.removeItem($(this).attr('key'));
+			alert("Inventory Item Deleted");
 			window.location.reload();
 		}else{
 			alert("Item was NOT deleted!");
 		}
 	};
-};	
-	function deleteData(){
+	
+var deleteData = function(){
 		var askAll = confirm("WARNING! This will delete ALL inventory items! Press OK to continue.");	
 		if(localStorage.length === 0){
 			alert("There is no data to clear!");
@@ -435,10 +428,13 @@ var storeData = function(data, key){
 		}else if(askAll){
 			localStorage.clear();
 			alert("All Items Have Been Deleted!");
-			location.reload();
-			return false;
 			}else{
+			
 				alert("Inventory items were NOT deleted!");
+			return false;
+			
+
+
 		}
 	};
 
