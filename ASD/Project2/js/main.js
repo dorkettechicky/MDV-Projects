@@ -9,8 +9,7 @@ January 17, 2013
 /*
 **Notes**
 ajax calls for static data functioning properly.
-CRUD is functioning, however format behaviors need work.
-Need to work on dynamic select menu.
+CRUD is functioning with the exception of the update.
 Form is not refreshing upon save.
 Display items are not styled as expected.
 Research changepage on jquerymobile.
@@ -225,11 +224,9 @@ $('#miscellaneous').on('pageinit', function(){
 		
 
 
-/*
 $('#additem').on('pagecreate', function(){
 	createSelect();
 });
-*/
 		
 $('#additem').on('pageinit', function(){
 /* 	save.click(validate); */
@@ -327,42 +324,32 @@ var getData = function(id){
 				var linksLi = $('<div></div>').attr('class', 'linksLi').appendTo(makeLi);
 				makeItemLink(localStorage.key(i), linksLi);			
 		}
-/* 		alert("Inventory Retrived"); */
+		alert("Inventory Retrived");
 	};
 	
 	
-/*
-	var category = ["Select", "Electronics", "Appliances", "Jewelry", "Collectibles", "Art", "Apparel", "Household", "Tools", "Miscellaneous"];	
+	var categories = ["Electronics", "Appliances", "Jewelry", "Collectibles", "Art", "Apparel", "Household", "Tools", "Miscellaneous"];	
 	var save = $("#submit")
 	
 	
-	function createSelect(){
-	var	dropDown = $("select");
-	var chooseCat = $(document.createElement('option'))
-		.attr({
-			"id": "cats",
-			"name": "cats",
-			"class": "required",
-			"data-native-menu": "false"
-		});
-		var placeHolder = $(document.createElement('option'))
-		.attr({
-			"data-placeholder": "true",
-			"value": "",
-			.html("Choose Category");
-
-		});		
-
-			
-	for (var i=0, j=category.length; i<j; i++){
-		var makeOption = $(document.createElement('option'))
-		.attr({"value": "selectText"})
-		.appendTo(makeOption)
-		.html(category[i])
-		.appendTo(chooseCat);
-	}				
+	var createSelect = function(){
+	
+		$('#select').html('<label for="cats">Category: *Required</label><select></select>');
+    $('#select select').attr({
+            "id": "cats",
+            "name": "cats",
+            "class": "required select",
+            "data-native-menu": "false"
+        })
+        .append('<option data-placeholder="true" value="" >Choose Category</option>')
+    ;
+    //Make options for each category
+    $.each(categories, function(){
+        $('#cats').append('<option value="'+this+'">'+this+'</option>');
+    });
+    
 };
-*/
+
 
 
 var storeData = function(data, key){
@@ -404,7 +391,7 @@ var editItem = function(key){
 		$('#submit').val("Edit Item");
 		$('#submit').attr('key', $(this).attr('key'));
 		
-/* 			alert("Edited Item Saved!"); */
+			alert("Edited Item Saved!");
 			/* location.reload(); */
 		
 };		
