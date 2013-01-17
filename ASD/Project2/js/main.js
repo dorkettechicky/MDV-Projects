@@ -9,7 +9,7 @@ January 17, 2013
 /*
 **Notes**
 ajax calls for static data functioning properly.
-CRUD is functioning with the exception of the update.
+CRUD is functioning, however, pages are not loading as expected, nor are listviews for display formatted as expected. 
 Form is not refreshing upon save.
 Display items are not styled as expected.
 Research changepage on jquerymobile.
