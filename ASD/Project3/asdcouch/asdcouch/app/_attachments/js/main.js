@@ -29,42 +29,449 @@ $('#home').on('pageinit', function(){
 
 
 
-$('#couch').on('pageinit', function(){
+$('#couchPage').on('pageinit', function(){
 	
 });
 
 
 $('#couchBtn').on('click', function(){
-
 		$.ajax({
 		url:		'_view/items',
-		type:		'GET',
 		dataType:	'json',
 		success:	function(response){
 		alert("Couch Request Received.");
-			for (var i in response.items){
-				var items = response.items[i];
-					
-					$('<div data-role="content">'+ '<ul data-role="listview">' + 
-						'<li>' +
-						'<h3>' + "Item Name: " + items.value.itemName + '</h3>' +
-						'<p>' + "Category: " + items.value.category + '</p>' +
-						'<p>' + "Serial Number: " + items.value.sNumber + '</p>' +
-						'<p>' + "Model Number: " + items.value.mNumber + '</p>' +
-						'<p>' + "Condition: " + items.value.condition + '</p>' +
-						'<p>' + "Date: " + items.value.date + '</p>' +
-						'<p>' + "Replacement Cost: " + items.value.rCost + '</p>' +
-						'<p>' + "Details: " + items.value.details + '</p>' + 
-						'</li>' + '</ul>' + '</div>').appendTo('#viewData');
-			};
+			console.log("Couch Items");
 			console.log(response);
-		}
-	
-	});
-			alert("Couch Data Loaded");
+			$('#couchData').empty();
+			$.each(response.rows, function (index, item){
+				var itemName = item.value.itemName;
+				var category = item.value.category;
+				var sNumber = item.value.sNumber;
+				var mNumber = item.value.mNumber;
+				var condition = item.value.condition;
+				var date = item.value.date;
+				var rCost = item.value.rCost;
+				var details = item.value.details;
+				$('<div data-role="collapsible" data-collapsed="true" data-theme="a">'+ 
+						'<h3>' + itemName[1] + '</h3>' + 
+						'<p>' + category[0] + " " + category[1] + '</p>' +
+						'<p>' + sNumber[0] + " " + sNumber[1] + '</p>' +
+						'<p>' + mNumber[0] + " " + mNumber[1] + '</p>' +
+						'<p>' + condition[0] + " " + condition[1] + '</p>' +
+						'<p>' + date[0] + " " + date[1] + '</p>' +
+						'<p>' + rCost[0] + " " + rCost[1] + '</p>' +
+						'<p>' + details[0] + " " + details[1] + '</p>' +
+						'</div>').appendTo('#couchData');			
+									
+			});						
+			
+			
+			$('#couchData').collapsibleset('refresh');
 
+		}	
+	});
+			alert("Couch Items Loaded");
+			$.mobile.changePage('#couchPage');
 });
 
+$('#electronics').on("click", function(){
+	
+});
+
+$('#elecBtn').on('click', function(){
+		$.ajax({
+		url:		'_view/electronics',
+		dataType:	'json',
+		success:	function(response){
+		alert("Couch Request Received.");
+			console.log("Couch Items");
+			console.log(response);
+			$('#electroData').empty();
+			$.each(response.rows, function (index, item){
+				var itemName = item.value.itemName;
+				var category = item.value.category;
+				var sNumber = item.value.sNumber;
+				var mNumber = item.value.mNumber;
+				var condition = item.value.condition;
+				var date = item.value.date;
+				var rCost = item.value.rCost;
+				var details = item.value.details;
+				$('<div data-role="collapsible" data-collapsed="true" data-theme="a">'+ 
+						'<h3>' + itemName[1] + '</h3>' + 
+						'<p>' + category[0] + " " + category[1] + '</p>' +
+						'<p>' + sNumber[0] + " " + sNumber[1] + '</p>' +
+						'<p>' + mNumber[0] + " " + mNumber[1] + '</p>' +
+						'<p>' + condition[0] + " " + condition[1] + '</p>' +
+						'<p>' + date[0] + " " + date[1] + '</p>' +
+						'<p>' + rCost[0] + " " + rCost[1] + '</p>' +
+						'<p>' + details[0] + " " + details[1] + '</p>' +
+						'</div>').appendTo('#electroData');			
+									
+			});						
+			
+			
+			$('#electroData').collapsibleset('refresh');
+
+		}	
+	});
+			alert("Couch Items Loaded");
+			$.mobile.changePage('#electronics');
+});
+
+$('#appliances').on("click", function(){
+	
+});
+
+$('#appliBtn').on('click', function(){
+		$.ajax({
+		url:		'_view/appliances',
+		dataType:	'json',
+		success:	function(response){
+		alert("Couch Request Received.");
+			console.log("Couch Items");
+			console.log(response);
+			$('#appliancesData').empty();
+			$.each(response.rows, function (index, item){
+				var itemName = item.value.itemName;
+				var category = item.value.category;
+				var sNumber = item.value.sNumber;
+				var mNumber = item.value.mNumber;
+				var condition = item.value.condition;
+				var date = item.value.date;
+				var rCost = item.value.rCost;
+				var details = item.value.details;
+				$('<div data-role="collapsible" data-collapsed="true" data-theme="a">'+ 
+						'<h3>' + itemName[1] + '</h3>' + 
+						'<p>' + category[0] + " " + category[1] + '</p>' +
+						'<p>' + sNumber[0] + " " + sNumber[1] + '</p>' +
+						'<p>' + mNumber[0] + " " + mNumber[1] + '</p>' +
+						'<p>' + condition[0] + " " + condition[1] + '</p>' +
+						'<p>' + date[0] + " " + date[1] + '</p>' +
+						'<p>' + rCost[0] + " " + rCost[1] + '</p>' +
+						'<p>' + details[0] + " " + details[1] + '</p>' +
+						'</div>').appendTo('#appliancesData');			
+									
+			});						
+			
+			
+			$('#appliancesData').collapsibleset('refresh');
+
+		}	
+	});
+			alert("Appliance Items Loaded");
+			$.mobile.changePage('#appliances');
+});
+
+$('#jewelry').on("click", function(){
+	
+});
+
+$('#jewelryBtn').on('click', function(){
+		$.ajax({
+		url:		'_view/jewelry',
+		dataType:	'json',
+		success:	function(response){
+		alert("Couch Request Received.");
+			console.log("Couch Items");
+			console.log(response);
+			$('#jewelryData').empty();
+			$.each(response.rows, function (index, item){
+				var itemName = item.value.itemName;
+				var category = item.value.category;
+				var sNumber = item.value.sNumber;
+				var mNumber = item.value.mNumber;
+				var condition = item.value.condition;
+				var date = item.value.date;
+				var rCost = item.value.rCost;
+				var details = item.value.details;
+				$('<div data-role="collapsible" data-collapsed="true" data-theme="a">'+ 
+						'<h3>' + itemName[1] + '</h3>' + 
+						'<p>' + category[0] + " " + category[1] + '</p>' +
+						'<p>' + sNumber[0] + " " + sNumber[1] + '</p>' +
+						'<p>' + mNumber[0] + " " + mNumber[1] + '</p>' +
+						'<p>' + condition[0] + " " + condition[1] + '</p>' +
+						'<p>' + date[0] + " " + date[1] + '</p>' +
+						'<p>' + rCost[0] + " " + rCost[1] + '</p>' +
+						'<p>' + details[0] + " " + details[1] + '</p>' +
+						'</div>').appendTo('#jewelryData');			
+									
+			});						
+			
+			
+			$('#jewelryData').collapsibleset('refresh');
+
+		}	
+	});
+			alert("Jewelry Items Loaded");
+			$.mobile.changePage('#jewelry');
+});
+
+
+$('#collectibles').on("click", function(){
+	
+});
+
+$('#collBtn').on('click', function(){
+		$.ajax({
+		url:		'_view/collectibles',
+		dataType:	'json',
+		success:	function(response){
+		alert("Couch Request Received.");
+			console.log("Couch Items");
+			console.log(response);
+			$('#collectiblesData').empty();
+			$.each(response.rows, function (index, item){
+				var itemName = item.value.itemName;
+				var category = item.value.category;
+				var sNumber = item.value.sNumber;
+				var mNumber = item.value.mNumber;
+				var condition = item.value.condition;
+				var date = item.value.date;
+				var rCost = item.value.rCost;
+				var details = item.value.details;
+				$('<div data-role="collapsible" data-collapsed="true" data-theme="a">'+ 
+						'<h3>' + itemName[1] + '</h3>' + 
+						'<p>' + category[0] + " " + category[1] + '</p>' +
+						'<p>' + sNumber[0] + " " + sNumber[1] + '</p>' +
+						'<p>' + mNumber[0] + " " + mNumber[1] + '</p>' +
+						'<p>' + condition[0] + " " + condition[1] + '</p>' +
+						'<p>' + date[0] + " " + date[1] + '</p>' +
+						'<p>' + rCost[0] + " " + rCost[1] + '</p>' +
+						'<p>' + details[0] + " " + details[1] + '</p>' +
+						'</div>').appendTo('#collectiblesData');			
+									
+			});						
+			
+			
+			$('#collectiblesData').collapsibleset('refresh');
+
+		}	
+	});
+			alert("Collectibles Items Loaded");
+			$.mobile.changePage('#collectibles');
+});
+
+
+
+$('#art').on("click", function(){
+	
+});
+
+$('#artBtn').on('click', function(){
+		$.ajax({
+		url:		'_view/art',
+		dataType:	'json',
+		success:	function(response){
+		alert("Couch Request Received.");
+			console.log("Couch Items");
+			console.log(response);
+			$('#artData').empty();
+			$.each(response.rows, function (index, item){
+				var itemName = item.value.itemName;
+				var category = item.value.category;
+				var sNumber = item.value.sNumber;
+				var mNumber = item.value.mNumber;
+				var condition = item.value.condition;
+				var date = item.value.date;
+				var rCost = item.value.rCost;
+				var details = item.value.details;
+				$('<div data-role="collapsible" data-collapsed="true" data-theme="a">'+ 
+						'<h3>' + itemName[1] + '</h3>' + 
+						'<p>' + category[0] + " " + category[1] + '</p>' +
+						'<p>' + sNumber[0] + " " + sNumber[1] + '</p>' +
+						'<p>' + mNumber[0] + " " + mNumber[1] + '</p>' +
+						'<p>' + condition[0] + " " + condition[1] + '</p>' +
+						'<p>' + date[0] + " " + date[1] + '</p>' +
+						'<p>' + rCost[0] + " " + rCost[1] + '</p>' +
+						'<p>' + details[0] + " " + details[1] + '</p>' +
+						'</div>').appendTo('#artData');			
+									
+			});						
+			
+			
+			$('#artData').collapsibleset('refresh');
+
+		}	
+	});
+			alert("Art Items Loaded");
+			$.mobile.changePage('#art');
+});
+
+$('#apparel').on("click", function(){
+	
+});
+
+$('#apparelBtn').on('click', function(){
+		$.ajax({
+		url:		'_view/apparel',
+		dataType:	'json',
+		success:	function(response){
+		alert("Couch Request Received.");
+			console.log("Couch Items");
+			console.log(response);
+			$('#apparelData').empty();
+			$.each(response.rows, function (index, item){
+				var itemName = item.value.itemName;
+				var category = item.value.category;
+				var sNumber = item.value.sNumber;
+				var mNumber = item.value.mNumber;
+				var condition = item.value.condition;
+				var date = item.value.date;
+				var rCost = item.value.rCost;
+				var details = item.value.details;
+				$('<div data-role="collapsible" data-collapsed="true" data-theme="a">'+ 
+						'<h3>' + itemName[1] + '</h3>' + 
+						'<p>' + category[0] + " " + category[1] + '</p>' +
+						'<p>' + sNumber[0] + " " + sNumber[1] + '</p>' +
+						'<p>' + mNumber[0] + " " + mNumber[1] + '</p>' +
+						'<p>' + condition[0] + " " + condition[1] + '</p>' +
+						'<p>' + date[0] + " " + date[1] + '</p>' +
+						'<p>' + rCost[0] + " " + rCost[1] + '</p>' +
+						'<p>' + details[0] + " " + details[1] + '</p>' +
+						'</div>').appendTo('#apparelData');			
+									
+			});						
+			
+			
+			$('#apparelData').collapsibleset('refresh');
+
+		}	
+	});
+			alert("Apparel Items Loaded");
+			$.mobile.changePage('#apparel');
+});
+
+$('#household').on("click", function(){
+	
+});
+
+$('#hhBtn').on('click', function(){
+		$.ajax({
+		url:		'_view/household',
+		dataType:	'json',
+		success:	function(response){
+		alert("Couch Request Received.");
+			console.log("Couch Items");
+			console.log(response);
+			$('#householdData').empty();
+			$.each(response.rows, function (index, item){
+				var itemName = item.value.itemName;
+				var category = item.value.category;
+				var sNumber = item.value.sNumber;
+				var mNumber = item.value.mNumber;
+				var condition = item.value.condition;
+				var date = item.value.date;
+				var rCost = item.value.rCost;
+				var details = item.value.details;
+				$('<div data-role="collapsible" data-collapsed="true" data-theme="a">'+ 
+						'<h3>' + itemName[1] + '</h3>' + 
+						'<p>' + category[0] + " " + category[1] + '</p>' +
+						'<p>' + sNumber[0] + " " + sNumber[1] + '</p>' +
+						'<p>' + mNumber[0] + " " + mNumber[1] + '</p>' +
+						'<p>' + condition[0] + " " + condition[1] + '</p>' +
+						'<p>' + date[0] + " " + date[1] + '</p>' +
+						'<p>' + rCost[0] + " " + rCost[1] + '</p>' +
+						'<p>' + details[0] + " " + details[1] + '</p>' +
+						'</div>').appendTo('#householdData');			
+									
+			});						
+			
+			
+			$('#householdData').collapsibleset('refresh');
+
+		}	
+	});
+			alert("Household Items Loaded");
+			$.mobile.changePage('#household');
+});
+
+$('#tools').on("click", function(){
+	
+});
+
+$('#toolsBtn').on('click', function(){
+		$.ajax({
+		url:		'_view/tools',
+		dataType:	'json',
+		success:	function(response){
+		alert("Couch Request Received.");
+			console.log("Couch Items");
+			console.log(response);
+			$('#toolsData').empty();
+			$.each(response.rows, function (index, item){
+				var itemName = item.value.itemName;
+				var category = item.value.category;
+				var sNumber = item.value.sNumber;
+				var mNumber = item.value.mNumber;
+				var condition = item.value.condition;
+				var date = item.value.date;
+				var rCost = item.value.rCost;
+				var details = item.value.details;
+				$('<div data-role="collapsible" data-collapsed="true" data-theme="a">'+ 
+						'<h3>' + itemName[1] + '</h3>' + 
+						'<p>' + category[0] + " " + category[1] + '</p>' +
+						'<p>' + sNumber[0] + " " + sNumber[1] + '</p>' +
+						'<p>' + mNumber[0] + " " + mNumber[1] + '</p>' +
+						'<p>' + condition[0] + " " + condition[1] + '</p>' +
+						'<p>' + date[0] + " " + date[1] + '</p>' +
+						'<p>' + rCost[0] + " " + rCost[1] + '</p>' +
+						'<p>' + details[0] + " " + details[1] + '</p>' +
+						'</div>').appendTo('#toolsData');			
+									
+			});						
+			
+			
+			$('#toolsData').collapsibleset('refresh');
+
+		}	
+	});
+			alert("Household Items Loaded");
+			$.mobile.changePage('#tools');
+});
+
+$('#misc').on("click", function(){
+	
+});
+
+$('#miscBtn').on('click', function(){
+		$.ajax({
+		url:		'_view/miscellaneous',
+		dataType:	'json',
+		success:	function(response){
+		alert("Couch Request Received.");
+			console.log("Couch Items");
+			console.log(response);
+			$('#toolsData').empty();
+			$.each(response.rows, function (index, item){
+				var itemName = item.value.itemName;
+				var category = item.value.category;
+				var sNumber = item.value.sNumber;
+				var mNumber = item.value.mNumber;
+				var condition = item.value.condition;
+				var date = item.value.date;
+				var rCost = item.value.rCost;
+				var details = item.value.details;
+				$('<div data-role="collapsible" data-collapsed="true" data-theme="a">'+ 
+						'<h3>' + itemName[1] + '</h3>' + 
+						'<p>' + category[0] + " " + category[1] + '</p>' +
+						'<p>' + sNumber[0] + " " + sNumber[1] + '</p>' +
+						'<p>' + mNumber[0] + " " + mNumber[1] + '</p>' +
+						'<p>' + condition[0] + " " + condition[1] + '</p>' +
+						'<p>' + date[0] + " " + date[1] + '</p>' +
+						'<p>' + rCost[0] + " " + rCost[1] + '</p>' +
+						'<p>' + details[0] + " " + details[1] + '</p>' +
+						'</div>').appendTo('#miscData');			
+									
+			});						
+			
+			
+			$('#miscData').collapsibleset('refresh');
+
+		}	
+	});
+			alert("Household Items Loaded");
+			$.mobile.changePage('#mics');
+});
 
 
 $('#dispAllBtn').on("click", function(){
@@ -90,45 +497,6 @@ $('displayAll').on("pageinit", function(){
 $('#reset').on("click", function(){
 	window.location.reload();
 });
-$('#electronics').on('pagecreate', function(){
-
-});
-
-		
-$('#appliances').on('pageinit', function(){
-	
-});
-		
-$('#jewelry').on('pageinit', function(){
-
-});
-		
-$('#collectibles').on('pageinit', function(){
-
-});
-		
-$('#art').on('pageinit', function(){
-	
-});
-		
-$('#apparel').on('pageinit', function(){
-	
-});
-		
-$('#household').on('pageinit', function(){
-	
-});
-		
-$('#tools').on('pageinit', function(){
-
-});
-		
-$('#miscellaneous').on('pageinit', function(){
-	
-});
-
-		
-
 
 $('#additem').on('pagecreate', function(){
 	createSelect();
