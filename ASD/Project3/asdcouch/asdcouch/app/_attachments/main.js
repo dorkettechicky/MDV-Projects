@@ -36,7 +36,7 @@ $('#couchPage').on('pageinit', function(){
 
 $('#couchBtn').on('click', function(){
 		$.ajax({
-		url:		'_view/items',
+		url:		'_design/app/_view/items',
 		dataType:	'json',
 		success:	function(response){
 		alert("Couch Request Received.");
@@ -80,7 +80,7 @@ $('#electronics').on("click", function(){
 
 $('#elecBtn').on('click', function(){
 		$.ajax({
-		url:		'_view/electronics',
+		url:		'_design/app/_view/electronics',
 		dataType:	'json',
 		success:	function(response){
 		alert("Couch Request Received.");
@@ -124,7 +124,7 @@ $('#appliances').on("click", function(){
 
 $('#appliBtn').on('click', function(){
 		$.ajax({
-		url:		'_view/appliances',
+		url:		'_design/app/_view/appliances',
 		dataType:	'json',
 		success:	function(response){
 		alert("Couch Request Received.");
@@ -168,7 +168,7 @@ $('#jewelry').on("click", function(){
 
 $('#jewelryBtn').on('click', function(){
 		$.ajax({
-		url:		'_view/jewelry',
+		url:		'_design/app/_view/jewelry',
 		dataType:	'json',
 		success:	function(response){
 		alert("Couch Request Received.");
@@ -213,7 +213,7 @@ $('#collectibles').on("click", function(){
 
 $('#collBtn').on('click', function(){
 		$.ajax({
-		url:		'_view/collectibles',
+		url:		'_design/app/_view/collectibles',
 		dataType:	'json',
 		success:	function(response){
 		alert("Couch Request Received.");
@@ -259,7 +259,7 @@ $('#art').on("click", function(){
 
 $('#artBtn').on('click', function(){
 		$.ajax({
-		url:		'_view/art',
+		url:		'_design/app/_view/art',
 		dataType:	'json',
 		success:	function(response){
 		alert("Couch Request Received.");
@@ -303,7 +303,7 @@ $('#apparel').on("click", function(){
 
 $('#apparelBtn').on('click', function(){
 		$.ajax({
-		url:		'_view/apparel',
+		url:		'_design/app/_view/apparel',
 		dataType:	'json',
 		success:	function(response){
 		alert("Couch Request Received.");
@@ -347,7 +347,7 @@ $('#household').on("click", function(){
 
 $('#hhBtn').on('click', function(){
 		$.ajax({
-		url:		'_view/household',
+		url:		'_design/app/_view/household',
 		dataType:	'json',
 		success:	function(response){
 		alert("Couch Request Received.");
@@ -391,7 +391,7 @@ $('#tools').on("click", function(){
 
 $('#toolsBtn').on('click', function(){
 		$.ajax({
-		url:		'_view/tools',
+		url:		'_design/app/_view/tools',
 		dataType:	'json',
 		success:	function(response){
 		alert("Couch Request Received.");
@@ -435,7 +435,7 @@ $('#misc').on("click", function(){
 
 $('#miscBtn').on('click', function(){
 		$.ajax({
-		url:		'_view/miscellaneous',
+		url:		'_design/app/_view/miscellaneous',
 		dataType:	'json',
 		success:	function(response){
 		alert("Couch Request Received.");
