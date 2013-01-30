@@ -14,7 +14,7 @@ January 31, 2013
 	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
 	<meta name="HandheldFriendly" content="True">
 	<meta name="MobileOptimized" content="320"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<!-- Mobile IE needs ClearType for smoothing fonts -->
 	<meta http-equiv="cleartype" content="on">
 	<!-- StyleSheets under here -->
@@ -33,7 +33,7 @@ January 31, 2013
 		<div data-role="page" id="home" data-theme="a">
 		 <header  data-role="header" data-position="fixed" data-theme="">
 		 	<div
-				<a href="#home"><img src="img/feature3.png" id="branding" ></a>
+				<a href="#home"><img src="img/feature3.png" id="branding"/></a>
 
 			</div>
 			
@@ -50,22 +50,21 @@ January 31, 2013
 			<section data-role="content" id="browseCategory">
 				<ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder ="Search Inventory" data-theme="a">
 
-					<li data-role="list-divider" id="listDivide" data-theme="a">Couch Data By:</li>
-					<li><a href="#couchPage" id="couchBtn" data-transition="flip"><img src="img/couch.png"/>Complete Inventory</a></li>
-					<li><a href="#electronics" id="elecBtn" data-transition="flip"><img src="img/electronics.png"/>Electronics</a></li>
-					<li><a href="#appliances" id="appliBtn"data-transition="flip"><img src="img/appliances.png"/>Appliances</a></li>
-					<li><a href="#jewelry" id="jewelryBtn" data-transition="flip"><img src="img/jewelry.png"/>Jewelry</a></li>
-					<li><a href="#collectibles" id="collBtn" data-transition="flip"><img src="img/collectibles.png"/>Collectibles</a></li>
-					<li><a href="#art" id="artBtn" data-transition="flip"><img src="img/art.png"/>Art</a></li>
-					<li><a href="#apparel" id="apparelBtn" data-transition="flip"><img src="img/apparel.png"/>Apparel</a></li>
-					<li><a href="#household" id="hhBtn" data-transition="flip"><img src="img/household.png"/>Household</a></li>
-					<li><a href="#tools" id="toolsBtn" data-transition="flip"><img src="img/tools.png"/>Tools</a></li>
-					<li><a href="#misc" id="miscBtn" data-transition="flip"><img src="img/miscellaneous.png"/>Miscellaneous</a></li>
+					<li data-role="list-divider" id="listDivide" data-theme="a">Browse Inventory By:</li>
+					<li><a href="#display" id="allBtn" data-transition="flip"><img src="img/couch.png"/>Complete Inventory</a></li>
+					<li><a href="#display" id="elecBtn" data-transition="flip"><img src="img/electronics.png"/>Electronics</a></li>
+					<li><a href="#display" id="appliBtn"data-transition="flip"><img src="img/appliances.png"/>Appliances</a></li>
+					<li><a href="#display" id="jewelryBtn" data-transition="flip"><img src="img/jewelry.png"/>Jewelry</a></li>
+					<li><a href="#display" id="collBtn" data-transition="flip"><img src="img/collectibles.png"/>Collectibles</a></li>
+					<li><a href="#display" id="artBtn" data-transition="flip"><img src="img/art.png"/>Art</a></li>
+					<li><a href="#display" id="apparelBtn" data-transition="flip"><img src="img/apparel.png"/>Apparel</a></li>
+					<li><a href="#display" id="hhBtn" data-transition="flip"><img src="img/household.png"/>Household</a></li>
+					<li><a href="#display" id="toolsBtn" data-transition="flip"><img src="img/tools.png"/>Tools</a></li>
+					<li><a href="#display" id="miscBtn" data-transition="flip"><img src="img/miscellaneous.png"/>Miscellaneous</a></li>
 				</ul>
 			
 			</section>
 			<section data-role="content" data-mini="false" data-type="horizontal" data-theme="a">
-				<a href="#dispAll" data-role="button" id= "dispAllBtn"/>Display Local</a>
 				<a href="#home" data-role="button" id="delAll" />Delete All</a>
 			</section>	
 
@@ -81,20 +80,22 @@ January 31, 2013
 			</footer>
 		</div> 
 		
-		<div data-role="page" id="couchPage" data-theme="a">
+		<div data-role="page" id="display" data-theme="a">
 			<header data-role="header" data-position="fixed" data-theme="">
 		 		<div>
 		 		
 					<a href="#home"><img src="img/feature3.png" id="branding"  ></a>
-					<h1>All Couch Data</h1>
+					<h1></h1>
 					
 				</div>
 			</header>
-			<section data-role="content" id="viewContent">
+			<section data-role="content" id="displayContent">
 				<div id="dynContent">
+					<h1 id="title"></h1>
 					
-						<div id="couchData">
-							
+						<div id="displayData" data-role="collapsible-set" data-inset="true" data-theme="a">
+
+							<div></div>
 						</div>	
 				</div>	
 			</section>
@@ -109,244 +110,6 @@ January 31, 2013
 			</footer>
 		</div>
 		
-
-		<div data-role="page" id="electronics" data-theme="a">
-			<header data-role="header" data-position="fixed" data-theme="">
-		 		<div>
-		 		
-					<a href="#home"><img src="img/feature3.png" id="branding"  ></a>
-					<h1>Electronics Couch Data</h1>
-				
-				</div>
-			</header>	
-			<section data-role="content" id="eviewContent">
-				<div id="edynContent">
-					
-						<div id="electroData">
-							
-						</div>	
-				</div>	
-			</section>
-			<footer data-role="footer" data-position="fixed" data-id="navFooter" data-theme="a">
-				<nav data-role="navbar" data-theme="a">
-					<ul>
-						<li><a href="#home" data-icon="home">Home</a></li>
-						<li><a href="#additem" data-icon="plus">Add Item</a></li>
-						<li><a href="#info" data-icon="info">Delete All</a></li>
-					</ul>
-				</nav>
-			</footer>
-		</div>
-		
-				<div data-role="page" id="appliances" data-theme="a">
-			<header data-role="header" data-position="fixed" data-theme="">
-		 		<div>
-		 		
-					<a href="#home"><img src="img/feature3.png" id="branding" ></a>
-					<h1>Appliances Couch Data</h1>
-				
-				</div>
-			</header>	
-			<section data-role="content" id="appliviewContent">
-				<div id="appliancesData">
-				
-				</div>
-
-			</section>
-			<footer data-role="footer" data-position="fixed" data-id="navFooter" data-theme="a">
-				<nav data-role="navbar" data-theme="a">
-					<ul>
-						<li><a href="#home" data-icon="home">Home</a></li>
-						<li><a href="#additem" data-icon="plus">Add Item</a></li>
-						<li><a href="#info" data-icon="info">Info</a></li>
-					</ul>
-				</nav>
-			</footer>
-		</div>
-
-				<div data-role="page" id="collectibles" data-theme="a">
-			<header data-role="header" data-position="fixed" data-theme="">
-		 		<div>
-		 		
-					<a href="#home"><img src="img/feature3.png" id="branding"  ></a>
-					<h1>Collectibles Couch Data</h1>
-				
-				</div>
-			</header>	
-			<section data-role="content" id="collectiblesviewContent">
-				<div id="collectiblesData">
-				
-				</div>
-
-			</section>
-			<footer data-role="footer" data-position="fixed" data-id="navFooter" data-theme="a">
-				<nav data-role="navbar" data-theme="a">
-					<ul>
-						<li><a href="#home" data-icon="home">Home</a></li>
-						<li><a href="#additem" data-icon="plus">Add Item</a></li>
-						<li><a href="#info" data-icon="info">Info</a></li>
-					</ul>
-				</nav>
-			</footer>
-		</div>
-
-				<div data-role="page" id="jewelry" data-theme="a">
-			<header data-role="header" data-position="fixed" data-theme="">
-		 		<div>
-		 		
-					<a href="#home"><img src="img/feature3.png" id="branding"  ></a>
-					<h1>Jewelry Couch Data</h1>
-				
-				</div>
-			</header>	
-			<section data-role="content" id="jewelryviewContent">
-				<div id="jewelryData">
-				
-				</div>
-
-			</section>
-			<footer data-role="footer" data-position="fixed" data-id="navFooter" data-theme="a">
-				<nav data-role="navbar" data-theme="a">
-					<ul>
-						<li><a href="#home" data-icon="home">Home</a></li>
-						<li><a href="#additem" data-icon="plus">Add Item</a></li>
-						<li><a href="#info" data-icon="info">Info</a></li>
-					</ul>
-				</nav>
-			</footer>
-		</div>
-
-
-				<div data-role="page" id="art" data-theme="a">
-			<header data-role="header" data-position="fixed" data-theme="">
-		 		<div>
-		 		
-					<a href="#home"><img src="img/feature3.png" id="branding"  ></a>
-					<h1>Art Couch Data</h1>
-				
-				</div>
-			</header>	
-			<section data-role="content" id="artviewContent">
-				<div id="artData">
-				
-				</div>
-
-			</section>
-			<footer data-role="footer" data-position="fixed" data-id="navFooter" data-theme="a">
-				<nav data-role="navbar" data-theme="a">
-					<ul>
-						<li><a href="#home" data-icon="home">Home</a></li>
-						<li><a href="#additem" data-icon="plus">Add Item</a></li>
-						<li><a href="#info" data-icon="info">Info</a></li>
-					</ul>
-				</nav>
-			</footer>
-		</div>
-
-				<div data-role="page" id="apparel" data-theme="a">
-			<header data-role="header" data-position="fixed" data-theme="">
-		 		<div>
-		 		
-					<a href="#home"><img src="img/feature3.png" id="branding" ></a>
-					<h1>Apparel Couch Data</h1>
-				
-				</div>
-			</header>	
-			<section data-role="content" id="apparelviewContent">
-				<div id="apparelData">
-				
-				</div>
-
-			</section>
-			<footer data-role="footer" data-position="fixed" data-id="navFooter" data-theme="a">
-				<nav data-role="navbar" data-theme="a">
-					<ul>
-						<li><a href="#home" data-icon="home">Home</a></li>
-						<li><a href="#additem" data-icon="plus">Add Item</a></li>
-						<li><a href="#info" data-icon="info">Info</a></li>
-					</ul>
-				</nav>
-			</footer>
-		</div>
-
-				<div data-role="page" id="household" data-theme="a">
-			<header data-role="header" data-position="fixed" data-theme="">
-		 		<div>
-		 		
-					<a href="#home"><img src="img/feature3.png" id="branding" ></a>
-					<h1>Household Couch Data</h1>
-				
-				</div>
-			</header>	
-			<section data-role="content" id="hhviewContent">
-				<div id="householdData">
-				
-				</div>
-
-			</section>
-			<footer data-role="footer" data-position="fixed" data-id="navFooter" data-theme="a">
-				<nav data-role="navbar" data-theme="a">
-					<ul>
-						<li><a href="#home" data-icon="home">Home</a></li>
-						<li><a href="#additem" data-icon="plus">Add Item</a></li>
-						<li><a href="#info" data-icon="info">Info</a></li>
-					</ul>
-				</nav>
-			</footer>
-		</div>
-
-				<div data-role="page" id="tools" data-theme="a">
-			<header data-role="header" data-position="fixed" data-theme="">
-		 		<div>
-		 		
-					<a href="#home"><img src="img/feature3.png" id="branding" ></a>
-					<h1>Tools Couch Data</h1>
-				
-				</div>
-			</header>	
-			<section data-role="content" id="toolsviewContent">
-				<div id="toolsData">
-				
-				</div>
-
-			</section>
-			<footer data-role="footer" data-position="fixed" data-id="navFooter" data-theme="a">
-				<nav data-role="navbar" data-theme="a">
-					<ul>
-						<li><a href="#home" data-icon="home">Home</a></li>
-						<li><a href="#additem" data-icon="plus">Add Item</a></li>
-						<li><a href="#info" data-icon="info">Info</a></li>
-					</ul>
-				</nav>
-			</footer>
-		</div>
-
-				<div data-role="page" id="misc" data-theme="a">
-			<header data-role="header" data-position="fixed" data-theme="">
-		 		<div>
-		 		
-					<a href="#home"><img src="img/feature3.png" id="branding" ></a>
-					<h1>Miscellaneous Couch Data</h1>
-				
-				</div>
-			</header>	
-			<section data-role="content" id="miscviewContent">
-				<div id="miscData">
-				
-				</div>
-
-			</section>
-			<footer data-role="footer" data-position="fixed" data-id="navFooter" data-theme="a">
-				<nav data-role="navbar" data-theme="a">
-					<ul>
-						<li><a href="#home" data-icon="home">Home</a></li>
-						<li><a href="#additem" data-icon="plus">Add Item</a></li>
-						<li><a href="#info" data-icon="info">Info</a></li>
-					</ul>
-				</nav>
-			</footer>
-		</div>
-
 		<div data-role="page" id="additem" data-theme="a">
 			<header data-role="header" data-position="fixed" data-theme="">
 		 		<div>
@@ -363,9 +126,21 @@ January 31, 2013
 					</div>
 
 					<div data-role="fieldcontain">
-						<div id="select"><label for="cats">Category: *Required</label></div>
-						</div>	
-					
+						<div id="select"><label for="category">Category: *Required</label></div>
+							<select name="category" id="category" class="required" data-native-menu="false" data-theme="a">
+								<option data-placeholder="true" value="">Please Select Category</option>
+								<option value="Electronics">Electronics</option>
+								<option value="Appliances">Appliances</option>
+								<option value="Jewelry">Jewelry</option>
+								<option value="Collectibles">Collectibles</option>
+								<option value="Art">Art</option>
+								<option value="Apparel">Apparel</option>
+								<option value="Household">Household</option>
+								<option value="Tools">Tools</option>
+								<option value="Miscellaneous">Miscellaneous</option>
+							</select>	
+						</div>		
+										
 					<div data-role="fieldcontain">
 						<label for="sNumber">Serial Number: </label>
 						<input type="text" name="sNumber" id="sNumber" placeholder="Ex: 8675309"/>
@@ -550,34 +325,6 @@ January 31, 2013
 			
 		</div>
 		
-		<!-- Begin display data page -->
-		<div data-role="page" id="dispAll" data-theme="a">
-			<header data-role="header" data-position="fixed" data-theme="">
-		 		<div>
-		 		
-					<a href="#home"><img src="img/feature3.png" id="branding" ></a>
-				
-				</div>
-			</header>	
-			<section data-role="content" data-theme="a">
-				<div id="dis" data-role="listview">
-					<ul id="displayAll"> </ul>
-				</div>
-			</section>
-			<footer data-role="footer" data-position="fixed" data-id="navFooter" data-theme="a">
-				<nav data-role="navbar" data-theme="a">
-					<ul>
-						<li><a href="#home" data-icon="home">Home</a></li>
-						<li><a href="#additem" data-icon="plus">Add Item</a></li>
-						<li><a href="#info" data-icon="info">Info</a></li>
-					</ul>
-				</nav>
-			</footer>
-		</div>
-<!--
-			<a href="#display"><img src="img/displayAll.png" id="dispAll" alt="Display All" data-theme="a"/></a>
-			<a href="#home"><img src="img/deleteAll.png" id="deleteAll" alt="Delete All" data-theme="a"/></a>		
--->
 
 		<!-- JavaScript under here -->
 
