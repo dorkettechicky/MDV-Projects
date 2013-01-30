@@ -8,13 +8,12 @@ January 31, 2013
 
 /*
 **Notes**
-CRUD is functioning, however, pages are not loading as expected, nor are listviews for display formatted as expected. 
-Form is not refreshing upon save.
-Display items are not styled as expected.
+
+
 */
 
 
-//Global Variables
+
 
 
 $('#home').on('pageinit', function(){
@@ -38,47 +37,14 @@ $('#display').on('pageinit', function(){
 $('#reset').on("click", function(){
 	window.location.reload();
 });
-
-$('#additem').on('pagecreate', function(){
-/* 	createSelect(); */
-});
 		
 		
 $('#additem').on('pageinit', function(){
-/* 	save.click(validate); */
+	$('#submit').click(validate);
 
-		var myForm = $('#addItemForm'),
-			errorsLink = $('#errorsLink');
-			
-		    myForm.validate({
-		    errorPlacement: function(error, element) {
- 	 if (element.attr("name") === "category") {
- 	 error.insertAfter($(element).parent());
- 	 } else {
- 	 error.insertAfter(element);
- 	 }
- 	},			invalidHandler: function(form, validator) {
- 					errorsLink.click();
- 					var html = '';
- 					for(var key in validator.submitted){
- 						var label = $('label[for^="'+ key +'"]').not('[generated]');
- 						var legend = label.closest('fieldset').find('.ui-controlgroup-label');
- 						var fieldName = legend.length ? legend.text() : label.text();
- 						html += '<li>' + fieldName + '</li>';
-	 					
- 					};
- 					$("#recordErrors ul").html(html);
-			},
-			
-			submitHandler: function() {
-		var data = myForm.serializeArray();
-			storeData(data);
-		}
-			});
-	
-	
 });
 
+/*
 var autofillData = function (){
 	console.log("autofill Fired");
 	for (var n in json) {
@@ -87,13 +53,14 @@ var autofillData = function (){
 	}
 	 
 };
+*/
 
 var getData = function(key){
 	$('#displayData').empty();
 	$.couch.db('asdproject').view('app/'+key,{
-		success: function(response){
-			console.log(response);
-			$.each(response.rows, function (index, item){
+		success: function(data){
+			console.log(data);
+			$.each(data.rows, function (index, item){
 				var itemName = item.value.itemName;
 				var category = item.value.category;
 				var sNumber = item.value.sNumber;
@@ -135,10 +102,13 @@ var getData = function(key){
 									"data-theme":	"a",
 									"key": item.id
 										}).html('Delete Item').on("click", deleteItem)
-									)
+									);
 			});
 			$('.btn').button();
 			$('#displayData').collapsibleset('refresh');						
+		},
+		 error: function(status) {
+			 console.log(status);
 		}
 	});
 	$.mobile.changePage('#display');
@@ -171,9 +141,10 @@ var getData = function(key){
 
 
 var storeData = function(key){
+	console.log($('#submit').attr('key'));
 	var doc = {};
 		if(!key || undefined){		
-			var id = 'item:'+$('#category').val()+':'+ Math.floor(Math.random()*8675309);
+			var id = "item" + ":" + $('#category').val().toLowerCase()+":"+ Math.floor(Math.random()*8675309);
 		}else{
 			var id = key;
 			doc._rev = $('#submit').attr('rev');
@@ -190,18 +161,21 @@ var storeData = function(key){
 				doc.rCost			=["Replacement Cost:", $("#rCost").val()];
 				doc.details			=["Details:", $("#details").val()];
 				
-			$.couch.db('asdproject').saveDoc(doc, {
+			$.couch.db("asdproject").saveDoc(doc, {
 				success: function(data){
 					alert('Item Added To Inventory!');
-					$.mobile.changePage('#additem');
+					$.mobile.changePage('#display');
+				},
+				error: function(status) {
+					console.log(status);
 				}
 			});
 			//$('#submit').removeAttr('key');
 };
 
-var editItem = function(key){
+var editItem = function(){
 		//grab the data from the item from local storage
-		$.couch.db("asdproject").openDoc($(this).attr('key'),{
+		$.couch.db('asdproject').openDoc($(this).attr('key'),{
 			success: function(data){	
 			console.log(data);	
 		//populate the form fields with current localStorage values.
@@ -214,17 +188,53 @@ var editItem = function(key){
 		$('#rCost').val(data.rCost[1]);
 		$('#details').val(data.details[1]);
 
-		$('#submit').val("Edit Item")
+		$('#submit').val('Save Edited Item')
 						.attr({
-						'key': data._id,
-						'rev': data._rev});
+						"key": data._id,
+						"rev": data._rev
+						});
+		console.log(status);
+		//alert("Edited Item Saved!");				
 		$.mobile.changePage('#additem');
-			
+
 			}
-			
+
 		});
 		
 };		
+var validate = function(){
+		var myForm = $('#addItemForm'),
+			errorsLink = $('#errorsLink');
+			
+		    myForm.validate({
+		    errorPlacement: function(error, element) {
+ 	 if (element.attr("name") === "category") {
+ 	 error.insertAfter($(element).parent());
+ 	 } else {
+ 	 error.insertAfter(element);
+ 	 }
+ 	},			invalidHandler: function(form, validator) {
+ 					errorsLink.click();
+ 					var html = '';
+ 					for(var key in validator.submitted){
+ 						var label = $('label[for^="'+ key +'"]').not('[generated]');
+ 						var legend = label.closest('fieldset').find('.ui-controlgroup-label');
+ 						var fieldName = legend.length ? legend.text() : label.text();
+ 						html += '<li>' + fieldName + '</li>';
+	 					
+ 					};
+ 					$("#recordErrors ul").html(html);
+			},
+			
+			submitHandler: function() {
+		var data = myForm.serializeArray();
+			storeData(data);
+		}
+			});
+};
+	
+	
+
 			
 var deleteItem = function(){
 		var ask = confirm("Are you sure you want to delete this item?");
