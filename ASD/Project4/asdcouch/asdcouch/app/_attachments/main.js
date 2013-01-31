@@ -38,11 +38,63 @@ $('#reset').on("click", function(){
 	window.location.reload();
 });
 		
-		
 $('#additem').on('pageinit', function(){
-	$('#submit').click(validate);
+	var storeData = function(key){
+	console.log("storeData fired");
+	var item = {};
+		if(!key || undefined){		
+			var id = 'item:'+$('#category').val()+':'+ Math.floor(Math.random()*8675309);
+		}else{
+			var id = key;
+			item._rev = $('#submit').attr('rev');
+		}		
+		
+			$('#submit').attr('key', id);
+			console.log(id);
+				item._id 			= id;
+				item.itemName		=["Item Name:", $("#itemName").val()];
+				item.category		=["Category:", $("#category").val()];
+				item.sNumber			=["Serial Number", $("#sNumber").val()];
+				item.mNumber			=["Model Number:", $("#mNumber").val()];
+				item.condition		=["Condition:", $("input:radio[name=condition]:checked").val()];
+				item.date			=["Date:", $("#date").val()];
+				item.rCost			=["Replacement Cost:", $("#rCost").val()];
+				item.details			=["Details:", $("#details").val()];
+				
+			$.couch.db("asdproject").saveDoc(item, {
+				success: function(data){
+					alert('Item Added To Inventory!');
+					getData('items');
+					$.mobile.changePage('#display');
+				},
+				error: function(status) {
+					console.log(status);
+				}
+			});
+			$('#submit').removeAttr('key');
+};
+
+
+var addItemForm = $("addItemForm");
+	addItemForm.validate({
+		invalidHandler: function(form, validator){
+			
+		},
+		submitHandler: function(){
+			storeData($('#submit').attr('key'));
+			$('#reset').trigger('click');
+		}
+	});
+
+
+	/* $('#submit').click(validate); */
 
 });
+
+$('#delAll').on("click", function(){
+	deleteData();
+});
+
 
 /*
 var autofillData = function (){
@@ -114,65 +166,6 @@ var getData = function(key){
 	$.mobile.changePage('#display');
 };		
 	
-/*
-	var categories = ["Electronics", "Appliances", "Jewelry", "Collectibles", "Art", "Apparel", "Household", "Tools", "Miscellaneous"];	
-	var save = $("#submit")
-	
-	
-	var createSelect = function(){
-	
-		$('#select').html('<label for="category">Category: *Required</label><select></select>');
-    $('#select select').attr({
-            "id": "category",
-            "name": "category",
-            "class": "required select",
-            "data-native-menu": "false"
-        })
-        .append('<option data-placeholder="true" value="" >Choose Category</option>')
-    ;
-    //Make options for each category
-    $.each(categories, function(){
-        $('#category').append('<option value="'+this+'">'+this+'</option>');
-    });
-    
-};
-
-*/
-
-
-var storeData = function(key){
-	console.log($('#submit').attr('key'));
-	var doc = {};
-		if(!key || undefined){		
-			var id = "item" + ":" + $('#category').val().toLowerCase()+":"+ Math.floor(Math.random()*8675309);
-		}else{
-			var id = key;
-			doc._rev = $('#submit').attr('rev');
-		}		
-		
-			$('#submit').attr('key', id);
-				doc._id 			= id;
-				doc.itemName		=["Item Name:", $("#itemName").val()];
-				doc.category		=["Category:", $("#category").val()];
-				doc.sNumber			=["Serial Number", $("#sNumber").val()];
-				doc.mNumber			=["Model Number:", $("#mNumber").val()];
-				doc.condition		=["Condition:", $("input:radio[name=condition]:checked").val()];
-				doc.date			=["Date:", $("#date").val()];
-				doc.rCost			=["Replacement Cost:", $("#rCost").val()];
-				doc.details			=["Details:", $("#details").val()];
-				
-			$.couch.db("asdproject").saveDoc(doc, {
-				success: function(data){
-					alert('Item Added To Inventory!');
-					$.mobile.changePage('#display');
-				},
-				error: function(status) {
-					console.log(status);
-				}
-			});
-			//$('#submit').removeAttr('key');
-};
-
 var editItem = function(){
 		//grab the data from the item from local storage
 		$.couch.db('asdproject').openDoc($(this).attr('key'),{
@@ -193,7 +186,6 @@ var editItem = function(){
 						"key": data._id,
 						"rev": data._rev
 						});
-		console.log(status);
 		//alert("Edited Item Saved!");				
 		$.mobile.changePage('#additem');
 
@@ -202,67 +194,58 @@ var editItem = function(){
 		});
 		
 };		
-var validate = function(){
-		var myForm = $('#addItemForm'),
-			errorsLink = $('#errorsLink');
 			
-		    myForm.validate({
-		    errorPlacement: function(error, element) {
- 	 if (element.attr("name") === "category") {
- 	 error.insertAfter($(element).parent());
- 	 } else {
- 	 error.insertAfter(element);
- 	 }
- 	},			invalidHandler: function(form, validator) {
- 					errorsLink.click();
- 					var html = '';
- 					for(var key in validator.submitted){
- 						var label = $('label[for^="'+ key +'"]').not('[generated]');
- 						var legend = label.closest('fieldset').find('.ui-controlgroup-label');
- 						var fieldName = legend.length ? legend.text() : label.text();
- 						html += '<li>' + fieldName + '</li>';
-	 					
- 					};
- 					$("#recordErrors ul").html(html);
-			},
 			
-			submitHandler: function() {
-		var data = myForm.serializeArray();
-			storeData(data);
-		}
-			});
-};
-	
-	
 
 			
 var deleteItem = function(){
 		var ask = confirm("Are you sure you want to delete this item?");
 		if (ask === true){
-			localStorage.removeItem($(this).attr('key'));
-			alert("Inventory Item Deleted");
-			window.location.reload();
-		}else{
-			alert("Item was NOT deleted!");
+			$.couch.db('asdproject').openDoc($(this).attr('key'),{
+				success: function(data) {
+					console.log(data);
+					var doc = {};
+					doc._id = data._id;
+					doc._rev = data._rev;
+					$.couch.db('asdproject').removeDoc(doc, {
+						success: function(data){
+							console.log(data);
+							alert('Inventory Item Deleted');
+						},
+						error: function(status){
+							console.log(status);
+						}
+					});
+				}
+			});
+			$(this).parent().parent().remove();
 		}
-	};
-	
+};	
 var deleteData = function(){
 		var askAll = confirm("WARNING! This will delete ALL inventory items! Press OK to continue.");	
-		if(localStorage.length === 0){
-			alert("There is no data to clear!");
-
-		}else if(askAll){
-			localStorage.clear();
-			alert("All Items Have Been Deleted!");
-			}else{
-			
-				alert("Inventory items were NOT deleted!");
-			return false;
-			
-
-
-		}
-	};
+		if(askAll === true){
+			$.couch.db('asdproject').view('asdproject/items', {
+				success: function(data){
+					var docs = [];
+					$.each(data.rows, function(index, item){
+						var doc = {};
+						doc._id = item.value._id;
+						doc._rev = item.value._rev;
+						docs.push(doc);
+					});
+					console.log(docs);
+					$.couch.db('asdproject').bulkRemove({"docs":docs},{
+						success: function(data){
+							console.log(data);
+							alert('Inventory has been emptied!');
+						},
+						error: function(status){
+							console.log(status);
+						}
+					});
+				}
+			});
+		}		
+};
 
 
