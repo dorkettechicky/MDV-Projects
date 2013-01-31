@@ -39,55 +39,6 @@ $('#reset').on("click", function(){
 });
 		
 $('#additem').on('pageinit', function(){
-	var storeData = function(key){
-	console.log("storeData fired");
-	var item = {};
-		if(!key || undefined){		
-			var id = 'item:'+$('#category').val()+':'+ Math.floor(Math.random()*8675309);
-		}else{
-			var id = key;
-			item._rev = $('#submit').attr('rev');
-		}		
-		
-			$('#submit').attr('key', id);
-			console.log(id);
-				item._id 			= id;
-				item.itemName		=["Item Name:", $("#itemName").val()];
-				item.category		=["Category:", $("#category").val()];
-				item.sNumber			=["Serial Number", $("#sNumber").val()];
-				item.mNumber			=["Model Number:", $("#mNumber").val()];
-				item.condition		=["Condition:", $("input:radio[name=condition]:checked").val()];
-				item.date			=["Date:", $("#date").val()];
-				item.rCost			=["Replacement Cost:", $("#rCost").val()];
-				item.details			=["Details:", $("#details").val()];
-				
-			$.couch.db("asdproject").saveDoc(item, {
-				success: function(data){
-					alert('Item Added To Inventory!');
-					getData('items');
-					$.mobile.changePage('#display');
-				},
-				error: function(status) {
-					console.log(status);
-				}
-			});
-			$('#submit').removeAttr('key');
-};
-
-
-var addItemForm = $("addItemForm");
-	addItemForm.validate({
-		invalidHandler: function(form, validator){
-			
-		},
-		submitHandler: function(){
-			storeData($('#submit').attr('key'));
-			$('#reset').trigger('click');
-		}
-	});
-
-
-	/* $('#submit').click(validate); */
 
 });
 
@@ -96,6 +47,18 @@ $('#delAll').on("click", function(){
 });
 
 
+$('#submit').on("click", function(){
+	storeData();
+	
+});
+
+$('#editBtn').on("click", function(){
+	editItem();
+});
+
+$('#deleteBtn').on("click", function(){
+	deleteItem();
+});
 /*
 var autofillData = function (){
 	console.log("autofill Fired");
@@ -106,6 +69,59 @@ var autofillData = function (){
 	 
 };
 */
+
+
+
+	function storeData(key){
+	console.log("storeData fired");
+	var doc = {};
+		if(!key || undefined){		
+			var id = 'item:' + $('#category').val() + ':' + Math.floor(Math.random()*8675309);
+		}else{
+			var id = key;
+			doc._rev = $('#submit').attr('rev');
+		}		
+		
+			$('#submit').attr('key', id);
+			console.log(id);
+				doc._id 			= id;
+				doc.itemName		=["Item Name:", $("#itemName").val()];
+				doc.category		=["Category:", $("#category").val()];
+				doc.sNumber			=["Serial Number", $("#sNumber").val()];
+				doc.mNumber			=["Model Number:", $("#mNumber").val()];
+				doc.condition		=["Condition:", $("input:radio[name=condition]:checked").val()];
+				doc.date			=["Date:", $("#date").val()];
+				doc.rCost			=["Replacement Cost:", $("#rCost").val()];
+				doc.details			=["Details:", $("#details").val()];
+				
+			$.couch.db('asdproject').saveDoc(doc, {
+				success: function(data){
+				console.log(data);
+					alert('Item Added To Inventory!');
+					getData('items');
+					$.mobile.changePage('#display');
+				},
+				error: function(status) {
+					alert('Houston, we have a problem!');
+					console.log(status);
+				}
+			});
+			$('#submit').removeAttr('key');
+	};
+
+	var validate = function(){
+	var addItemForm = $("addItemForm");
+		addItemForm.validate({
+			invalidHandler: function(form, validator){},
+			submitHandler: function(form){
+				storeData($('#submit').attr('key'));
+				$('#reset').trigger('click');
+			}
+		});
+	
+	
+	
+	};
 
 var getData = function(key){
 	$('#displayData').empty();
@@ -186,7 +202,7 @@ var editItem = function(){
 						"key": data._id,
 						"rev": data._rev
 						});
-		//alert("Edited Item Saved!");				
+								
 		$.mobile.changePage('#additem');
 
 			}
