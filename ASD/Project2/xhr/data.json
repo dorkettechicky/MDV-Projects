@@ -1,0 +1,229 @@
+
+{
+	"items":[
+	{
+		"itemName": 	["Big Screen TV"],
+		"category": 	["Electronics"],
+		"sNumber":		["8675309"],
+		"mNumber": 		["NC-1701"],
+		"condition":	["Excellent"],
+		"date":			["2012-08-20"],
+		"rCost":		["2,500"],
+		"details":		["Purchased from SwipSwap, Contact Name - Donald Duck, perfect condition"]		
+		
+
+		
+	},
+	{
+		"itemName": 	["Honus Wager Baseball Card"],
+		"category": 	["Collectibles"],
+		"sNumber":		["COA-43719"],
+		"mNumber": 		["T206"],
+		"condition":	["Good"],
+		"date":			["2012-04-20"],
+		"rCost":		["Insurance Value"],
+		"details":		["Purchased through online auction, mint condition, COA in safe."]
+	},
+	
+	{
+		"itemName": 	["Washer"],
+		"category": 	["Appliances"],
+		"sNumber":		["WH2874"],
+		"mNumber": 		["Z28"],
+		"condition":	["Average"],
+		"date":			["2010-03-17"],
+		"rCost":		["1,200"],
+		"details":		["Purchased at John's Appliance City."]
+	},			
+		
+	{
+		"itemName": 	["Leather Dress Coat"],
+		"category": 	["Apparel"],
+		"sNumber":		["None"],
+		"mNumber": 		["None"],
+		"condition":	["Good"],
+		"date":			["2008-11-01"],
+		"rCost":		["Market Value"],
+		"details":		["His and Hers matching leather trench coats, purchased in SOHO."]
+	},			
+		
+	{
+		"itemName": 	["Screwdrivers"],
+		"category": 	["Tools"],
+		"sNumber":		["None"],
+		"mNumber": 		["Craftman X series"],
+		"condition":	["Good"],
+		"date":			["2007-06-30"],
+		"rCost":		["40"],
+		"details":		["Specialty purchase through sears, cost is per screwdriver."]
+	},			
+		
+	{
+		"itemName": 	["Yankee Stadium"],
+		"category": 	["Art"],
+		"sNumber":		["17"],
+		"mNumber": 		["None"],
+		"condition":	["Excellent"],
+		"date":			["2011-02-14"],
+		"rCost":		["Insurance Value"],
+		"details":		["Purchased at art show, limted edition #17 of 250."]
+	},			
+		
+	{
+		"itemName": 	["Livingroom Set"],
+		"category": 	["Household"],
+		"sNumber":		["82416"],
+		"mNumber": 		["Blue Lagoon"],
+		"condition":	["Fair"],
+		"date":			["2009-07-22"],
+		"rCost":		["4,800"],
+		"details":		["3 piece sectional with 2 recliners built into loveseat, coffee table, 2 end tables, 2 lamps."]
+	},			
+		
+	{
+		"itemName": 	["Roof Shingles"],
+		"category": 	["Miscellaneous"],
+		"sNumber":		["None"],
+		"mNumber": 		["P-13972"],
+		"condition":	["Good"],
+		"date":			["2009-12-03"],
+		"rCost":		["95"],
+		"details":		["Purchased at Home Depot, extra bundles in attic."]
+	},			
+		
+	{
+		"itemName": 	["MacBook Pro"],
+		"category": 	["Electronics"],
+		"sNumber":		["MBP1234"],
+		"mNumber": 		["Mid 2011"],
+		"condition":	["Excellent"],
+		"date":			["2012-03-27"],
+		"rCost":		["2,800"],
+		"details":		["Acquired for school, 2nd serial # is MBP5678."]
+	},			
+	
+	{
+		"itemName": 	["Healthmaster"],
+		"category": 	["Household"],
+		"sNumber":		["9327193"],
+		"mNumber": 		["HM-2814"],
+		"condition":	["Good"],
+		"date":			["2010-02-28"],
+		"rCost":		["365"],
+		"details":		["Healthmaster emulsifying blender, lifetime warranty on 2hp motor."]
+	},			
+		
+	{
+		"itemName": 	["1987 Coin Proof Set"],
+		"category": 	["Collectibles"],
+		"sNumber":		["US53719"],
+		"mNumber": 		["USD-1987"],
+		"condition":	["Excellent"],
+		"date":			["1987-08-25"],
+		"rCost":		["Current Market Value"],
+		"details":		["Purchased at coin show for son's birth year."]
+	},			
+		
+	{
+		"itemName": 	["Ink Jet Printer"],
+		"category": 	["Electronics"],
+		"sNumber":		["9653261"],
+		"mNumber": 		["HP LaserJet CP1025nw"],
+		"condition":	["Average"],
+		"date":			["2011-01-18"],
+		"rCost":		["620"],
+		"details":		["Purchased from Staples, extended warranty in warranties folder."]
+	},			
+		
+	{
+		"itemName": 	["Wedding Set"],
+		"category": 	["Jewelry"],
+		"sNumber":		["None"],
+		"mNumber": 		["None"],
+		"condition":	["Good"],
+		"date":			["2005-10-09"],
+		"rCost":		["3,820"],
+		"details":		["Bridal set: Gold & diamonds, photos & appraisal in safe."]
+	},			
+	
+	{
+		"itemName": 	["Honda air compressor"],
+		"category": 	["Tools"],
+		"sNumber":		["5379102"],
+		"mNumber": 		["H773"],
+		"condition":	["Fair"],
+		"date":			["2004-05-04"],
+		"rCost":		["2,500"],
+		"details":		["Purchased through liquidator."]
+	},			
+		
+	{
+		"itemName": 	["Stove"],
+		"category": 	["Appliances"],
+		"sNumber":		["301892"],
+		"mNumber": 		["JA692"],
+		"condition":	["Poor"],
+		"date":			["2011-09-29"],
+		"rCost":		["1,300"],
+		"details":		["Received as gift with extended warranty, glass top dual oven."]
+	},			
+	
+	{
+		"itemName": 	["Silver Service"],
+		"category": 	["Household"],
+		"sNumber":		["None"],
+		"mNumber": 		["None"],
+		"condition":	["Fair"],
+		"date":			["1937-01-20"],
+		"rCost":		["Insurance Value"],
+		"details":		["Inherited from Grandma Josephine."]
+	},			
+		
+	{
+		"itemName": 	["Coach Purse"],
+		"category": 	["Apparel"],
+		"sNumber":		["98123"],
+		"mNumber": 		["Lindsey"],
+		"condition":	["Fair"],
+		"date":			["2012-04-20"],
+		"rCost":		["450"],
+		"details":		["Gift from mother in law."]
+	},			
+	
+	{
+		"itemName": 	["Air Ionizer"],
+		"category": 	["Miscellaneous"],
+		"sNumber":		["K43721"],
+		"mNumber": 		["NT-9067"],
+		"condition":	["Average"],
+		"date":			["2010-09-03"],
+		"rCost":		["795"],
+		"details":		["Purchased through medical supply warehouse."]
+	},			
+		
+	{
+		"itemName": 	["Bose Surround Sound"],
+		"category": 	["Electronics"],
+		"sNumber":		["6397184"],
+		"mNumber": 		["B-9000"],
+		"condition":	["Average"],
+		"date":			["2008-10-06"],
+		"rCost":		["2,600"],
+		"details":		["Purchased through Magnolia at Best Buy, extended warranty in file cabinet."]
+	},			
+		
+
+	{
+		"itemName": 	["Pocket Watch"],
+		"category": 	["Jewelry"],
+		"sNumber":		["432520032744898560"],
+		"mNumber": 		["OKYDKY"],
+		"condition":	["Average"],
+		"date":			["2000-05-21"],
+		"rCost":		["4,500"],
+		"details":		["Family heirloom, on loan from uncle Vinnie."]		
+		
+	}
+
+]		
+}
