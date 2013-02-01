@@ -28,28 +28,28 @@ $('#home').on('pageinit', function(){
 	$('#toolsBtn').on('click', function() {getData('tools')});
 	$('#miscBtn').on('click', function() {getData('miscellaneous')});
 	
+
 });	
 
 $('#display').on('pageinit', function(){
-	
+
 });
 
 $('#displayData').on('pageinit', function(){
-	
+
 });
 
 
 $('#reset').on("click", function(){
 	window.location.reload();
 });
-		
+
 $('#additem').on('pageinit', function(){
 	$('#submit').on("click", function(){
 		storeData();
-		
-		
+
 	});	
-	
+
 });
 
 $('#delAll').on("click", function(){
@@ -87,7 +87,7 @@ var autofillData = function (){
 			var id = key;
 			doc._rev = $('#submit').attr('rev');
 		}		
-		
+
 			$('#submit').attr('key', id);
 			console.log(id);
 				doc._id 			= id;
@@ -99,22 +99,29 @@ var autofillData = function (){
 				doc.date			=["Date:", $("#date").val()];
 				doc.rCost			=["Replacement Cost:", $("#rCost").val()];
 				doc.details			=["Details:", $("#details").val()];
-				
+
 			$.couch.db('asdproject').saveDoc(doc, {
 				success: function(data){
 				console.log(data);
 					alert('Item Added To Inventory!');
+					getData('items');
+										
+
 					
-					
-				}
-			});
-					$('#submit').removeAttr('key');
-					//$.mobile.changePage('#home');
 					
 
-			
+
+				}
+				
+				
+			});
+					
+					$('#submit').removeAttr('key');
+
+
 	};
 
+/*
 	var validate = function(){
 	var addItemForm = $("addItemForm");
 		addItemForm.validate({
@@ -124,10 +131,11 @@ var autofillData = function (){
 				$('#reset').trigger('click');
 			}
 		});
-	
-	
-	
+
+
+
 	};
+*/
 
 var getData = function(key){
 	$('#displayData').empty();
@@ -187,7 +195,7 @@ var getData = function(key){
 	});
 	$.mobile.changePage('#display');
 };		
-	
+
 var editItem = function(){
 		//grab the data from the item from local storage
 		$.couch.db('asdproject').openDoc($(this).attr('key'),{
@@ -208,17 +216,17 @@ var editItem = function(){
 						"key": data._id,
 						"rev": data._rev
 						});
-								
+
 		$.mobile.changePage('#additem');
 			}
 
 		});
-		
-};		
-			
-			
 
-			
+};		
+
+
+
+
 var deleteItem = function(){
 		var ask = confirm("Are you sure you want to delete this item?");
 		if (ask === true){
