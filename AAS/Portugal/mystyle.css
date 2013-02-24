@@ -1,0 +1,224 @@
+* {
+margin: 0 0 0 0;
+padding: 0 0 0 0
+}
+
+body {
+max-width: 1200px;
+margin: 0 auto;
+color: #CFDAE6;
+background: #0f0f0f;
+font-family: arial, verdana,  tahoma , serif;
+font-style: normal;
+font-weight: normal
+}
+
+img , form input, form textarea {
+max-width: 100%;
+
+}
+
+#heading {
+width: 100%;
+background: #6090bf;
+background-image : URL(images/bkg-ch.jpg);
+float: left;
+
+}
+
+#heading img {
+float: left;
+padding: 2% 2%;
+box-shadow:none
+}
+
+#main-photo img {
+display: block;
+margin: 0 auto;
+z-index:-1;
+padding: 0 0
+}
+
+
+#navigate {
+width: 95%;
+background-image : URL(images/bkg-ch.jpg);
+padding: 0 2.5%;
+float: left
+}
+
+#main-photo {
+width:100%;
+background: #003399;
+float: left;
+}
+
+#content-background {
+width:100%;
+background: #596C80;
+float: left;
+}
+
+#left {
+width: 18.75%;
+padding: 0 2.5% 0 5%;
+float: left;
+}
+
+#inner-left {
+width: 18.75%;
+padding: 0 2.5%;
+float: left;
+}
+
+#inner-right {
+width: 18.75%;
+padding: 0 2.5%;
+float: left;
+}
+
+#right {
+width: 18.75%;
+padding: 0 5% 0 2.5%;
+float: left;
+}
+
+#single-column {
+width: 60%;
+background: #596C80;
+padding: 0 20%;
+float: left;
+}
+
+#footer {
+width: 100%;
+background: #2e2e2e;
+border-top: solid #030303 2px;
+float: left
+}
+
+h1 {
+font-size : 24px;
+text-align : center;
+color : #ffffef;
+padding: 2% 0;
+text-shadow: 1px 2px 0px #000000}
+
+h2 {
+font-size : 22px;
+text-align :center;
+color : #bfdfff;
+padding: 2% 0;
+text-shadow: 1px 2px 0px #000000 }
+
+p {
+font-size : 18px;
+text-align : left;
+text-indent : 16px ;
+padding: 1% 0;
+text-shadow: 1px 2px 0px #000000 }
+
+p a {
+color: #ffffef
+}
+
+p a:visited {
+color: #bfdfff
+}
+
+#left img, #inner-left img, #inner-right img, #right img, #single-column img {
+margin: .5% 2%;
+border: solid #000000 1px;
+box-shadow: 5px 5px 10px #2e2e2e; 
+-webkit-box-shadow: 5px 5px 10px #2e2e2e}
+
+
+
+
+address {
+font-size : 16px;
+text-align : center;
+padding: .5% 0 0 0} 
+
+#footer p {
+font-size : 16px;
+text-align : center;
+padding: 0 0 .5% 0} 
+
+#footer p a {
+color: #efefef}
+
+form {
+font-size : 18px;
+text-align : left;
+text-indent : 0px ;
+padding: 2% 0 ;
+line-height: 200%;
+text-shadow: 0.1em 0.1em 0.2em black}
+
+/*  horizontal navbar  */
+#hnavbar{
+	list-style:none;
+                font-size: 16px;
+	padding-bottom: .5%;
+                /* Clear floats */
+	float:left;
+	
+	position:relative;
+	z-index:5;
+              background-image : URL(images/bkg-ch.jpg);
+}
+
+
+#hnavbar li{
+	float:left;
+	margin-right:10px;
+	position:relative;
+}
+#hnavbar a{
+	display:block;
+	padding: 5px;
+	color:#CFDAE6;
+	background:#596C80;
+	text-decoration:none;
+text-shadow: 1px 1px 0px #000000;
+box-shadow: 2px 2px 0px #000000;
+-webkit-box-shadow: 2px 2px 0px #000000
+}
+
+#hnavbar a:hover{
+	color:#bfdfff;
+	background:#A0522D;
+	text-decoration:none;
+}
+
+/*--- DROPDOWN ---*/
+#hnavbar ul{
+	background: transparent; 
+	list-style:none;
+	position:absolute;
+	left:-9999px; 
+}
+#hnavbar ul li{
+	padding-top: 0px; 
+	float:none;
+}
+#hnavbar ul a{
+	white-space:nowrap; 
+}
+#hnavbar li:hover ul{
+	left:0; 
+}
+#hnavbar li:hover a{ 
+	background:#677D93;
+	text-decoration:none;
+}
+#hnavbar li:hover ul a{ 
+	text-decoration:none;
+}
+#hnavbar li:hover ul li a:hover{ 
+	background:#202020;
+}
+
+
+
