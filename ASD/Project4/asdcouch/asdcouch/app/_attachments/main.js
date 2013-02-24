@@ -17,6 +17,11 @@ January 31, 2013
 
 
 $('#home').on('pageinit', function(){
+	
+
+});	
+
+$('#home').on('pageshow', function(){
 	$('#allBtn').on('click', function() {getData('items')});
 	$('#elecBtn').on('click', function() {getData('electronics')});
 	$('#appliBtn').on('click', function() {getData('appliances')});
@@ -27,17 +32,18 @@ $('#home').on('pageinit', function(){
 	$('#hhBtn').on('click', function() {getData('household')});
 	$('#toolsBtn').on('click', function() {getData('tools')});
 	$('#miscBtn').on('click', function() {getData('miscellaneous')});
-	
 
-});	
+});
 
 $('#display').on('pageinit', function(){
 
 });
 
+/*
 $('#displayData').on('pageinit', function(){
 
 });
+*/
 
 
 $('#reset').on("click", function(){
@@ -46,7 +52,7 @@ $('#reset').on("click", function(){
 
 $('#additem').on('pageinit', function(){
 	$('#submit').on("click", function(){
-		storeData();
+		storeData($('#submit').attr('key'));
 
 	});	
 
@@ -79,9 +85,9 @@ var autofillData = function (){
 
 
 	var storeData = function(key){
-	console.log("storeData fired");
+	console.log(key);
 	var doc = {};
-		if(!key){		
+		if(!key || undefined){		
 			var id = 'item:' + $('#category').val() + ':' + Math.floor(Math.random()*8675309);
 		}else{
 			var id = key;
@@ -117,6 +123,8 @@ var autofillData = function (){
 			});
 					
 					$('#submit').removeAttr('key');
+					$.mobile.changePage('#display');
+					
 
 
 	};
@@ -188,11 +196,13 @@ var getData = function(key){
 			});
 			$('.btn').button();
 			$('#displayData').collapsibleset('refresh');						
+
 		},
 		 error: function(status) {
 			 console.log(status);
 		}
 	});
+
 	$.mobile.changePage('#display');
 };		
 
@@ -201,6 +211,7 @@ var editItem = function(){
 		$.couch.db('asdproject').openDoc($(this).attr('key'),{
 			success: function(data){	
 			console.log(data);	
+			console.log(data._rev);
 		//populate the form fields with current localStorage values.
 		$('#itemName').val(data.itemName[1]);
 		$('#category').val(data.category[1]);
