@@ -5,12 +5,15 @@ main.css
 March 14, 2013
 */
 
-
 body {
-	background-size: 100%;
+	min-height: 100%;
+	min-width: 100%;
+	background-size: cover%;
 	background-color: #132a54;
 	background-image: url(../img/jelly.jpg);
 	background-repeat: no-repeat;
+	background-position: left top;
+	background-attachment: fixed;
 
 }
 h1 {
@@ -126,7 +129,8 @@ img#homeImg {
 }
 
 .ccHead {
-	padding-top: 10px;
+	padding-top: 10px 0 0 10px;
+	margin: 0 0 10px 0;
 	color: navy;
 	
 }
@@ -138,30 +142,36 @@ img#homeImg {
 
 .ccTime {
 	
-	margin-top: 25px;
-	margin-right: 550px;
-	margin-bottom: 25px;
-	margin-left: 5px;
-	color: #000000;
-	background-color: #ffffff;
-	padding-left: 10px;
+	border: 1px solid #ffffff;
+	background-color: rgba(255,255,255,.65);
+	box-shadow: 0 2px 5px rgba(0,0,0,.8);
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-bottom: 10px;
 	
 }
 .obTime {
 	color: red;
 }
 .fcDiv {
-	border-top: 3px solid #000000;
-	background-color: #ffffff;
+	border: 1px solid #ffffff;
+	background-color: rgba(255,255,255,.65);
+	box-shadow: 0 2px 5px rgba(0,0,0,.8);
 	margin-left: 15px;
 	margin-right: 15px;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 }
-
+.fcDiv:first-child {
+	border: none;
+	box-shadow: none;
+	margin: 0;
+	padding: 20px 0 0 0;
+	background: none;
+}
 .fcTitle {
-	margin-top: 3px;
-	margin-left: 5px;
-	font-size: 125%;
+	padding-top: 10px 0 0 10px;
+	margin: 0 0 10px 0;
+	color: #000000;
 		
 }
 
@@ -178,8 +188,8 @@ img#homeImg {
 }
 
 .weekTitle {
-	position: relative;
-	border: 1px solid red;
+	padding-top: 10px 0 0 10px;
+	margin: 0 0 10px 0;
 	color: #000000;
 		
 }
