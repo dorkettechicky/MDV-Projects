@@ -259,3 +259,60 @@ $('#wk3Button').on('click', function(){ //Retrieve week 3 research
 	
 	});	
 });
+$("#rmButton").on("click", function(){
+	navigator.geolocation.getCurrentPosition(works, error);
+
+});
+
+       
+var works = function success(position) {
+console.log(position.coords);
+			var pos = position.coords
+		$('#geoPop').empty;				
+		$('#geoPop').append(
+						$('<div>')
+						.attr('class', 'mapDiv')
+						.append($('<img src="http://maps.google.com/maps/api/staticmap'+
+								'?center='+pos.latitude+'+'+pos.longitude+
+								'&zoom=13'+'&size=200x200'+'&maptype=roadmap'+
+								'&markers=color:Red|'+pos.latitude+'+'+pos.longitude+
+								'&sensor=true" '+'</div>')));
+								};	
+
+
+var error = function(error){
+	if(error == 1){
+		alert('Geolocation must be active for maps.');
+	}
+};
+
+$("#hybridButton").on("click", function(){
+	navigator.geolocation.getCurrentPosition(works2, error);
+
+});
+
+       
+var works2 = function success(position) {
+console.log(position.coords);
+			var pos = position.coords
+		$('#hPop').empty;				
+		$('#hPop').append(
+						$('<div>')
+						.attr('class', 'mapDiv')
+						.append($('<img src="http://maps.google.com/maps/api/staticmap'+
+								'?center='+pos.latitude+'+'+pos.longitude+
+								'&zoom=13'+'&size=200x200'+'&maptype=hybrid'+
+								'&markers=color:Red|'+pos.latitude+'+'+pos.longitude+
+								'&sensor=true" '+'</div>')));
+								};	
+
+
+var error = function(error){
+	if(error == 1){
+		alert('Geolocation must be active for maps.');
+	}
+};
+
+$("#clearGeo").on("click", function(){
+	window.location.reload();
+});
