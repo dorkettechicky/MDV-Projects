@@ -2,8 +2,8 @@
 <!--
 Patti Dacosta
 AVF 1303
-libraryPage.html
-March 14, 2013
+videoPage.html
+March 21, 2013
 -->
 
 <html>
@@ -12,32 +12,30 @@ March 14, 2013
 	<meta name="viewport" content="initial-scale=1, width=device-width, ">
 	<meta name="HandheldFriendly" content="True"/>
 	<meta name="MobileOptimized" content="320"/>	
-	<title>Research</title>
+	<title>Video</title>
+	<link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/main.css">
 </head>
 <body class="rest">
 
-		<header data-role="header" id="researchHead">
+	<div id="videoPg">
+		<header data-role="header" id="videoHead">
 			<a href="index.html" id="launchLink"><img src="img/home.png" id="homeImg" alt="Home"/></a>
-			<h1>Research</h1>
+			<h1>Video</h1>
 		</header>
 		
 		
-		<section id="researchPop" class="researchPop">
-			
+		<video id="my_video_1" class="video-js vjs-default-skin" controls preload="auto" width="640" height="264" poster=""data-setup="{}">
+		  <source src="htmlVid.galaxysiii.mp4" type='video/mp4'>
+		  
+		</video>
 		
-		</section>
-	<div>	
-		<button type="button" id="wk1Button">Week One</button>
-		<button type="button" id="wk2Button">Week Two</button>
-		<button type="button" id="wk3Button">Week Three</button>
-	</div>
-
-		
+	</div>	
 		
 	
 	<script type="text/javascript" src="js/libs/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript" src="cordova-2.5.0.js"></script>
+	<script type="text/javascript" src="js/libs/video.min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 
 </body>
