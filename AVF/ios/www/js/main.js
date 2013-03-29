@@ -2,7 +2,7 @@
 Patricia Dacosta
 AVF 1303
 main.js
-March 14, 2013
+March 28, 2013
 */
 
 $('#launch').load(function(){
@@ -60,11 +60,59 @@ $('#twitButton').on('click', function(){ //Code for Twitter Feed
     });
 });
 
-$('#ccButton').on('click', function(){ //Code for Current Conditions
-    $.ajax({
-        type: "GET",
-        dataType: "jsonp", //Weather API provided by wunderground.com
-        url: "http://api.wunderground.com/api/9e495c87d24c2545/geolookup/conditions/forecast/q/FL/Key_West.json",
+
+$("#fcButton").on('click', function(){
+
+var success = function(position){
+var lat = position.coords.latitude;
+var lon = position.coords.longitude;
+
+$.ajax({
+url : "http://api.wunderground.com/api/9e495c87d24c2545/geolookup/forecast/q/" + lat + "," + lon + ".json",
+dataType: 'jsonp',
+         success : function(parsed_json) {
+         console.log(parsed_json);
+            	$('#weatherPop').empty();
+                $('#weatherPop').append(
+                    $('<div>')
+                    .attr("class","fcDiv")
+                    .append($("<h3>"+"Forecast for: "+ parsed_json.location.city + ", " +parsed_json.location.state+"</h3>")));
+
+            $.each(parsed_json.forecast.txt_forecast.forecastday, function(){
+            console.log(parsed_json.forecast.txt_forecast.forecastday);
+                
+                $('#weatherPop').append(
+                    $('<div>')
+                    .attr("class","fcDiv")
+                        .append($("<h4>" + this.title + "</h4>")
+                        .attr("class", "fcTitle"))
+                        .append($("<img src=" + this.icon_url + ">"))
+                        .append($("<p>" + this.fcttext + "</p>")
+                            .attr("class","fctext")));
+            });
+
+  }
+});
+}
+
+
+var error = function(error){
+alert(error.message)
+}
+navigator.geolocation.getCurrentPosition(success, error);
+});
+
+	
+	
+$("#ccButton").on('click', function(){
+
+var success = function(position){
+var lat = position.coords.latitude;
+var lon = position.coords.longitude;
+
+$.ajax({
+url : "http://api.wunderground.com/api/9e495c87d24c2545/geolookup/conditions/q/" + lat + "," + lon + ".json",
+dataType: 'jsonp',
          success : function(parsed_json) {
          console.log(parsed_json);
          $('#weatherPop').empty();
@@ -95,43 +143,65 @@ $('#ccButton').on('click', function(){ //Code for Current Conditions
                     .attr("class", "ccTime"));
 
   }
-                
-    });
+});
+}
+
+
+var error = function(error){
+alert(error.message)
+}
+navigator.geolocation.getCurrentPosition(success, error);
 });
 	
-$('#fcButton').on('click', function(){ //Code for Forecast
+$("#weatherLPop").ready(function(){
 
-    $.ajax({
-        type: "GET",
-        dataType: "jsonp",
-        url: "http://api.wunderground.com/api/9e495c87d24c2545/geolookup/forecast/q/FL/Key_West.json",
-       success: function(parsed_json) {
-            console.log(parsed_json);
-            	$('#weatherPop').empty();
-                $('#weatherPop').append(
-                    $('<div>')
-                    .attr("class","fcDiv")
-                    .append($("<h3>"+"Forecast for: "+ parsed_json.location.city + ", " +parsed_json.location.state+"</h3>")));
+var success = function(position){
+var lat = position.coords.latitude;
+var lon = position.coords.longitude;
 
-            $.each(parsed_json.forecast.txt_forecast.forecastday, function(){
-            console.log(parsed_json.forecast.txt_forecast.forecastday);
-                
-                $('#weatherPop').append(
+$.ajax({
+url : "http://api.wunderground.com/api/9e495c87d24c2545/geolookup/conditions/q/" + lat + "," + lon + ".json",
+dataType: 'jsonp',
+         success : function(parsed_json) {
+         console.log(parsed_json);
+         $('#weatherLPop').empty();
+		  var cc_img = parsed_json.current_observation.icon_url;       
+		  var location = parsed_json.location.city;
+		  var loc_st = parsed_json.location.state;
+		  var temp_st = parsed_json.current_observation.temperature_string;
+		  var wind = parsed_json.current_observation.wind_string;
+		  var humid = parsed_json.current_observation.relative_humidity;
+		  var update = parsed_json.current_observation.observation_time;
+		  var rain_st = parsed_json.current_observation.precip_today_string;
+		  var bar_pr = parsed_json.current_observation.pressure_mb;
+		  var pres_trend = parsed_json.current_observation.pressure_trend;
+                  $('#weatherLPop').append(
                     $('<div>')
-                    .attr("class","fcDiv")
-                        .append($("<h4>" + this.title + "</h4>")
-                        .attr("class", "fcTitle"))
-                        .append($("<img src=" + this.icon_url + ">"))
-                        .append($("<p>" + this.fcttext + "</p>")
-                            .attr("class","fctext"))
-                        
-                    );
-            });
-        },
-            error: function() {
-            }
-    });
+                    .attr("class","currentLDiv")
+                    .append($("<h3>" + "Current Conditions in " + location + ", " + loc_st + "</h3>")
+                    .attr("class", "ccLHead"))
+                    .append($("<img src=" + cc_img +">")
+                    .attr("class", "ccLImg"))
+                    .append($("<p>"+"Temperature: " +  temp_st+ "</p>"))
+                    .append($("<p>"+"Winds: " + wind + "</p>"))
+                    .append($("<p>"+"Relative Humidity: " + humid + "</p>"))
+                    .append($("<p>"+"Rainfall Amount: " + rain_st + "</p>"))
+                    .append($("<p>"+"Barometric Pressure: " + bar_pr + "mb " + pres_trend + "</p>"))
+                    .attr("class", "obLTime")
+                    .append("<p>" + update + "</p>")
+                    .attr("class", "ccLTime"));
+
+  }
 });
+}
+
+
+var error = function(error){
+alert(error.message)
+}
+navigator.geolocation.getCurrentPosition(success, error);
+});
+	
 	
 $('#wk1Button').on('click', function(){ //Retrieve week 1 research
 	$.ajax({

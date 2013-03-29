@@ -3,7 +3,7 @@
 Patti Dacosta
 AVF 1303
 index.html
-March 21, 2013
+March 28, 2013
 -->
 
 <html>
@@ -11,39 +11,43 @@ March 21, 2013
 	<meta charset="UTF-8">
 	<meta name="viewport" content="initial-scale=1, width=device-width">
 	<meta name="HandheldFriendly" content="True"/>
-	<meta name="MobileOptimized" content="320"/>	
+<!-- 	<meta name="MobileOptimized" content="320"/>	 -->
 	<title>Demo App</title>
 	<link rel="stylesheet" media="all" href="css/main.css">
 </head>
 <body class="launch">
 	<div id="launchPage">
-		<header data-role="header" id="head" data-position="inline">
+		<header data-role="header" id="head">
 			<h1> Demo</h1>
 			<h4> Patti Dacosta</h4>
 			<h4> AVF-1303</h4>
 		</header>
-				
+		<section id="weatherLPop" class="weatherLPop">
+			
+		
+		</section>
+						
+
+		<div id="menu">		
 		<nav id="launchNav">
-			<ul>
+			<ul id="menuH">
 
 				<li><a href="weatherPage.html" id="weatherLink"><img src="img/new.png" id="weatherImg" class="icon" alt="Weather"/>Weather</a></li>
 				<li ><a href="devicePage.html" id="device"><img src="img/ipad.png" id="compassImg" class="icon" alt="Compass"/>Device</a></li>
-				<li ><a href="videoPage.html" id="video"><img src="img/browser.png" id="videoImg" class="icon" alt="Video"/>Video</a></li>
 				<li ><a href="cameraPage.html" id="camera"><img src="img/pictures.png" id="cameraImg" class="icon" alt="Camera"/>Camera</a></li>
 				<li ><a href="twitterPage.html" id="twitterLink"><img src="img/bird2.png" id="twitterImg" class="icon" alt="Twitter"/>Twitter</a></li>
-				<li ><a href="geolocationPage.html" id="geoloc"><img src="img/web.png" id="geolocImg" class="icon" alt="Geolocation"/>Geolocation</a></li>
+				<li ><a href="geolocationPage.html" id="geoloc"><img src="img/web.png" id="geolocImg" class="icon" alt="Geolocation"/>Location</a></li>
 				<li ><a href="research.html" id="research"><img src="img/info.png" id="researchImg" class="icon" alt="Research"/>Research</a></li>
 			</ul>
-			
-				
+							
 		</nav>	
-		
-		
+		</div>
 	</div>
-	
+
 	<script type="text/javascript" src="js/libs/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript" src="cordova-2.5.0.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
 
 </body>
 </html>
