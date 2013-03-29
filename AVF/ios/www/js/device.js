@@ -2,7 +2,7 @@
 Patricia Dacosta
 AVF 1303
 device.js
-March 21, 2013
+March 28, 2013
 */
 
 /* Reset page */

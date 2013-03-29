@@ -2,7 +2,7 @@
 Patricia Dacosta
 AVF 1303
 device.js
-March 21, 2013
+March 28, 2013
 */
 
 /* Reset page */
@@ -35,7 +35,7 @@ $("#networkButton").on("click", function(){
         kind[Connection.CELL_4G]  = 'Cell 4G connection';
         kind[Connection.NONE]     = 'No network connection';
 
-        alert('Connected By: ' + kind[netType]);
+        alert('Connected Through: ' + kind[netType]);
     }
  });  
  
