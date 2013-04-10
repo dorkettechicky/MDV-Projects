@@ -35,7 +35,7 @@
     {
         NSLog(@"There are %d Zombie Frogs left to kill", i);
     }
-    NSLog(@"WooHoo, I have the %d gold pieces to get the new weapon!", weaponCost);
+    NSLog(@"WooHoo, I have the %.2f gold pieces to get the new weapon!", weaponCost);
     
     //If Else If Else & Conditional
     
