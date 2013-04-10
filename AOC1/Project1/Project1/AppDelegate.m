@@ -18,14 +18,14 @@
     [self.window makeKeyAndVisible];
     //Project1
     //Casting
-    int weaponCost = 854;
+    float weaponCost = 854.00f;
     int goldOnHand = 100;
     float awardPerKill = 6.7f;
-    int goldNeeded = weaponCost - goldOnHand;
+    int goldNeeded = (int)weaponCost - goldOnHand;
     int killsNeeded = goldNeeded / (int)awardPerKill;
     
     NSLog(@"The Zombie Frogs are taking over the planet!");
-    NSLog(@"My weapon is old, but a new one will cost %d gold pieces, I only have %d gold on hand.", weaponCost, goldOnHand);
+    NSLog(@"My weapon is old, but a new one will cost %.2f gold pieces, I only have %d gold on hand, how will I ever get to %d.", weaponCost, goldOnHand, (int)weaponCost);
     NSLog(@"For every Zombie Frog killed, will earn %.1f gold, so will need to kill %d Zombie Frogs.", awardPerKill, killsNeeded);
     
     
