@@ -17,17 +17,17 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     //Project1
-    //Casting 
+    //Casting
     int weaponCost = 854;
     int goldOnHand = 100;
-    float awardPerKill = 6.5;
+    float awardPerKill = 6.7f;
     int goldNeeded = weaponCost - goldOnHand;
-    float killsNeeded = goldNeeded / awardPerKill;
+    int killsNeeded = goldNeeded / (int)awardPerKill;
     
     NSLog(@"The Zombie Frogs are taking over the planet!");
     NSLog(@"My weapon is old, but a new one will cost %d gold pieces, I only have %d gold on hand.", weaponCost, goldOnHand);
-    NSLog(@"For every Zombie Frog I kill, I will earn %.1f gold", awardPerKill);
-    NSLog(@"To earn enough gold, will need to kill %.0f Zombie Frogs", killsNeeded);
+    NSLog(@"For every Zombie Frog killed, will earn %.1f gold, so will need to kill %d Zombie Frogs.", awardPerKill, killsNeeded);
+    
     
     //For loop
     
@@ -43,33 +43,33 @@
     int totalHealth = 20;
     int gainHealth = 1;
     int tookHit = 3;
-
+    
     
     if (((totalHealth >= 5) && (gainHealth <=1)) || (isDead == NO)) {
         NSLog(@"Still kicking, I have %d health remaining!", totalHealth);
     }   else if ((totalHealth == 0) && (isDead == YES)){
         NSLog(@"You are dead, try again");
-        }   else    {
+    }   else    {
         NSLog(@"Your health is at %d, be careful not to get hit, you will lose %d of your health points.", totalHealth, tookHit);
-
-        }
+        
+    }
     
     //While & nested loops
     
-
+    
     int frogZombies = 20;
-
+    
     
     while (totalHealth >=1) {
         totalHealth--;
-        NSLog(@"You took a hit from Frog Zombies, you have %d health remaining.", totalHealth);
+        NSLog(@"You took a hit from a Zombie Frog, you have %d health remaining.", totalHealth);
         
         while (frogZombies > 2){
             
             frogZombies-=2;
-        NSLog(@"There are still %d Frog Zombies to kill, get busy", frogZombies);    
+            NSLog(@"There are still %d Frog Zombies to kill, get busy", frogZombies);
             
-    }
+        }
     }
     NSLog(@"You are dead, please insert another quarter to play again!");
     
@@ -84,7 +84,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
