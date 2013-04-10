@@ -18,9 +18,9 @@
     [self.window makeKeyAndVisible];
     //Project1
     //Casting 
-    int weaponCost = 853;
+    int weaponCost = 854;
     int goldOnHand = 100;
-    float awardPerKill = 1.5;
+    float awardPerKill = 6.5;
     int goldNeeded = weaponCost - goldOnHand;
     float killsNeeded = goldNeeded / awardPerKill;
     
@@ -29,8 +29,31 @@
     NSLog(@"For every Zombie Frog I kill, I will earn %.1f gold", awardPerKill);
     NSLog(@"To earn enough gold, will need to kill %.0f Zombie Frogs", killsNeeded);
     
+    //For loop
     
+    for (int i = 116; i>0; i-=8)
+    {
+        NSLog(@"There are %d Zombie Frogs left to kill", i);
+    }
+    NSLog(@"WooHoo, I have the %d gold pieces to get the new weapon!", weaponCost);
     
+    //If Else If Else & Conditional
+    
+    BOOL isDead = YES;
+    int totalHealth = 20;
+    float loseHealth = .5;
+    int gainHealth = 1;
+    int tookHit = 3;
+
+    
+    if (((totalHealth >= 5) && (gainHealth <=1)) || (isDead == NO)) {
+        NSLog(@"Still kicking, I have %d health remaining!", totalHealth);
+    }   else if ((totalHealth == 0) && (isDead == YES)){
+        NSLog(@"You are dead, try again");
+        }   else    {
+        NSLog(@"Your health is at %d, be careful not to get hit, you will lose %d of your health points.", totalHealth, tookHit);
+
+        }
     
     
     
