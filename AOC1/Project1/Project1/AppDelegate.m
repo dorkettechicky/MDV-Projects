@@ -41,7 +41,6 @@
     
     BOOL isDead = YES;
     int totalHealth = 20;
-    float loseHealth = .5;
     int gainHealth = 1;
     int tookHit = 3;
 
@@ -55,8 +54,24 @@
 
         }
     
+    //While & nested loops
     
+
+    int frogZombies = 20;
+
     
+    while (totalHealth >=1) {
+        totalHealth--;
+        NSLog(@"You took a hit from Frog Zombies, you have %d health remaining.", totalHealth);
+        
+        while (frogZombies > 2){
+            
+            frogZombies-=2;
+        NSLog(@"There are still %d Frog Zombies to kill, get busy", frogZombies);    
+            
+    }
+    }
+    NSLog(@"You are dead, please insert another quarter to play again!");
     
     return YES;
 }
