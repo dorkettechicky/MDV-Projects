@@ -16,6 +16,25 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    //Project1
+    //Casting 
+    int weaponCost = 853;
+    int goldOnHand = 100;
+    float awardPerKill = 1.5;
+    int goldNeeded = weaponCost - goldOnHand;
+    float killsNeeded = goldNeeded / awardPerKill;
+    
+    NSLog(@"The Zombie Frogs are taking over the planet!");
+    NSLog(@"My weapon is old, but a new one will cost %d gold pieces, I only have %d gold on hand.", weaponCost, goldOnHand);
+    NSLog(@"For every Zombie Frog I kill, I will earn %.1f gold", awardPerKill);
+    NSLog(@"To earn enough gold, will need to kill %.0f Zombie Frogs", killsNeeded);
+    
+    
+    
+    
+    
+    
+    
     return YES;
 }
 
