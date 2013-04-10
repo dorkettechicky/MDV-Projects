@@ -67,7 +67,7 @@
         while (frogZombies > 2){
             
             frogZombies-=2;
-            NSLog(@"There are still %d Frog Zombies to kill, get busy", frogZombies);
+            NSLog(@"There are still %d Zombie Frogs to kill, get busy!", frogZombies);
             
         }
     }
