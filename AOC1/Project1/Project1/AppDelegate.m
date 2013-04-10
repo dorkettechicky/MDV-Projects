@@ -20,9 +20,9 @@
     //Casting
     float weaponCost = 854.00f;
     int goldOnHand = 100;
-    float awardPerKill = 6.7f;
+    float awardPerKill = 6.5f;
     int goldNeeded = (int)weaponCost - goldOnHand;
-    int killsNeeded = goldNeeded / (int)awardPerKill;
+    int killsNeeded = goldNeeded / awardPerKill;
     
     NSLog(@"The Zombie Frogs are taking over the planet!");
     NSLog(@"My weapon is old, but a new one will cost %.2f gold pieces, I only have %d gold on hand, how will I ever get to %d.", weaponCost, goldOnHand, (int)weaponCost);
