@@ -10,4 +10,18 @@
 
 @interface ViewController : UIViewController
 
+//Creates UILabels for ViewController.m access.
+
+{
+    UILabel *bookTitle;
+    UILabel *authorLabel;
+    UILabel *authorName;
+    UILabel *publishedLabel;
+    UILabel *publishedDate;
+    UILabel *summaryLabel;
+    UILabel *summaryText;
+    UILabel *listLabel;
+    UILabel *listItems;
+}
+
 @end
