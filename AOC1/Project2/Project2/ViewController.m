@@ -109,6 +109,27 @@
         listLabel.textAlignment = NSTextAlignmentLeft;
     }
     [self.view addSubview:listLabel];
+    
+    //String with 5 items from book.
+    NSString *bookItems[5] = {@"Book of Magic", @"Game Computer", @"Citizen", @"Serf", @"Unicorn"};
+    
+    //Array from Book Items
+    NSArray *itemsArray = [NSArray arrayWithObjects:bookItems count:5];
+    
+    //Mutable string made from array
+    NSMutableString *listedItems = [[NSMutableString alloc] init];
+    
+    //Loop through the array, add to listedItems, and place ',' or 'and' in proper place.
+    for (int i=0; i<[itemsArray count]; i++){
+        [listedItems appendString:[itemsArray objectAtIndex:i]];
+        if (i==3) {
+            [listedItems appendFormat:@" and "];
+        }else{
+            [listedItems appendString:@", "];
+        }
+    }
+    
+
 
 
 
