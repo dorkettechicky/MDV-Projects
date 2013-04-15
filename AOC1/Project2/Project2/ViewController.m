@@ -129,6 +129,17 @@
         }
     }
     
+    //List of items with if check, background & text in different colors, text align center.
+    listItems = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 530.0f, 310.0f, 80.0f)];
+    
+    if (listItems !=nil){
+        listItems.backgroundColor = [UIColor colorWithRed:0.353 green:0.741 blue:0.353 alpha:1]; /*#5abd5a*/
+        listItems.text = listedItems;
+        listItems.textColor = [UIColor colorWithRed:0.31 green:0.239 blue:0.149 alpha:1]; /*#4f3d26*/
+        listItems.textAlignment = NSTextAlignmentCenter;
+        listItems.numberOfLines = 2;
+    }
+    [self.view addSubview:listItems];
 
 
 
