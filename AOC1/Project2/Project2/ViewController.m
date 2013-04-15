@@ -122,10 +122,13 @@
     //Loop through the array, add to listedItems, and place ',' or 'and' in proper place.
     for (int i=0; i<[itemsArray count]; i++){
         [listedItems appendString:[itemsArray objectAtIndex:i]];
-        if (i==3) {
-            [listedItems appendFormat:@" and "];
+        if (i==4) {
+            [listedItems appendFormat:@""];
+            
+        }else if (i==3) {
+            [listedItems appendFormat:@", and "];
         }else{
-            [listedItems appendString:@", "];
+            [listedItems appendFormat:@", "];
         }
     }
     
@@ -140,14 +143,7 @@
         listItems.numberOfLines = 2;
     }
     [self.view addSubview:listItems];
-
-
-
-
-
-
-
-
+    
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
