@@ -22,7 +22,7 @@
     self.view.backgroundColor = [UIColor colorWithRed:0.22 green:0.22 blue:0.22 alpha:1]; /*#383838*/
     
     //Book Title with if check, background in 1 color text in another centered.
-    bookTitle = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 0.0f, 310.0f, 40.0f)];
+    bookTitle = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 0.0f, 310.0f, 35.0f)];
     
     if (bookTitle !=nil){
         bookTitle.backgroundColor = [UIColor colorWithRed:0.298 green:0.169 blue:0.184 alpha:1]; /*#4c2b2f*/
@@ -33,7 +33,7 @@
     [self.view addSubview:bookTitle];
     
     //Author Label with if check, background & text in different colors, text align right.
-    authorLabel = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 50.0f, 120.0f, 40.0f)];
+    authorLabel = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 40.0f, 120.0f, 35.0f)];
     
     if (authorLabel !=nil){
         authorLabel.backgroundColor = [UIColor colorWithRed:0.898 green:0.443 blue:0.322 alpha:1]; /*#e57152*/
@@ -44,7 +44,7 @@
     [self.view addSubview:authorLabel];
     
     //Author Name with if check, background & text in different colors, text align left.
-    authorName = [[UILabel alloc] initWithFrame:CGRectMake(125.0f, 50.0f, 190.0f, 40.0f)];
+    authorName = [[UILabel alloc] initWithFrame:CGRectMake(125.0f, 40.0f, 190.0f, 35.0f)];
     
     if (authorName !=nil){
         authorName.backgroundColor = [UIColor colorWithRed:0.302 green:0.545 blue:0.302 alpha:1]; /*#4d8b4d*/
@@ -55,7 +55,7 @@
     [self.view addSubview:authorName];
     
     //Published Label with if check, background & text in different colors, text align right.
-    publishedLabel = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 100.0f, 120.0f, 40.0f)];
+    publishedLabel = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 80.0f, 120.0f, 35.0f)];
     
     if (publishedLabel !=nil){
         publishedLabel.backgroundColor = [UIColor colorWithRed:0.298 green:0.439 blue:0.416 alpha:1]; /*#4c706a*/
@@ -66,7 +66,7 @@
     [self.view addSubview:publishedLabel];
     
     //Published Date with if check, background & text in different colors, text align left.
-    publishedDate = [[UILabel alloc] initWithFrame:CGRectMake(125.0f, 100.0f, 190.0f, 40.0f)];
+    publishedDate = [[UILabel alloc] initWithFrame:CGRectMake(125.0f, 80.0f, 190.0f, 35.0f)];
     
     if (publishedDate !=nil){
         publishedDate.backgroundColor = [UIColor colorWithRed:0.49 green:0.612 blue:0.514 alpha:1]; /*#7d9c83*/
@@ -77,7 +77,7 @@
     [self.view addSubview:publishedDate];
     
     //Summary Label with if check, background & text in different colors, text align left.
-    summaryLabel = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 150.0f, 115.0f, 40.0f)];
+    summaryLabel = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 120.0f, 115.0f, 35.0f)];
     
     if (summaryLabel !=nil){
         summaryLabel.backgroundColor = [UIColor colorWithRed:0.039 green:0.294 blue:0.49 alpha:1]; /*#0a4b7d*/
@@ -88,19 +88,19 @@
     [self.view addSubview:summaryLabel];
     
     //Summary Text with if check, background & text in different colors, text align center.
-    summaryText = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 200.0f, 310.0f, 270.0f)];
+    summaryText = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 160.0f, 310.0f, 165.0f)];
     
     if (summaryText !=nil){
         summaryText.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1]; /*#000000*/
-        summaryText.text = @"Stile serves the citizens of Proton as a serf. While working as a jockey, there are several attempts on his life. He begins to run for his life. Suddenly he sees a shimmering curtain, which transports him in to a parallel world where magic operates, not science. He discovers that his alternate self was murdered in the parallel world known as Phaze. Stile must now master magic to take the Blue Adept's place.";
+        summaryText.text = @"Stile discovers his planet has 2 parallel worlds, Proton which operates on science, and Phaze which operates on magic. Someone is trying to kill him in both worlds and he must master magic to save both Proton and Phaze from destruction.";
         summaryText.textColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1]; /*#ffffff*/
         summaryText.textAlignment = NSTextAlignmentCenter;
-        summaryText.numberOfLines = 11;
+        summaryText.numberOfLines = 7;
     }
     [self.view addSubview:summaryText];
     
     //List of Items Label with if check, background & text in different colors, text align left.
-    listLabel = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 480.0f, 115.0f, 40.0f)];
+    listLabel = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 330.0f, 115.0f, 35.0f)];
     
     if (listLabel !=nil){
         listLabel.backgroundColor = [UIColor colorWithRed:0.451 green:0.114 blue:0.631 alpha:1]; /*#731da1*/
@@ -110,11 +110,9 @@
     }
     [self.view addSubview:listLabel];
     
-    //String with 5 items from book.
-    NSString *bookItems[5] = {@"Book of Magic", @"Game Computer", @"Citizen", @"Serf", @"Unicorn"};
+    //Array of Book Items
+    NSArray *itemsArray = [[NSArray alloc]initWithObjects:@"Book of Magic", @"Game Computer", @"Citizen", @"Serf", @"Unicorn", nil];
     
-    //Array from Book Items
-    NSArray *itemsArray = [NSArray arrayWithObjects:bookItems count:5];
     
     //Mutable string made from array
     NSMutableString *listedItems = [[NSMutableString alloc] init];
@@ -122,10 +120,11 @@
     //Loop through the array, add to listedItems, and place ',' or 'and' in proper place.
     for (int i=0; i<[itemsArray count]; i++){
         [listedItems appendString:[itemsArray objectAtIndex:i]];
-        if (i==4) {
+        
+        if (i==([itemsArray count]-1)) {
             [listedItems appendFormat:@""];
             
-        }else if (i==3) {
+        }else if (i== ([itemsArray count]-2)) {
             [listedItems appendFormat:@", and "];
         }else{
             [listedItems appendFormat:@", "];
@@ -133,7 +132,7 @@
     }
     
     //List of items with if check, background & text in different colors, text align center.
-    listItems = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 530.0f, 310.0f, 80.0f)];
+    listItems = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 370.0f, 310.0f, 60.0f)];
     
     if (listItems !=nil){
         listItems.backgroundColor = [UIColor colorWithRed:0.353 green:0.741 blue:0.353 alpha:1]; /*#5abd5a*/
