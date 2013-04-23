@@ -16,6 +16,16 @@
 
 - (void)viewDidLoad
 {
+    //Call Functions
+    //Add function call
+    int result = [self add:30 addTo:10];
+    
+    //Append String Call
+    NSString *stringAppend = [self append:@"Dog " secondString:@"treats"];
+    [self displayAlertWithString:stringAppend alertHead:@"Append Alert"];
+    
+    
+    
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
