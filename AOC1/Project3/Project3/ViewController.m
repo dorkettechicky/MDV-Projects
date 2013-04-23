@@ -29,7 +29,21 @@
     NSString *totalIs = [self append:@"The number is " secondString:numToString];
     [self displayAlertWithString:totalIs alertHead:@"Add Function Result"];
     
+    //Call compare function
     
+    NSInteger dogTreats = 15;
+    NSInteger catTreats = 18;
+    BOOL compareTreats = [self compare:dogTreats compareTo:catTreats];
+    
+    if (compareTreats == YES) {
+        NSString *compString = [NSString stringWithFormat:@"We have %d dog treats, and %d cat treats. Are they equal? %@.", dogTreats, catTreats, compareTreats? @"YES" : @"NO"];
+        [self displayAlertWithString:compString alertHead:@"Compare Treats"];
+        }else if
+            (compareTreats == NO){
+            NSString *compString = [NSString stringWithFormat:@"We have %d dog treats, and %d cat treats. Are they equal? %@.", dogTreats, catTreats, compareTreats? @"YES" : @"NO"];
+            [self displayAlertWithString:compString alertHead:@"Compare Treats"];
+    }
+
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -43,9 +57,9 @@
 }
 //Create a BOOL function called Compare that takes two NSInteger values. Return YES or NO based on whether the values are equal.
 
--(BOOL)compare:(NSInteger)numb1 compareTo:(NSInteger)numb2
+-(BOOL)compare:(NSInteger)num1 compareTo:(NSInteger)num2
 {
-    if(numb1==numb2){
+    if(num1==num2){
         
     return YES;
         
