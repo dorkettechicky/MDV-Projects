@@ -24,7 +24,10 @@
     NSString *stringAppend = [self append:@"Dog " secondString:@"treats"];
     [self displayAlertWithString:stringAppend alertHead:@"Append Alert"];
     
-    
+    NSNumber *intIntoNum = [NSNumber numberWithInt:result];
+    NSString *numToString = [intIntoNum stringValue];
+    NSString *totalIs = [self append:@"The number is " secondString:numToString];
+    [self displayAlertWithString:totalIs alertHead:@"Add Function Result"];
     
     
     [super viewDidLoad];
