@@ -80,7 +80,7 @@
         [dateFormat setDateFormat:@"MMMM dd, yyyy K:mm a \n zzzz"];
         dateText = [dateFormat stringFromDate:date];
     }
-
+    
     //Create more info button with action attached
     
     UIButton *infoButton =[UIButton buttonWithType:UIButtonTypeInfoDark];
@@ -119,7 +119,7 @@
             dateAlert = [[UIAlertView alloc]initWithTitle:@"Date:" message:dateText delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             if (dateAlert != nil) {
                 [dateAlert show];
-           
+                
             }
         }
             break;
@@ -129,7 +129,7 @@
         default:
             break;
     }
-
+    
 }
 
 - (void)didReceiveMemoryWarning
