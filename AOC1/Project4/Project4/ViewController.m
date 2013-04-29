@@ -10,6 +10,7 @@
 
 #define BUTTON_LOGIN 0
 #define BUTTON_DATE 1
+#define BUTTON_INFO 2
 
 @interface ViewController ()
 
@@ -37,7 +38,7 @@
         [self.view addSubview:usernameField];
     }
     
-    //Create login button
+    //Create login button with action attached
     
     loginButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     if (loginButton != nil) {
@@ -60,15 +61,46 @@
         [self.view addSubview:loginState];
     }
     
-    //Create date button
+    //Create date button with action attached
     
     dateButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     if (dateButton != nil) {
         dateButton.tag = BUTTON_DATE;
         dateButton.frame = CGRectMake(10.0f, 240.0f, 90.0f, 30.0f);
-        [dateButton.setTitle:@"Show Date" forState:UIControlStateNormal];
+        [dateButton setTitle:@"Show Date" forState:UIControlStateNormal];
+        [dateButton addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:dateButton];
+    }
+    
+    //Get current date
+    
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    if (dateFormat != nil) {
+        [dateFormat setDateFormat:@"MMMM dd, yyyy K:mm a, z"];
+        dateText = [dateFormat stringFromDate:date];
+    }
+
+    //Create more info button with action attached
+    
+    UIButton *infoButton =[UIButton buttonWithType:UIButtonTypeInfoDark];
+    if (infoButton != nil) {
+        infoButton.frame = CGRectMake(10.0f, 300.0f, 25.0f, 25.0f);
+        infoButton.tag = BUTTON_INFO;
+        [infoButton addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:infoButton];
+    }
+    
+    //Create label with no initial text
+    
+    infoText = [[UILabel alloc] initWithFrame:(CGRectMake(10.0f, 335.0f, 340.0f, 60.0f))];
+    if (infoText != nil) {
+        infoText.textColor = [UIColor blueColor];
+        infoText.numberOfLines = 2;
+        [self.view addSubview:infoText];
         
     }
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }

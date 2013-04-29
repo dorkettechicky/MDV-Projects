@@ -12,6 +12,9 @@ UITextField *usernameField;
 UIButton *loginButton;
 UILabel *loginState;
 UIButton *dateButton;
+UIButton *infoButton;
+NSString *dateText;
+UILabel *infoText;
 @interface ViewController : UIViewController
 
 @end
