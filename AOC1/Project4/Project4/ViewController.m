@@ -51,7 +51,7 @@
     
     //Create label with default text
     
-    loginState = [[UILabel alloc] initWithFrame:(CGRectMake(0.0f, 95.0f, 340.0f, 90.0f))];
+    loginState = [[UILabel alloc] initWithFrame:(CGRectMake(5.0f, 95.0f, 310.0f, 90.0f))];
     loginState.backgroundColor = [UIColor grayColor];
     if (loginState !=nil) {
         loginState.text = @"Please Enter Username:";
@@ -77,7 +77,7 @@
     NSDate *date = [NSDate date];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     if (dateFormat != nil) {
-        [dateFormat setDateFormat:@"MMMM dd, yyyy K:mm a, z"];
+        [dateFormat setDateFormat:@"MMMM dd, yyyy K:mm a \n zzzz"];
         dateText = [dateFormat stringFromDate:date];
     }
 
@@ -103,6 +103,33 @@
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+//Add function onClick
+-(void)onClick:(UIButton *)button
+{
+    switch (button.tag) {
+        case BUTTON_LOGIN:{
+            if (usernameField.text.length == 0) {
+                loginState.text = @"Username cannot be empty";
+            } else {
+                loginState.text = [NSString stringWithFormat:(NSString *)@"User: %@ has been logged in",usernameField.text];
+            }             }
+            break;
+        case BUTTON_DATE:{
+            dateAlert = [[UIAlertView alloc]initWithTitle:@"Date:" message:dateText delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            if (dateAlert != nil) {
+                [dateAlert show];
+           
+            }
+        }
+            break;
+        case BUTTON_INFO:{
+            infoText.text = @"This application was created by: Patti Dacosta";
+        }
+        default:
+            break;
+    }
+
 }
 
 - (void)didReceiveMemoryWarning

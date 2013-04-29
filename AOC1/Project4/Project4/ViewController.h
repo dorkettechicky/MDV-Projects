@@ -15,6 +15,8 @@ UIButton *dateButton;
 UIButton *infoButton;
 NSString *dateText;
 UILabel *infoText;
+UIAlertView *dateAlert;
+
 @interface ViewController : UIViewController
 
 @end
