@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+UITextField *usernameField;
+UIButton *loginButton;
+UILabel *loginState;
+UIButton *dateButton;
 @interface ViewController : UIViewController
 
 @end
