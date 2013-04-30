@@ -113,6 +113,7 @@
                 loginState.text = @"Username cannot be empty";
             } else {
                 loginState.text = [NSString stringWithFormat:(NSString *)@"User: %@ has been logged in",usernameField.text];
+                [usernameField resignFirstResponder];
             }             }
             break;
         case BUTTON_DATE:{
