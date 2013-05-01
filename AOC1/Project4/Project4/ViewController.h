@@ -19,7 +19,7 @@
     NSString *dateText;
     UILabel *infoText;
     UIAlertView *dateAlert;
-
+    
 }
 
 -(void)onClick:(UIButton *)button;

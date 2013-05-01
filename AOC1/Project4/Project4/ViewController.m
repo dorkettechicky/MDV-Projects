@@ -83,7 +83,7 @@
     
     //Create more info button with action attached
     
-    UIButton *infoButton =[UIButton buttonWithType:UIButtonTypeInfoDark];
+    infoButton =[UIButton buttonWithType:UIButtonTypeInfoDark];
     if (infoButton != nil) {
         infoButton.frame = CGRectMake(10.0f, 300.0f, 25.0f, 25.0f);
         infoButton.tag = BUTTON_INFO;
