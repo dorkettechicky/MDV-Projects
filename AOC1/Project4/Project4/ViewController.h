@@ -8,15 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-UITextField *usernameField;
-UIButton *loginButton;
-UILabel *loginState;
-UIButton *dateButton;
-UIButton *infoButton;
-NSString *dateText;
-UILabel *infoText;
-UIAlertView *dateAlert;
 
 @interface ViewController : UIViewController
+{
+    UITextField *usernameField;
+    UIButton *loginButton;
+    UILabel *loginState;
+    UIButton *dateButton;
+    UIButton *infoButton;
+    NSString *dateText;
+    UILabel *infoText;
+    UIAlertView *dateAlert;
 
+}
+
+-(void)onClick:(UIButton *)button;
 @end
