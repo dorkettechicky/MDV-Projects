@@ -9,5 +9,25 @@
 #import "baseIrrigation.h"
 
 @interface repairIrrigation : baseIrrigation
+{
+    int serviceCallType;
+    }
+
+typedef enum{
+    REPAIRPIPE,
+    REPAIRVALVE,
+    REPAIRPUMP,
+    REPAIRHEADS
+    
+} serviceCallType;
+
+
+//Data members 
+@property NSString *serviceCall;
+@property int costSvcCall;
+@property int numberRepairs;
+@property int repairPrice;
+
+
 
 @end

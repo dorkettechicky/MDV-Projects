@@ -10,4 +10,42 @@
 
 @interface baseIrrigation : NSObject
 
+{
+    int irrigationEnum;
+}
+
+typedef enum{
+    NEWSYSTEM,
+    REPAIRSYSTEM,
+    WELLS
+    
+}irrigationEnum;
+
+//Data shared by all appointment types
+
+//How many manHours for the appointment
+@property int manHours;
+
+//How much does each manHour cost
+@property int costPerManHour;
+
+//What is the invoice total
+
+@property int invoiceTotal;
+
+//What is the reason for the appointment
+
+@property NSString *issueIs;
+
+//What work was done
+
+@property NSString *workDone;
+
+//Method - Initialize
+-(id)init;
+
+//Calculate invoice
+-(void)calcInvoice;
+
+
 @end
