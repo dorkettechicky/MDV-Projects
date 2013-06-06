@@ -10,8 +10,8 @@
 
 @interface repairIrrigation : baseIrrigation
 {
-    int serviceCallType;
-    }
+    int repairType;
+}
 
 typedef enum{
     REPAIRPIPE,
@@ -19,14 +19,15 @@ typedef enum{
     REPAIRPUMP,
     REPAIRHEADS
     
-} serviceCallType;
+} repairType;
 
 
-//Data members 
+//Data members
+@property int repairs;
 @property NSString *serviceCall;
 @property int costSvcCall;
 @property int numberRepairs;
-@property int repairPrice;
+
 
 
 

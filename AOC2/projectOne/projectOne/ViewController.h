@@ -9,5 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+{
+    UILabel *irrigationLabel,
+    *repairLabel,
+    *repairSpecificsLabel,
+    *newSystemLabel,
+    *newSystemSpecificsLabel,
+    *wellsLabel,
+    *wellsSpecificsLabel;
+    
+}
 
 @end

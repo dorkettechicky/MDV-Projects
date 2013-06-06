@@ -21,7 +21,7 @@
     {
         [self setInvoiceTotal:0];
         [self setManHours:0];
-        [self setCostPerManHour:45];
+        [self setCostPerManHour:0];
         [self setIssueIs:nil];
         [self setWorkDone:nil];
     }
@@ -29,10 +29,10 @@
 }
 
 //Calculate invoice
--(void)calcInvoice
+-(void)calcInvoice;
 {
     //No current calculation, statement to log current value
     NSLog(@"The invoice total is %i dollars", invoiceTotal);
-}
+};
 
 @end

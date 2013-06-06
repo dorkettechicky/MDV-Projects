@@ -9,5 +9,23 @@
 #import "baseIrrigation.h"
 
 @interface newIrrigation : baseIrrigation
+{
+    int waterType;
+}
+
+typedef enum{
+    CITY,
+    DEEPWELL,
+    SHALLOWWELL,
+    RECLAIM
+    
+} waterType;
+
+
+//Data members
+@property int numberZones;
+@property NSString *typeTimer;
+@property int water;
+@property int costPerZone;
 
 @end

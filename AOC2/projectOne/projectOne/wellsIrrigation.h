@@ -9,5 +9,24 @@
 #import "baseIrrigation.h"
 
 @interface wellsIrrigation : baseIrrigation
+{
+    int wellType;
+}
+
+typedef enum{
+    SLEEVE,
+    DEEP,
+    SHALLOW,
+    ABANDON
+    
+} wellType;
+
+//Data members
+@property int permitFee;
+@property NSString *inspection;
+@property int depthFeet;
+@property int costPerFoot;
+@property int well;
+
 
 @end
